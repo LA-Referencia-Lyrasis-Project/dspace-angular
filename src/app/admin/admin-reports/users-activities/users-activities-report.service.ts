@@ -1,8 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import {
+  inject,
+  Injectable,
+} from '@angular/core';
+import {
+  APP_CONFIG,
+  AppConfig,
+} from '@dspace/config/app-config.interface';
 import { Observable } from 'rxjs';
 
-import { APP_CONFIG, AppConfig } from '@dspace/config/app-config.interface';
 import { RESTURLCombiner } from '../../../core/url-combiner/rest-url-combiner';
 
 export interface UserAction {
@@ -50,7 +56,7 @@ export interface SummaryWithTrendData extends ReportSummary {
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserActivityReportService {
   private readonly appConfig: AppConfig = inject(APP_CONFIG);

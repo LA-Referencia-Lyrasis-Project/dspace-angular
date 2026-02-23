@@ -1252,8 +1252,8 @@
   // "admin.reports.users-activities.yearly": "Yearly",
   "admin.reports.users-activities.yearly": "Anual",
   "admin.reports.users-activities.year": "Año",
-   "admin.reports.users-activities.count": "Cantidad",
-   "admin.reports.users-activities.month": "Mes",
+  "admin.reports.users-activities.count": "Cantidad",
+  "admin.reports.users-activities.month": "Mes",
 
   // "admin.reports.users-activities.top-10-submissions": "Top 10 Users by Submissions",
   "admin.reports.users-activities.top-10-submissions": "Top 10 usuarios por envíos",

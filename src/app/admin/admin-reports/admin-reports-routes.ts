@@ -28,15 +28,15 @@ export const ROUTES: Route[] = [
       },
     ],
   },
-    {
-      path: 'users-activities',
-      resolve: { breadcrumb: i18nBreadcrumbResolver },
-      data: { title: 'admin.reports.users-activities.title', breadcrumbKey: 'admin.reports.users-activities' },
-      children: [
-        {
-          path: '',
-          component: UserActivitiesReportComponent,
-        },
-      ],
-    },
+  {
+    path: 'users-activities',
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'admin.reports.users-activities.title', breadcrumbKey: 'admin.reports.users-activities' },
+    children: [
+      {
+        path: '',
+        component: UserActivitiesReportComponent,
+      },
+    ],
+  },
 ];
