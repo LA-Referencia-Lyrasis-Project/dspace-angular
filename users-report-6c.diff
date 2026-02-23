@@ -1,0 +1,3666 @@
+diff --git a/package-lock.json b/package-lock.json
+index c1492dd3f..8f4b39090 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -33,6 +33,7 @@
+         "@terraformer/wkt": "^2.2.1",
+         "altcha": "^2.2.4",
+         "angulartics2": "^12.2.0",
++        "apexcharts": "^5.6.0",
+         "body-parser": "^1.20.3",
+         "bootstrap": "^5.3",
+         "cerialize": "0.1.18",
+@@ -178,6 +179,7 @@
+       "resolved": "https://registry.npmjs.org/@4science_ng-dynamic-forms/core/-/core-19.1.0.tgz",
+       "integrity": "sha512-z+MaQ8KcMrwauhn06Ww+HP53vcs0uvuZuuFg7ZhzhxKqzqZyMHRXMiULqUgED4qPqsrgqkenWdCTEnMXkcvq/Q==",
+       "license": "ISC",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.0.0"
+       },
+@@ -474,24 +476,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-builders/common/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-builders/common/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -499,7 +483,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -618,24 +601,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-builders/custom-webpack/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-builders/custom-webpack/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -643,7 +608,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -696,24 +660,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-devkit/architect/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-devkit/architect/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -721,7 +667,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -949,6 +894,7 @@
+       "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "readdirp": "^4.0.1"
+       },
+@@ -1239,6 +1185,7 @@
+       "integrity": "sha512-9GUyuksjw70uNpb1MTYWsH9MQHOHY6kwfnkafC24+7aOMZn9+rVMBxRbLvw756mrBFbIsFg6Xw9IkR2Fnn3k+Q==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "chokidar": "^4.0.0",
+         "immutable": "^5.0.2",
+@@ -1406,24 +1353,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-devkit/build-webpack/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-devkit/build-webpack/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -1431,7 +1360,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -1513,24 +1441,6 @@
+         "url": "https://github.com/chalk/chalk?sponsor=1"
+       }
+     },
+-    "node_modules/@angular-devkit/schematics/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-devkit/schematics/node_modules/cli-cursor": {
+       "version": "5.0.0",
+       "resolved": "https://registry.npmjs.org/cli-cursor/-/cli-cursor-5.0.0.tgz",
+@@ -1657,7 +1567,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -1760,24 +1669,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-eslint/builder/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-eslint/builder/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -1785,7 +1676,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -1882,24 +1772,6 @@
+         }
+       }
+     },
+-    "node_modules/@angular-eslint/schematics/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular-eslint/schematics/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -1907,7 +1779,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -1922,6 +1793,7 @@
+       "integrity": "sha512-CVskZnF38IIxVVlKWi1VCz7YH/gHMJu2IY9bD1AVoBBGIe0xA4FRXJkW2Y+EDs9vQqZTkZZljhK5gL65Ro1PeQ==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@angular-eslint/bundled-angular-compiler": "20.7.0",
+         "eslint-scope": "^9.0.0"
+@@ -1968,6 +1840,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-20.3.16.tgz",
+       "integrity": "sha512-N83/GFY5lKNyWgPV3xHHy2rb3/eP1ZLzSVI+dmMVbf3jbqwY1YPQcMiAG8UDzaILY1Dkus91kWLF8Qdr3nHAzg==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2140,6 +2013,7 @@
+       "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "readdirp": "^4.0.1"
+       },
+@@ -2170,6 +2044,7 @@
+       "integrity": "sha512-9GUyuksjw70uNpb1MTYWsH9MQHOHY6kwfnkafC24+7aOMZn9+rVMBxRbLvw756mrBFbIsFg6Xw9IkR2Fnn3k+Q==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "chokidar": "^4.0.0",
+         "immutable": "^5.0.2",
+@@ -2204,6 +2079,7 @@
+       "integrity": "sha512-uzcxnSDVjAopEUjljkWh8EIrg6tlzrjFUfMcR1EVsRDGwf/ccef0qQPRyOrROwhrTDaApueq+ja+KLPlzR/zdg==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "esbuild": "^0.25.0",
+         "fdir": "^6.5.0",
+@@ -2290,24 +2166,6 @@
+         "url": "https://github.com/sponsors/SuperchupuDev"
+       }
+     },
+-    "node_modules/@angular/build/node_modules/yaml": {
+-      "version": "2.8.2",
+-      "resolved": "https://registry.npmjs.org/yaml/-/yaml-2.8.2.tgz",
+-      "integrity": "sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==",
+-      "dev": true,
+-      "license": "ISC",
+-      "optional": true,
+-      "peer": true,
+-      "bin": {
+-        "yaml": "bin.mjs"
+-      },
+-      "engines": {
+-        "node": ">= 14.6"
+-      },
+-      "funding": {
+-        "url": "https://github.com/sponsors/eemeli"
+-      }
+-    },
+     "node_modules/@angular/cdk": {
+       "version": "20.2.14",
+       "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-20.2.14.tgz",
+@@ -2412,24 +2270,6 @@
+         "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+       }
+     },
+-    "node_modules/@angular/cli/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@angular/cli/node_modules/cliui": {
+       "version": "9.0.1",
+       "resolved": "https://registry.npmjs.org/cliui/-/cliui-9.0.1.tgz",
+@@ -2459,7 +2299,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -2566,6 +2405,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/common/-/common-20.3.16.tgz",
+       "integrity": "sha512-GRAziNlntwdnJy3F+8zCOvDdy7id0gITjDnM6P9+n2lXvtDuBLGJKU3DWBbvxcCjtD6JK/g/rEX5fbCxbUHkQQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2582,6 +2422,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-20.3.16.tgz",
+       "integrity": "sha512-Pt9Ms9GwTThgzdxWBwMfN8cH1JEtQ2DK5dc2yxYtPSaD+WKmG9AVL1PrzIYQEbaKcWk2jxASUHpEWSlNiwo8uw==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2594,6 +2435,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-20.3.16.tgz",
+       "integrity": "sha512-l3xF/fXfJAl/UrNnH9Ufkr79myjMgXdHq1mmmph2UnpeqilRB1b8lC9sLBV9MipQHVn3dwocxMIvtrcryfOaXw==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@babel/core": "7.28.3",
+         "@jridgewell/sourcemap-codec": "^1.4.14",
+@@ -2771,6 +2613,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/core/-/core-20.3.16.tgz",
+       "integrity": "sha512-KSFPKvOmWWLCJBbEO+CuRUXfecX2FRuO0jNi9c54ptXMOPHlK1lIojUnyXmMNzjdHgRug8ci9qDuftvC2B7MKg==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2796,6 +2639,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-20.3.16.tgz",
+       "integrity": "sha512-1yzbXpExTqATpVcqA3wGrq4ACFIP3mRxA4pbso5KoJU+/4JfzNFwLsDaFXKpm5uxwchVnj8KM2vPaDOkvtp7NA==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2814,6 +2658,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/localize/-/localize-20.3.16.tgz",
+       "integrity": "sha512-7S2ACDZC1Ag1+rc991BMvW6gDyBCH7ykGWpZL1aHOmnq4K70Sf8p2VyQMtYhaz7XfWeXxwBQjCncVYv6D7RO5A==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@babel/core": "7.28.3",
+         "@types/babel__core": "7.20.5",
+@@ -2957,6 +2802,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-20.3.16.tgz",
+       "integrity": "sha512-YsrLS6vyS77i4pVHg4gdSBW74qvzHjpQRTVQ5Lv/OxIjJdYYYkMmjNalCNgy1ZuyY6CaLIB11ccxhrNnxfKGOQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -2997,6 +2843,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-20.3.16.tgz",
+       "integrity": "sha512-LxQscYd3UCWV8H3sdlnM05UB60MZVuVsdsHvXdkJ9+WOQjVDN1l1rYhj2aDL/5KkaRd/nqo0yFRnVjwceXDJhQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0",
+         "xhr2": "^0.2.0"
+@@ -3017,6 +2864,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/router/-/router-20.3.16.tgz",
+       "integrity": "sha512-e1LiQFZaajKqc00cY5FboIrWJZSMnZ64GDp5R0UejritYrqorQQQNOqP1W85BMuY2owibMmxVfX+dJg/Mc8PuQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -3035,6 +2883,7 @@
+       "resolved": "https://registry.npmjs.org/@angular/ssr/-/ssr-20.3.16.tgz",
+       "integrity": "sha512-EpPSc9kUiLbe3Lpj0GUplt0JNPFmyuTnOv/h4bJqfj07xvSbn5vH3W0wl78RQrcOh9hfXua4xVCvCF/6nV6zPg==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -3078,6 +2927,7 @@
+       "resolved": "https://registry.npmjs.org/@babel/core/-/core-7.28.3.tgz",
+       "integrity": "sha512-yDBHV9kQNcr2/sUr9jghVyz9C3Y5G2zUM2H2lo+9mKv4sFgbA8s8Z9t8D1jiTkGoO/NoIfKMyKWr4s6CN23ZwQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@ampproject/remapping": "^2.2.0",
+         "@babel/code-frame": "^7.27.1",
+@@ -4642,6 +4492,7 @@
+       "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.28.4.tgz",
+       "integrity": "sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==",
+       "license": "MIT",
++      "peer": true,
+       "engines": {
+         "node": ">=6.9.0"
+       }
+@@ -4781,6 +4632,7 @@
+       "resolved": "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz",
+       "integrity": "sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "cssesc": "^3.0.0",
+         "util-deprecate": "^1.0.2"
+@@ -4908,6 +4760,7 @@
+       "resolved": "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz",
+       "integrity": "sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "cssesc": "^3.0.0",
+         "util-deprecate": "^1.0.2"
+@@ -6267,6 +6120,7 @@
+       "integrity": "sha512-nqhDw2ZcAUrKNPwhjinJny903bRhI0rQhiDz1LksjeRxqa36i3l75+4iXbOy0rlDpLJGxqtgoPavQjmmyS5UJw==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@inquirer/checkbox": "^4.2.1",
+         "@inquirer/confirm": "^5.1.14",
+@@ -7147,6 +7001,7 @@
+       "integrity": "sha512-tr7xekNlM9LjA6pagJmL8QCgZXaubWUwkJnoYcMKd4gw/t4XiyvnTkjdGrUVicyB2BsdaAv1tvow45bPM4sSwQ==",
+       "deprecated": "Material UI v4 doesn't receive active development since September 2021. See the guide https://mui.com/material-ui/migration/migration-v4/ to upgrade to v5.",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@babel/runtime": "^7.4.4",
+         "@material-ui/styles": "^4.11.5",
+@@ -7184,6 +7039,7 @@
+       "resolved": "https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.3.tgz",
+       "integrity": "sha512-IKHlyx6LDh8n19vzwH5RtHIOHl9Tu90aAAxcbWME6kp4dmvODM3UvOHJeMIDzUbd4muuJKHmlNoBN+mDY4XkBA==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@babel/runtime": "^7.4.4"
+       },
+@@ -7442,6 +7298,7 @@
+       "integrity": "sha512-hIS4idWWai69NezIdRt2xFVofaF4j+6INOpJlVOLDO8zXGpUVEVzIYk12UUi2JzjEzWL3IOAxcTubgz9Po0yXw==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "accepts": "^2.0.0",
+         "body-parser": "^2.2.1",
+@@ -8132,6 +7989,7 @@
+       "resolved": "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-15.1.2.tgz",
+       "integrity": "sha512-mM2yiGnt9o7KZLIFp8K1vjfmVfu7HR3d8dhH5SszfArbgn9DvvQ4P5D5TDGygzyBSzeyZe18p7I8rX8vgA6DKw==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -8179,6 +8037,7 @@
+       "resolved": "https://registry.npmjs.org/@ngrx/store/-/store-20.1.0.tgz",
+       "integrity": "sha512-o8j3CGAGedm+BIb+QDhNXrVaU//n9uF0wH0HZWtXHmW1mjRBaQiUA+ZPMUkDwAeN8KuOcoIEC+2QUXxXGVI7ow==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.0.0"
+       },
+@@ -9396,24 +9255,6 @@
+         }
+       }
+     },
+-    "node_modules/@schematics/angular/node_modules/chokidar": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-4.0.3.tgz",
+-      "integrity": "sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==",
+-      "dev": true,
+-      "license": "MIT",
+-      "optional": true,
+-      "peer": true,
+-      "dependencies": {
+-        "readdirp": "^4.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 14.16.0"
+-      },
+-      "funding": {
+-        "url": "https://paulmillr.com/funding/"
+-      }
+-    },
+     "node_modules/@schematics/angular/node_modules/readdirp": {
+       "version": "4.1.2",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-4.1.2.tgz",
+@@ -9421,7 +9262,6 @@
+       "dev": true,
+       "license": "MIT",
+       "optional": true,
+-      "peer": true,
+       "engines": {
+         "node": ">= 14.18.0"
+       },
+@@ -9889,6 +9729,7 @@
+       "resolved": "https://registry.npmjs.org/@types/node/-/node-20.19.25.tgz",
+       "integrity": "sha512-ZsJzA5thDQMSQO788d7IocwwQbI8B5OPzmqNvpf3NY/+MHDAS759Wo0gd2WQeXYt5AAAQjzcrTVC6SKCuYgoCQ==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "undici-types": "~6.21.0"
+       }
+@@ -9937,6 +9778,7 @@
+       "version": "17.0.83",
+       "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.83.tgz",
+       "integrity": "sha512-l0m4ArKJvmFtR4e8UmKrj1pB4tUgOhJITf+mADyF/p69Ts1YAR/E+G9XEM0mHXKVRa1dQNHseyyDNzeuAXfXQw==",
++      "peer": true,
+       "dependencies": {
+         "@types/prop-types": "*",
+         "@types/scheduler": "^0.16",
+@@ -10059,6 +9901,7 @@
+       "integrity": "sha512-XxXP5tL1txl13YFtrECECQYeZjBZad4fyd3cFV4a19LkAY/bIp9fev3US4S5fDVV2JaYFiKAZ/GRTOLer+mbyQ==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@eslint-community/regexpp": "^4.10.0",
+         "@typescript-eslint/scope-manager": "8.48.0",
+@@ -10089,6 +9932,7 @@
+       "integrity": "sha512-jCzKdm/QK0Kg4V4IK/oMlRZlY+QOcdjv89U2NgKHZk1CYTj82/RVSx1mV/0gqCVMJ/DA+Zf/S4NBWNF8GQ+eqQ==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@typescript-eslint/scope-manager": "8.48.0",
+         "@typescript-eslint/types": "8.48.0",
+@@ -10244,6 +10088,7 @@
+       "integrity": "sha512-cQMcGQQH7kwKoVswD1xdOytxQR60MWKM1di26xSUtxehaDs/32Zpqsu5WJlXTtTTqyAVK8R7hvsUnIXRS+bjvA==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "engines": {
+         "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+       },
+@@ -10329,6 +10174,7 @@
+       "integrity": "sha512-yTJO1XuGxCsSfIVt1+1UrLHtue8xz16V8apzPYI06W0HbEbEWHxHXgZaAgavIkoh+GeV6hKKd5jm0sS6OYxWXQ==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@eslint-community/eslint-utils": "^4.7.0",
+         "@typescript-eslint/scope-manager": "8.48.0",
+@@ -10589,6 +10435,12 @@
+       "integrity": "sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==",
+       "dev": true
+     },
++    "node_modules/@yr/monotone-cubic-spline": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/@yr/monotone-cubic-spline/-/monotone-cubic-spline-1.0.3.tgz",
++      "integrity": "sha512-FQXkOta0XBSUPHndIKON2Y9JeQz5ZeMqLYZVVK93FliNBFm7LNMIZmY6FrMEB9XPcDbE2bekMbZD6kzDkxwYjA==",
++      "license": "MIT"
++    },
+     "node_modules/abbrev": {
+       "version": "4.0.0",
+       "resolved": "https://registry.npmjs.org/abbrev/-/abbrev-4.0.0.tgz",
+@@ -10625,6 +10477,7 @@
+       "integrity": "sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "bin": {
+         "acorn": "bin/acorn"
+       },
+@@ -10724,6 +10577,7 @@
+       "resolved": "https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz",
+       "integrity": "sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "fast-deep-equal": "^3.1.3",
+         "fast-uri": "^3.0.1",
+@@ -10911,6 +10765,15 @@
+         "url": "https://github.com/sponsors/jonschlinkert"
+       }
+     },
++    "node_modules/apexcharts": {
++      "version": "5.6.0",
++      "resolved": "https://registry.npmjs.org/apexcharts/-/apexcharts-5.6.0.tgz",
++      "integrity": "sha512-BZua59yedRsaDfnxkzNrkyLCvluq2c3ZDBIz4joxSKtgr0xDQXQ5dzceMhf/TpTbAjaF+2NYIpLP3BEEIG2s/w==",
++      "license": "SEE LICENSE IN LICENSE",
++      "dependencies": {
++        "@yr/monotone-cubic-spline": "^1.0.3"
++      }
++    },
+     "node_modules/arch": {
+       "version": "2.2.0",
+       "resolved": "https://registry.npmjs.org/arch/-/arch-2.2.0.tgz",
+@@ -11222,6 +11085,7 @@
+       "integrity": "sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==",
+       "dev": true,
+       "license": "MPL-2.0",
++      "peer": true,
+       "engines": {
+         "node": ">=4"
+       }
+@@ -11531,6 +11395,7 @@
+         }
+       ],
+       "license": "MIT",
++      "peer": true,
+       "peerDependencies": {
+         "@popperjs/core": "^2.11.8"
+       }
+@@ -11574,6 +11439,7 @@
+         }
+       ],
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "baseline-browser-mapping": "^2.9.0",
+         "caniuse-lite": "^1.0.30001759",
+@@ -12457,6 +12323,7 @@
+       "resolved": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
+       "integrity": "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "fast-deep-equal": "^3.1.1",
+         "fast-json-stable-stringify": "^2.0.0",
+@@ -12635,6 +12502,7 @@
+       "integrity": "sha512-c3Q2VVkGAUyupsjRnaNX6u8Dq2vAdzm9iuPj5FW0fRxzlxgq9Q39MDq10IvmQSpLgHQNyQzQmOo6bgGHmH3NNg==",
+       "hasInstallScript": true,
+       "license": "MIT",
++      "peer": true,
+       "funding": {
+         "type": "opencollective",
+         "url": "https://opencollective.com/core-js"
+@@ -13226,6 +13094,7 @@
+       "version": "2.30.0",
+       "resolved": "https://registry.npmjs.org/date-fns/-/date-fns-2.30.0.tgz",
+       "integrity": "sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==",
++      "peer": true,
+       "dependencies": {
+         "@babel/runtime": "^7.21.0"
+       },
+@@ -13687,27 +13556,6 @@
+         "node": ">= 0.8"
+       }
+     },
+-    "node_modules/encoding": {
+-      "version": "0.1.13",
+-      "resolved": "https://registry.npmjs.org/encoding/-/encoding-0.1.13.tgz",
+-      "integrity": "sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==",
+-      "optional": true,
+-      "dependencies": {
+-        "iconv-lite": "^0.6.2"
+-      }
+-    },
+-    "node_modules/encoding/node_modules/iconv-lite": {
+-      "version": "0.6.3",
+-      "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz",
+-      "integrity": "sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==",
+-      "optional": true,
+-      "dependencies": {
+-        "safer-buffer": ">= 2.1.2 < 3.0.0"
+-      },
+-      "engines": {
+-        "node": ">=0.10.0"
+-      }
+-    },
+     "node_modules/end-of-stream": {
+       "version": "1.4.4",
+       "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.4.tgz",
+@@ -13782,6 +13630,7 @@
+       "resolved": "https://registry.npmjs.org/enquirer/-/enquirer-2.4.1.tgz",
+       "integrity": "sha512-rRqJg/6gd538VHvR3PSrdRBb/1Vy2YfzHqzvbhGIQpDRKIa4FgV/54b5Q1xYSxOOwKvjXweS26E0Q+nAMwp2pQ==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "ansi-colors": "^4.1.1",
+         "strip-ansi": "^6.0.1"
+@@ -14124,6 +13973,7 @@
+       "integrity": "sha512-BhHmn2yNOFA9H9JmmIVKJmd288g9hrVRDkdoIgRCRuSySRUHH7r/DI6aAXW9T1WwUuY3DFgrcaqB+deURBLR5g==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@eslint-community/eslint-utils": "^4.8.0",
+         "@eslint-community/regexpp": "^4.12.1",
+@@ -14753,6 +14603,7 @@
+       "resolved": "https://registry.npmjs.org/express/-/express-4.22.1.tgz",
+       "integrity": "sha512-F2X8g9P1X7uCPZMA3MVf9wcTqlyNp7IhH5qPCI0izhaOIYXaW9L535tGA3qmjRzpH+bZczqq7hVKxTR4NWnu+g==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "accepts": "~1.3.8",
+         "array-flatten": "1.1.1",
+@@ -16087,6 +15938,7 @@
+       "version": "19.9.2",
+       "resolved": "https://registry.npmjs.org/i18next/-/i18next-19.9.2.tgz",
+       "integrity": "sha512-0i6cuo6ER6usEOtKajUUDj92zlG+KArFia0857xxiEHAQcUwh/RtOQocui1LPJwunSYT574Pk64aNva1kwtxZg==",
++      "peer": true,
+       "dependencies": {
+         "@babel/runtime": "^7.12.0"
+       }
+@@ -17227,7 +17079,8 @@
+       "version": "3.99.1",
+       "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-3.99.1.tgz",
+       "integrity": "sha512-Hu1dmuoGcZ7AfyynN3LsfruwMbxMALMka+YtZeGoLuDEySVmVAPaonkNoBRIw/ectu8b9tVQCJNgp4a4knp+tg==",
+-      "dev": true
++      "dev": true,
++      "peer": true
+     },
+     "node_modules/jasmine-marbles": {
+       "version": "0.9.2",
+@@ -17300,6 +17153,7 @@
+       "integrity": "sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "bin": {
+         "jiti": "bin/jiti.js"
+       }
+@@ -17426,6 +17280,7 @@
+       "resolved": "https://registry.npmjs.org/jsonc-eslint-parser/-/jsonc-eslint-parser-2.4.0.tgz",
+       "integrity": "sha512-WYDyuc/uFcGp6YtM2H0uKmUwieOuzeE/5YocFJLnLfclZ4inf3mRn8ZVy1s7Hxji7Jxm6Ss8gqpexD/GlKoGgg==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "acorn": "^8.5.0",
+         "eslint-visitor-keys": "^3.0.0",
+@@ -17622,6 +17477,7 @@
+       "resolved": "https://registry.npmjs.org/karma/-/karma-6.4.4.tgz",
+       "integrity": "sha512-LrtUxbdvt1gOpo3gxG+VAJlJAEMhbWlM4YrFQgql98FwF7+K8K12LYO4hnDdUkNjeztYrOXEMqgTajSWgmtI/w==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "@colors/colors": "1.5.0",
+         "body-parser": "^1.19.0",
+@@ -17697,6 +17553,7 @@
+       "resolved": "https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-4.0.2.tgz",
+       "integrity": "sha512-ggi84RMNQffSDmWSyyt4zxzh2CQGwsxvYYsprgyR1j8ikzIduEdOlcLvXjZGwXG/0j41KUXOWsUCBfbEHPWP9g==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "jasmine-core": "^3.6.0"
+       },
+@@ -18013,7 +17870,8 @@
+     "node_modules/leaflet": {
+       "version": "1.9.4",
+       "resolved": "https://registry.npmjs.org/leaflet/-/leaflet-1.9.4.tgz",
+-      "integrity": "sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA=="
++      "integrity": "sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==",
++      "peer": true
+     },
+     "node_modules/leaflet-providers": {
+       "version": "2.0.0",
+@@ -18034,6 +17892,7 @@
+       "integrity": "sha512-kdTwsyRuncDfjEs0DlRILWNvxhDG/Zij4YLO4TMJgDLW+8OzpfkdPnRgrsRuY1o+oaxJGWsps5f/RVBgGmmN0w==",
+       "dev": true,
+       "license": "Apache-2.0",
++      "peer": true,
+       "dependencies": {
+         "copy-anything": "^2.0.1",
+         "parse-node-version": "^1.0.1",
+@@ -18206,6 +18065,7 @@
+       "integrity": "sha512-SL0JY3DaxylDuo/MecFeiC+7pedM0zia33zl0vcjgwcq1q1FWWF1To9EIauPbl8GbMCU0R2e0uJ8bZunhYKD2g==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "cli-truncate": "^4.0.0",
+         "colorette": "^2.0.20",
+@@ -18380,7 +18240,8 @@
+     "node_modules/lodash": {
+       "version": "4.17.21",
+       "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+-      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
++      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==",
++      "peer": true
+     },
+     "node_modules/lodash-es": {
+       "version": "4.17.21",
+@@ -19294,6 +19155,7 @@
+       "version": "3.4.3",
+       "resolved": "https://registry.npmjs.org/mirador/-/mirador-3.4.3.tgz",
+       "integrity": "sha512-yHoug0MHy4e9apykbbBhK+4CmbZS94zMxmugw2E2VX6iB0b2PKKY0JfYr/QfXh9P29YnWAbymaXJVpgbHVpTVw==",
++      "peer": true,
+       "dependencies": {
+         "@material-ui/core": "^4.12.3",
+         "@material-ui/icons": "^4.9.1",
+@@ -19640,6 +19502,7 @@
+       "resolved": "https://registry.npmjs.org/ngx-mask/-/ngx-mask-16.4.2.tgz",
+       "integrity": "sha512-mQjcsTpctGu6HYKLf6/gjEUvW65D+46xvPIMYz0BDZXqHXrqKVluHXR3KF++TNOfdLLXwW6SvuHWd91NZN/C1A==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -19966,7 +19829,8 @@
+     "node_modules/nouislider": {
+       "version": "15.8.1",
+       "resolved": "https://registry.npmjs.org/nouislider/-/nouislider-15.8.1.tgz",
+-      "integrity": "sha512-93TweAi8kqntHJSPiSWQ1o/uZ29VWOmal9YKb6KKGGlCkugaNfAupT7o1qTHqdJvNQ7S0su5rO6qRFCjP8fxtw=="
++      "integrity": "sha512-93TweAi8kqntHJSPiSWQ1o/uZ29VWOmal9YKb6KKGGlCkugaNfAupT7o1qTHqdJvNQ7S0su5rO6qRFCjP8fxtw==",
++      "peer": true
+     },
+     "node_modules/npm-bundled": {
+       "version": "5.0.0",
+@@ -21098,6 +20962,7 @@
+         }
+       ],
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "nanoid": "^3.3.11",
+         "picocolors": "^1.1.1",
+@@ -21525,6 +21390,7 @@
+       "integrity": "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "fast-deep-equal": "^3.1.1",
+         "fast-json-stable-stringify": "^2.0.0",
+@@ -21722,6 +21588,7 @@
+       "resolved": "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz",
+       "integrity": "sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==",
+       "dev": true,
++      "peer": true,
+       "dependencies": {
+         "cssesc": "^3.0.0",
+         "util-deprecate": "^1.0.2"
+@@ -22030,6 +21897,7 @@
+       "version": "15.8.1",
+       "resolved": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz",
+       "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
++      "peer": true,
+       "dependencies": {
+         "loose-envify": "^1.4.0",
+         "object-assign": "^4.1.1",
+@@ -22234,6 +22102,7 @@
+       "version": "5.1.0",
+       "resolved": "https://registry.npmjs.org/react-copy-to-clipboard/-/react-copy-to-clipboard-5.1.0.tgz",
+       "integrity": "sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==",
++      "peer": true,
+       "dependencies": {
+         "copy-to-clipboard": "^3.3.1",
+         "prop-types": "^15.8.1"
+@@ -22247,6 +22116,7 @@
+       "resolved": "https://registry.npmjs.org/react-dnd/-/react-dnd-10.0.2.tgz",
+       "integrity": "sha512-SC2Ymvntynhoqtf5zaFhZscm9xenCoMofilxPdlwUlaelAzmbl9fw82C4ZJ//+lNm3kWAKXjGDZg2/aWjKEAtg==",
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@react-dnd/shallowequal": "^2.0.0",
+         "@types/hoist-non-react-statics": "^3.3.1",
+@@ -22262,6 +22132,7 @@
+       "version": "10.0.2",
+       "resolved": "https://registry.npmjs.org/react-dnd-html5-backend/-/react-dnd-html5-backend-10.0.2.tgz",
+       "integrity": "sha512-ny17gUdInZ6PIGXdzfwPhoztRdNVVvjoJMdG80hkDBamJBeUPuNF2Wv4D3uoQJLjXssX1+i9PhBqc7EpogClwQ==",
++      "peer": true,
+       "dependencies": {
+         "dnd-core": "^10.0.2"
+       }
+@@ -22298,6 +22169,7 @@
+       "version": "10.0.2",
+       "resolved": "https://registry.npmjs.org/react-dnd-touch-backend/-/react-dnd-touch-backend-10.0.2.tgz",
+       "integrity": "sha512-+lW/Ern0dKyHToD0oP+Wc/ZD6l7qJazosLqbjzL7OnPlig6WxdlrHkJylOLkeAdZj41fIJJ551Lb57pIL0CcPw==",
++      "peer": true,
+       "dependencies": {
+         "@react-dnd/invariant": "^2.0.0",
+         "dnd-core": "^10.0.2"
+@@ -22607,6 +22479,7 @@
+       "version": "4.2.1",
+       "resolved": "https://registry.npmjs.org/redux/-/redux-4.2.1.tgz",
+       "integrity": "sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==",
++      "peer": true,
+       "dependencies": {
+         "@babel/runtime": "^7.9.2"
+       }
+@@ -22783,7 +22656,8 @@
+     "node_modules/reselect": {
+       "version": "4.1.8",
+       "resolved": "https://registry.npmjs.org/reselect/-/reselect-4.1.8.tgz",
+-      "integrity": "sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ=="
++      "integrity": "sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==",
++      "peer": true
+     },
+     "node_modules/reserved-identifiers": {
+       "version": "1.2.0",
+@@ -23130,6 +23004,7 @@
+       "version": "7.8.2",
+       "resolved": "https://registry.npmjs.org/rxjs/-/rxjs-7.8.2.tgz",
+       "integrity": "sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA==",
++      "peer": true,
+       "dependencies": {
+         "tslib": "^2.1.0"
+       }
+@@ -23370,7 +23245,6 @@
+       "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.19.1.tgz",
+       "integrity": "sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==",
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "loose-envify": "^1.1.0",
+         "object-assign": "^4.1.1"
+@@ -24510,6 +24384,7 @@
+       "integrity": "sha512-+6erLbBm0+LROX2sPXlUYx/ux5PyE9K/a92Wrt6oA+WDAoFTdpHE5tCYCI5PNzq2y8df4rA+QgHLJuR4jNymsg==",
+       "dev": true,
+       "license": "BSD-2-Clause",
++      "peer": true,
+       "dependencies": {
+         "@jridgewell/source-map": "^0.3.3",
+         "acorn": "^8.14.0",
+@@ -24807,7 +24682,8 @@
+       "version": "2.8.1",
+       "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+       "integrity": "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==",
+-      "license": "0BSD"
++      "license": "0BSD",
++      "peer": true
+     },
+     "node_modules/tuf-js": {
+       "version": "4.1.0",
+@@ -24965,6 +24841,7 @@
+       "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+       "devOptional": true,
+       "license": "Apache-2.0",
++      "peer": true,
+       "bin": {
+         "tsc": "bin/tsc",
+         "tsserver": "bin/tsserver"
+@@ -25335,6 +25212,7 @@
+       "integrity": "sha512-gX/dMkRQc7QOMzgTe6KsYFM7DxeIONQSui1s0n/0xht36HvrgbxtM1xBlgx596NbpHuQU8P7QpKwrZYwUX48nw==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@types/eslint-scope": "^3.7.7",
+         "@types/estree": "^1.0.8",
+@@ -25384,6 +25262,7 @@
+       "integrity": "sha512-MfwFQ6SfwinsUVi0rNJm7rHZ31GyTcpVE5pgVA3hwFRb7COD4TzjUUwhGWKfO50+xdc2MQPuEBBJoqIMGt3JDw==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@discoveryjs/json-ext": "^0.6.1",
+         "@webpack-cli/configtest": "^3.0.1",
+@@ -25467,6 +25346,7 @@
+       "integrity": "sha512-QcQ72gh8a+7JO63TAx/6XZf/CWhgMzu5m0QirvPfGvptOusAxG12w2+aua1Jkjr7hzaWDnJ2n6JFeexMHI+Zjg==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "dependencies": {
+         "@types/bonjour": "^3.5.13",
+         "@types/connect-history-api-fallback": "^1.5.4",
+@@ -25964,6 +25844,7 @@
+       "integrity": "sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==",
+       "dev": true,
+       "license": "MIT",
++      "peer": true,
+       "funding": {
+         "url": "https://github.com/sponsors/colinhacks"
+       }
+@@ -25981,7 +25862,8 @@
+     "node_modules/zone.js": {
+       "version": "0.15.1",
+       "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.15.1.tgz",
+-      "integrity": "sha512-XE96n56IQpJM7NAoXswY3XRLcWFW83xe0BiAOeMD7K5k5xecOeul3Qcpx6GqEeeHNkW5DWL5zOyTbEfB4eti8w=="
++      "integrity": "sha512-XE96n56IQpJM7NAoXswY3XRLcWFW83xe0BiAOeMD7K5k5xecOeul3Qcpx6GqEeeHNkW5DWL5zOyTbEfB4eti8w==",
++      "peer": true
+     }
+   }
+ }
+diff --git a/package.json b/package.json
+index c7d8e9742..eed3af9e2 100644
+--- a/package.json
++++ b/package.json
+@@ -77,6 +77,8 @@
+     }
+   },
+   "dependencies": {
++    "@4science_ng-dynamic-forms/core": "^19.1.0",
++    "@4science_ng-dynamic-forms/ui-ng-bootstrap": "^19.1.0",
+     "@angular/animations": "^20.3.16",
+     "@angular/cdk": "^20.2.14",
+     "@angular/common": "^20.3.16",
+@@ -91,8 +93,6 @@
+     "@angular/ssr": "^20.3.10",
+     "@kolkov/ngx-gallery": "^2.0.1",
+     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
+-    "@4science_ng-dynamic-forms/core": "^19.1.0",
+-    "@4science_ng-dynamic-forms/ui-ng-bootstrap": "^19.1.0",
+     "@ngrx/effects": "^20.1.0",
+     "@ngrx/router-store": "^20.1.0",
+     "@ngrx/store": "^20.1.0",
+@@ -101,6 +101,7 @@
+     "@terraformer/wkt": "^2.2.1",
+     "altcha": "^2.2.4",
+     "angulartics2": "^12.2.0",
++    "apexcharts": "^5.6.0",
+     "body-parser": "^1.20.3",
+     "bootstrap": "^5.3",
+     "cerialize": "0.1.18",
+@@ -167,6 +168,7 @@
+     "@fortawesome/fontawesome-free": "^6.7.2",
+     "@ngrx/store-devtools": "^20.1.0",
+     "@ngtools/webpack": "^20.3.10",
++    "@smarttools/eslint-plugin-rxjs": "^1.0.22",
+     "@stylistic/eslint-plugin": "^3.1.0",
+     "@types/deep-freeze": "0.1.5",
+     "@types/ejs": "^3.1.2",
+@@ -196,7 +198,6 @@
+     "eslint-plugin-jsdoc": "^61.4.1",
+     "eslint-plugin-jsonc": "^2.21.0",
+     "eslint-plugin-lodash": "^7.4.0",
+-    "@smarttools/eslint-plugin-rxjs": "^1.0.22",
+     "eslint-plugin-simple-import-sort": "^12.1.1",
+     "eslint-plugin-unused-imports": "^4.3.0",
+     "express-static-gzip": "^2.2.0",
+diff --git a/src/app/admin/admin-reports/admin-reports-routes.ts b/src/app/admin/admin-reports/admin-reports-routes.ts
+index 46d2b111b..6b9e41cd0 100644
+--- a/src/app/admin/admin-reports/admin-reports-routes.ts
++++ b/src/app/admin/admin-reports/admin-reports-routes.ts
+@@ -3,6 +3,7 @@ import { i18nBreadcrumbResolver } from '@dspace/core/breadcrumbs/i18n-breadcrumb
+ 
+ import { FilteredCollectionsComponent } from './filtered-collections/filtered-collections.component';
+ import { FilteredItemsComponent } from './filtered-items/filtered-items.component';
++import { UserActivitiesReportComponent } from './users-activities/users-activities-report.component';
+ 
+ export const ROUTES: Route[] = [
+   {
+@@ -27,4 +28,15 @@ export const ROUTES: Route[] = [
+       },
+     ],
+   },
++    {
++      path: 'users-activities',
++      resolve: { breadcrumb: i18nBreadcrumbResolver },
++      data: { title: 'admin.reports.users-activities.title', breadcrumbKey: 'admin.reports.users-activities' },
++      children: [
++        {
++          path: '',
++          component: UserActivitiesReportComponent,
++        },
++      ],
++    },
+ ];
+diff --git a/src/app/admin/admin-reports/users-activities/README.md b/src/app/admin/admin-reports/users-activities/README.md
+new file mode 100644
+index 000000000..9c6b53a49
+--- /dev/null
++++ b/src/app/admin/admin-reports/users-activities/README.md
+@@ -0,0 +1,278 @@
++# Submission and Review Report Page - DSpace Angular
++
++## Overview
++
++A comprehensive Angular component for displaying submission and review statistics extracted from DSpace provenance metadata. This page is integrated into the DSpace admin interface under the Reports section.
++
++## Features
++
++- **Summary Statistics**: Display total users, submissions, and reviews at a glance
++- **User Statistics Tab**: View detailed statistics for each user with sorting and filtering
++- **Actions Tab**: See all individual submission and review actions with dates
++- **Search Functionality**: Search users by email or name
++- **Sorting**: Click column headers to sort by name, submissions, or reviews
++- **CSV Export**: Download report data as CSV file
++- **Responsive Design**: Works on desktop and mobile devices
++
++## Files Created
++
++### Component Files
++
++- `submission-review-report.component.ts` - Component logic
++- `submission-review-report.component.html` - Template
++- `submission-review-report.component.scss` - Styles
++
++### Service
++
++- `submission-review-report.service.ts` - Calls REST API endpoints
++
++### Routing
++
++- Updated `admin-reports-routes.ts` with new route
++
++### Translations
++
++- `submission-review-report.en.json` - English i18n strings
++
++## Usage
++
++### Access the Page
++
++Once deployed, access the report at:
++
++```
++/admin/reports/submission-review
++```
++
++### Navigation
++
++1. Go to DSpace Admin section
++2. Click on "Reports"
++3. Select "Submission and Review Report"
++
++## Features Breakdown
++
++### Summary Tab
++
++- Displays key metrics: Total users, submissions, and reviews
++- Shows overall activity overview
++- CSV export button
++
++### User Statistics Tab
++
++- Table of all users and their submission/review counts
++- Search box to filter by email or name
++- Sortable columns (click header to sort)
++- Shows submission count in blue badge
++- Shows review count in green badge
++
++### Actions Tab
++
++- List of all individual actions (submissions and reviews)
++- Shows who did what and when
++- Details field contains additional information
++- Color-coded action type badges
++
++## API Integration
++
++The component communicates with these REST API endpoints:
++
++```typescript
++GET / api / reporting / submission - review / report; // Full report
++GET / api / reporting / submission - review / user / { email }; // User specific
++GET / api / reporting / submission - review / summary; // Summary only
++GET / api / reporting / submission - review / actions; // All actions
++```
++
++All endpoints require ADMIN authority.
++
++## Service Methods
++
++```typescript
++// Get full report
++reportService.getFullReport(): Observable<SubmissionReviewReport>
++
++// Get user report
++reportService.getUserReport(email: string): Observable<UserSubmissionReviewStats>
++
++// Get summary
++reportService.getSummary(): Observable<ReportSummary>
++
++// Get all actions
++reportService.getAllActions(): Observable<UserAction[]>
++```
++
++## Data Structures
++
++### UserAction
++
++```typescript
++{
++  actionType: 'SUBMITTED' | 'REVIEWED',
++  userName: string,
++  email: string,
++  actionDate: string,
++  itemUUID: string,
++  details?: string
++}
++```
++
++### UserSubmissionReviewStats
++
++```typescript
++{
++  userName: string,
++  email: string,
++  totalSubmissions: number,
++  totalReviews: number,
++  actions: UserAction[]
++}
++```
++
++### SubmissionReviewReport
++
++```typescript
++{
++  totalUsers: number,
++  totalSubmissions: number,
++  totalReviews: number,
++  userStats: UserSubmissionReviewStats[]
++}
++```
++
++## Styling
++
++The component uses Bootstrap 5 classes and custom SCSS for styling:
++
++- Responsive grid layout
++- Stat cards with shadows
++- Colored badges for actions
++- Hover effects on table rows
++- Mobile-friendly design
++
++### Color Scheme
++
++- Primary (Blue): #007bff - Total users, submissions
++- Success (Green): #28a745 - Reviews
++- Info (Light Blue): #17a2b8 - Submitted action badge
++- Danger (Red): #dc3545 - Error alerts
++
++## Installation Steps
++
++1. **Copy files to dspace-angular**:
++
++   ```bash
++   cp -r submission-review/ src/app/admin/admin-reports/
++   ```
++
++2. **Update routing** (already done):
++   - Routes added to `admin-reports-routes.ts`
++
++3. **Add translations** (already done):
++   - English translations in i18n folder
++
++4. **Build dspace-angular**:
++
++   ```bash
++   npm install
++   npm run build
++   ```
++
++5. **Deploy**:
++   - Copy built files to DSpace UI directory
++
++## Customization
++
++### Change Sort Order
++
++Modify `sortDirection` in component:
++
++```typescript
++sortDirection: 'asc' | 'desc' = 'asc';
++```
++
++### Change Default Tab
++
++Modify `activeTab` in component:
++
++```typescript
++activeTab: 'summary' | 'users' | 'actions' = 'summary';
++```
++
++### Add Filtering Options
++
++Extend the `getFilteredUsers()` method to add date range, item filtering, etc.
++
++### Modify CSV Export
++
++Update the `downloadCSV()` method to include different fields or formatting.
++
++## Translations
++
++Add translations for other languages by creating similar files:
++
++- `submission-review-report.es.json` - Spanish
++- `submission-review-report.fr.json` - French
++- `submission-review-report.de.json` - German
++
++## Future Enhancements
++
++1. **Pagination**: Add pagination for large datasets
++2. **Date Range Filter**: Filter actions by date range
++3. **Excel Export**: Export to Excel format
++4. **Charts**: Add charts showing trends
++5. **Real-time Updates**: WebSocket for live data
++6. **Advanced Filtering**: Filter by collection, item type, etc.
++7. **Bulk Actions**: Perform actions on selected users
++
++## Troubleshooting
++
++### Data Not Loading
++
++- Verify admin user permissions
++- Check browser console for errors
++- Ensure backend API is running
++- Verify REST endpoints are accessible
++
++### Styling Issues
++
++- Ensure Bootstrap 5 is included
++- Check SCSS is properly compiled
++- Verify CSS class names match Bootstrap version
++
++### Translation Not Showing
++
++- Confirm i18n file is in correct location
++- Check file naming convention
++- Verify language code matches i18n config
++
++## Performance
++
++- Component loads full report on init
++- Client-side sorting and filtering (fast)
++- CSV export done in-browser (no server load)
++- Consider caching for large datasets
++
++## Browser Support
++
++- Chrome/Edge 90+
++- Firefox 88+
++- Safari 14+
++- Mobile browsers (iOS Safari, Chrome Mobile)
++
++## Dependencies
++
++- Angular 15+
++- Bootstrap 5
++- RxJS
++- TypeScript
++- ngx-translate
++
++## License
++
++Same as DSpace: https://duraspace.org/dspace/
++
++---
++
++**Component Status**: Production Ready
++**Last Updated**: February 17, 2026
+diff --git a/src/app/admin/admin-reports/users-activities/users-activities-report.component.html b/src/app/admin/admin-reports/users-activities/users-activities-report.component.html
+new file mode 100644
+index 000000000..846a5cbbd
+--- /dev/null
++++ b/src/app/admin/admin-reports/users-activities/users-activities-report.component.html
+@@ -0,0 +1,557 @@
++<div class="users-activities-report-container">
++  <div class="page-header">
++    <h1>{{ "admin.reports.users-activities.title" | translate }}</h1>
++    <p class="text-muted">
++      {{ "admin.reports.users-activities.description" | translate }}
++    </p>
++  </div>
++
++  <!-- Error Alert -->
++  @if (error) {
++    <div class="alert alert-danger alert-dismissible fade show" role="alert">
++      <strong>{{ "error.general" | translate }}</strong> {{ error }}
++      <button
++        type="button"
++        class="btn-close"
++        (click)="error = null"
++        aria-label="Close"
++      ></button>
++    </div>
++  }
++
++  <!-- Report Content -->
++  @if (!loading || summary || users) {
++    <div class="report-content">
++      <!-- Navigation Tabs -->
++      <ul class="nav nav-tabs mb-3" role="tablist">
++        <li class="nav-item" role="presentation">
++          <button
++            class="nav-link"
++            [class.active]="activeTab === 'summary'"
++            (click)="setTab('summary')"
++            type="button"
++          >
++            {{ "admin.reports.users-activities.summary" | translate }}
++          </button>
++        </li>
++        <li class="nav-item" role="presentation">
++          <button
++            class="nav-link"
++            [class.active]="activeTab === 'users'"
++            (click)="setTab('users')"
++            type="button"
++          >
++            {{ "admin.reports.users-activities.user-stats" | translate }}
++          </button>
++        </li>
++      </ul>
++
++      <!-- Tab Content -->
++      <div class="tab-content">
++        <!-- Summary Tab -->
++        @if (activeTab === "summary") {
++          <div class="tab-pane active">
++            <div class="summary-tab">
++              <h4>
++                {{
++                  "admin.reports.users-activities.report-summary" | translate
++                }}
++              </h4>
++
++              <!-- Loading State -->
++              @if (loading && !summary) {
++                <div class="d-flex justify-content-center my-4">
++                  <div class="spinner-border text-primary" role="status">
++                    <span class="visually-hidden">{{
++                      "loading" | translate
++                    }}</span>
++                  </div>
++                </div>
++              }
++
++              @if (summary) {
++                <div class="row mt-3">
++                  <div class="col-md-12">
++                    <div class="summary-info">
++                      <!-- Summary Stats -->
++                      <div class="summary-stats mb-4">
++                        <div class="row">
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-users"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.totalUsers || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-submissions"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.submissions || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-reviews"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.reviews || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-approvals"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.approvals || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-rejections"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.rejections || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                          <div class="col-md-4 col-lg-2">
++                            <div class="stat-card">
++                              <div class="stat-label">
++                                {{
++                                  "admin.reports.users-activities.total-withdrawals"
++                                    | translate
++                                }}
++                              </div>
++                              <div class="stat-value">
++                                {{ summary?.withdrawals || 0 }}
++                              </div>
++                            </div>
++                          </div>
++                        </div>
++                      </div>
++                    </div>
++                  </div>
++                </div>
++
++                <!-- Trend Chart Section -->
++                <div class="trend-section mt-5">
++                  <h5 class="mb-3">
++                    {{
++                      "admin.reports.users-activities.activity-trends"
++                        | translate
++                    }}
++                  </h5>
++
++                  <!-- View Type Toggle -->
++                  <div class="row mb-3">
++                    <div class="col-md-12">
++                      <div class="btn-group" role="group">
++                        <button
++                          type="button"
++                          class="btn btn-outline-primary"
++                          [class.active]="viewType === 'monthly'"
++                          (click)="switchViewType('monthly')"
++                        >
++                          {{
++                            "admin.reports.users-activities.monthly" | translate
++                          }}
++                        </button>
++                        <button
++                          type="button"
++                          class="btn btn-outline-primary"
++                          [class.active]="viewType === 'yearly'"
++                          (click)="switchViewType('yearly')"
++                        >
++                          {{
++                            "admin.reports.users-activities.yearly" | translate
++                          }}
++                        </button>
++                      </div>
++                    </div>
++                  </div>
++
++                  <!-- Date Filter Controls - Only show in monthly view -->
++                  @if (viewType === "monthly") {
++                    <div class="row mb-3">
++                      <div class="col-md-3">
++                        <label for="startDate" class="form-label">
++                          {{
++                            "admin.reports.users-activities.start-date"
++                              | translate
++                          }}
++                        </label>
++                        <input
++                          type="month"
++                          id="startDate"
++                          class="form-control"
++                          [(ngModel)]="startDate"
++                          (change)="onDateFilterChange()"
++                        />
++                      </div>
++                      <div class="col-md-3">
++                        <label for="endDate" class="form-label">
++                          {{
++                            "admin.reports.users-activities.end-date"
++                              | translate
++                          }}
++                        </label>
++                        <input
++                          type="month"
++                          id="endDate"
++                          class="form-control"
++                          [(ngModel)]="endDate"
++                          (change)="onDateFilterChange()"
++                        />
++                      </div>
++                      <div class="col-md-6 d-flex align-items-end">
++                        <button
++                          type="button"
++                          class="btn btn-secondary"
++                          (click)="resetDateFilter()"
++                        >
++                          {{
++                            "admin.reports.users-activities.reset-filter"
++                              | translate
++                          }}
++                        </button>
++                      </div>
++                    </div>
++                  }
++
++                  <!-- Line Chart - Show after data is loaded from API -->
++                  @if (chartDataLoaded) {
++                    <div
++                      #trendChartContainer
++                      class="chart-container"
++                      style="width: 100%"
++                    ></div>
++                  } @else {
++                    <div class="alert alert-info" role="alert">
++                      {{ "loading" | translate }}
++                    </div>
++                  }
++                </div>
++              }
++            </div>
++          </div>
++        }
++
++        <!-- Users Tab -->
++        @if (activeTab === "users") {
++          <div class="tab-pane active">
++            <div class="users-tab">
++              <h4>
++                {{
++                  "admin.reports.users-activities.user-statistics" | translate
++                }}
++              </h4>
++
++              <!-- Loading State -->
++              @if (loading && !users) {
++                <div class="d-flex justify-content-center my-4">
++                  <div class="spinner-border text-primary" role="status">
++                    <span class="visually-hidden">{{
++                      "loading" | translate
++                    }}</span>
++                  </div>
++                </div>
++              }
++
++              @if (users) {
++                <div>
++                  <!-- Search Box -->
++                  <div class="d-flex justify-content-between gap-2 mb-3">
++                    <div class="flex-grow-1">
++                      <input
++                        type="text"
++                        class="form-control"
++                        placeholder="{{
++                          'admin.reports.users-activities.search-by-email-or-name'
++                            | translate
++                        }}"
++                        [(ngModel)]="searchEmail"
++                        (ngModelChange)="currentPage = 1"
++                      />
++                    </div>
++                    <div class="flex-grow-1 d-flex justify-content-end">
++                      <button
++                        class="btn btn-primary mb-3"
++                        (click)="downloadCSV()"
++                      >
++                        <i class="bi bi-download"></i>
++                        {{
++                          "admin.reports.users-activities.download-csv"
++                            | translate
++                        }}
++                      </button>
++                    </div>
++                  </div>
++
++                  <!-- Users Table -->
++                  <div class="table-responsive">
++                    <table class="table table-striped table-hover">
++                      <thead class="table-header-bg">
++                        <tr>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('name')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.name"
++                                  | translate
++                              }}
++                              @if (sortField === "name") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                          <th>
++                            {{
++                              "admin.reports.users-activities.email" | translate
++                            }}
++                          </th>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('submissions')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.submissions"
++                                  | translate
++                              }}
++                              @if (sortField === "submissions") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('reviews')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.reviews"
++                                  | translate
++                              }}
++                              @if (sortField === "reviews") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('approvals')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.approvals"
++                                  | translate
++                              }}
++                              @if (sortField === "approvals") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('rejections')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.rejections"
++                                  | translate
++                              }}
++                              @if (sortField === "rejections") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                          <th>
++                            <a
++                              href="javascript:void(0)"
++                              (click)="toggleSort('withdrawals')"
++                              class="sort-link"
++                            >
++                              {{
++                                "admin.reports.users-activities.withdrawals"
++                                  | translate
++                              }}
++                              @if (sortField === "withdrawals") {
++                                <span class="sort-icon">
++                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
++                                </span>
++                              }
++                            </a>
++                          </th>
++                        </tr>
++                      </thead>
++                      <tbody>
++                        @for (user of getPaginatedUsers(); track user.email) {
++                          <tr>
++                            <td>{{ user.userName }}</td>
++                            <td>{{ user.email }}</td>
++                            <td>
++                              <span class="badge bg-primary">{{
++                                user.totalSubmissions
++                              }}</span>
++                            </td>
++                            <td>
++                              <span class="badge bg-info">{{
++                                user.totalApprovals +
++                                  user.totalRejections +
++                                  user.totalWithdrawals
++                              }}</span>
++                            </td>
++                            <td>
++                              <span class="badge bg-success">{{
++                                user.totalApprovals
++                              }}</span>
++                            </td>
++                            <td>
++                              <span class="badge bg-danger">{{
++                                user.totalRejections
++                              }}</span>
++                            </td>
++                            <td>
++                              <span class="badge bg-warning text-dark">{{
++                                user.totalWithdrawals
++                              }}</span>
++                            </td>
++                          </tr>
++                        }
++                        @if (getFilteredUsers().length === 0) {
++                          <tr>
++                            <td colspan="7" class="text-center text-muted">
++                              {{
++                                "admin.reports.users-activities.noResults"
++                                  | translate
++                              }}
++                            </td>
++                          </tr>
++                        }
++                      </tbody>
++                    </table>
++                  </div>
++
++                  @if (getFilteredUsers().length > itemsPerPage) {
++                    <div class="d-flex justify-content-center mt-3">
++                      <ngb-pagination
++                        [collectionSize]="getFilteredUsers().length"
++                        [pageSize]="itemsPerPage"
++                        [(page)]="currentPage"
++                        [maxSize]="5"
++                        [rotate]="true"
++                        [boundaryLinks]="true"
++                      ></ngb-pagination>
++                    </div>
++                  }
++                  <h5>
++                    {{
++                      "admin.reports.users-activities.users-indicators"
++                        | translate
++                    }}
++                  </h5>
++                  <div class="row g-3 mb-4">
++                    <div class="col-12 col-lg-6">
++                      <div class="card">
++                        <div class="card-body">
++                          <div
++                            #submissionsChartContainer
++                            style="height: 320px"
++                          ></div>
++                        </div>
++                      </div>
++                    </div>
++                    <div class="col-12 col-lg-6">
++                      <div class="card">
++                        <div class="card-body">
++                          <div
++                            #reviewsChartContainer
++                            style="height: 320px"
++                          ></div>
++                        </div>
++                      </div>
++                    </div>
++                    <div class="col-12 col-lg-6">
++                      <div class="card">
++                        <div class="card-body">
++                          <div
++                            #approvalsChartContainer
++                            style="height: 320px"
++                          ></div>
++                        </div>
++                      </div>
++                    </div>
++                    <div class="col-12 col-lg-6">
++                      <div class="card">
++                        <div class="card-body">
++                          <div
++                            #rejectionsChartContainer
++                            style="height: 320px"
++                          ></div>
++                        </div>
++                      </div>
++                    </div>
++                    <div class="col-12 col-lg-6">
++                      <div class="card">
++                        <div class="card-body">
++                          <div
++                            #withdrawalsChartContainer
++                            style="height: 320px"
++                          ></div>
++                        </div>
++                      </div>
++                    </div>
++                  </div>
++                </div>
++              }
++            </div>
++          </div>
++        }
++      </div>
++    </div>
++  }
++</div>
+diff --git a/src/app/admin/admin-reports/users-activities/users-activities-report.component.scss b/src/app/admin/admin-reports/users-activities/users-activities-report.component.scss
+new file mode 100644
+index 000000000..059bb0256
+--- /dev/null
++++ b/src/app/admin/admin-reports/users-activities/users-activities-report.component.scss
+@@ -0,0 +1,225 @@
++.users-activities-report-container {
++  padding: 20px;
++  background-color: #f8f9fa;
++  min-height: 100vh;
++
++  .page-header {
++    padding-bottom: 15px;
++
++    h1 {
++      color: #333;
++      margin-bottom: 10px;
++    }
++
++    .text-muted {
++      font-size: 14px;
++      color: #6c757d;
++    }
++  }
++
++  .summary-stats {
++    margin-bottom: 30px;
++
++    .stat-card {
++      background: white;
++      border-radius: 8px;
++      padding: 20px;
++      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
++      text-align: center;
++
++      .stat-label {
++        font-size: 12px;
++        font-weight: 600;
++        color: #6c757d;
++        text-transform: uppercase;
++        letter-spacing: 0.5px;
++        margin-bottom: 10px;
++      }
++
++      .stat-value {
++        font-size: 32px;
++        font-weight: bold;
++        color: #1e6f90;
++      }
++    }
++  }
++
++  .nav-tabs {
++    border-bottom: 2px solid #dee2e6;
++
++    .nav-link {
++      color: #6c757d;
++      border: none;
++      border-bottom: 3px solid transparent;
++      font-weight: 500;
++      cursor: pointer;
++      padding: 12px 20px;
++      transition: all 0.3s ease;
++
++      &:hover {
++        color: #1e6f90;
++        border-bottom-color: #dee2e6;
++      }
++
++      &.active {
++        color: #1e6f90;
++        border-bottom-color: #1e6f90;
++        background: none;
++      }
++    }
++  }
++
++  .tab-content {
++    background: white;
++    border-radius: 8px;
++    padding: 20px;
++    margin-top: -1px;
++    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
++
++    h4 {
++      color: #333;
++      margin-bottom: 20px;
++      font-weight: 600;
++    }
++  }
++
++  .summary-tab {
++    .summary-info {
++      background: #f8f9fa;
++      border-left: 4px solid #1e6f90;
++      padding: 15px 20px;
++      border-radius: 4px;
++
++      p {
++        margin: 10px 0;
++        font-size: 15px;
++
++        strong {
++          color: #333;
++        }
++      }
++    }
++
++    .btn-primary {
++      margin-top: 15px;
++    }
++  }
++
++  .users-tab {
++    .form-control {
++      border-radius: 4px;
++      border: 1px solid #dee2e6;
++      padding: 10px 15px;
++      font-size: 14px;
++
++      &:focus {
++        border-color: #1e6f90;
++        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
++      }
++    }
++
++    .table {
++      margin-bottom: 0;
++      font-size: 14px;
++
++      .table-header-bg {
++        background-color: #f8f9fa;
++        font-weight: 600;
++        color: #333;
++      }
++
++      tbody tr {
++        &:hover {
++          background-color: #f8f9fa;
++        }
++      }
++
++      .sort-link {
++        color: inherit;
++        text-decoration: none;
++        cursor: pointer;
++        user-select: none;
++
++        &:hover {
++          color: #1e6f90;
++          text-decoration: underline;
++        }
++
++        .sort-icon {
++          margin-left: 5px;
++          font-size: 11px;
++        }
++      }
++
++      .badge {
++        font-weight: 600;
++        padding: 6px 12px;
++      }
++
++      .text-center.text-muted {
++        padding: 20px !important;
++      }
++    }
++  }
++
++  .actions-tab {
++    .table {
++      margin-bottom: 0;
++      font-size: 13px;
++
++      .table-header-bg {
++        background-color: #f8f9fa;
++        font-weight: 600;
++        color: #333;
++      }
++
++      .badge {
++        font-size: 11px;
++        padding: 4px 8px;
++      }
++
++      tbody tr {
++        &:hover {
++          background-color: #f8f9fa;
++        }
++      }
++    }
++  }
++
++  .alert {
++    border-radius: 4px;
++    border: none;
++    padding: 15px 20px;
++    margin-bottom: 20px;
++
++    .btn-close {
++      padding: 0.25rem;
++    }
++  }
++
++  .spinner-border {
++    margin: 40px auto;
++  }
++}
++
++// Responsive Design
++@media (max-width: 768px) {
++  .users-activities-report-container {
++    padding: 10px;
++
++    .summary-stats {
++      .stat-card {
++        margin-bottom: 15px;
++      }
++    }
++
++    .table-responsive {
++      font-size: 12px;
++    }
++
++    .nav-link {
++      padding: 8px 12px !important;
++      font-size: 12px;
++    }
++  }
++}
+diff --git a/src/app/admin/admin-reports/users-activities/users-activities-report.component.ts b/src/app/admin/admin-reports/users-activities/users-activities-report.component.ts
+new file mode 100644
+index 000000000..dae1b8c71
+--- /dev/null
++++ b/src/app/admin/admin-reports/users-activities/users-activities-report.component.ts
+@@ -0,0 +1,831 @@
++import { CommonModule } from '@angular/common';
++import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
++import { FormsModule } from '@angular/forms';
++import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
++import { TranslateModule, TranslateService } from '@ngx-translate/core';
++import ApexCharts, { ApexOptions } from 'apexcharts';
++import { Subject } from 'rxjs';
++import { takeUntil } from 'rxjs/operators';
++
++import { ReportSummary, SummaryWithTrendData, UserAction, UserActivityReport, UserActivityReportService, UserActivityStats } from './users-activities-report.service';
++
++@Component({
++  selector: 'ds-users-activities-report',
++  standalone: true,
++  imports: [CommonModule, FormsModule, TranslateModule, NgbModule],
++  templateUrl: './users-activities-report.component.html',
++  styleUrls: ['./users-activities-report.component.scss']
++})
++export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnDestroy {
++  @ViewChild('trendChartContainer') chartContainer?: ElementRef<HTMLDivElement>;
++  @ViewChild('submissionsChartContainer') submissionsChartContainer?: ElementRef<HTMLDivElement>;
++  @ViewChild('reviewsChartContainer') reviewsChartContainer?: ElementRef<HTMLDivElement>;
++  @ViewChild('approvalsChartContainer') approvalsChartContainer?: ElementRef<HTMLDivElement>;
++  @ViewChild('rejectionsChartContainer') rejectionsChartContainer?: ElementRef<HTMLDivElement>;
++  @ViewChild('withdrawalsChartContainer') withdrawalsChartContainer?: ElementRef<HTMLDivElement>;
++
++  report: UserActivityReport | null = null;
++  summary: ReportSummary | null = null;
++  summaryWithTrends: SummaryWithTrendData | null = null;
++  users: UserActivityStats[] | null = null;
++  actions: UserAction[] | null = null;
++  loading = false;
++  error: string | null = null;
++
++  activeTab: 'summary' | 'users' | 'actions' = 'summary';
++  searchEmail = '';
++  sortField: 'name' | 'submissions' | 'reviews' | 'approvals' | 'rejections' | 'withdrawals' = 'name';
++  sortDirection: 'asc' | 'desc' = 'asc';
++
++  // Pagination for users table
++  currentPage = 1;
++  itemsPerPage = 10;
++
++  // Date filter for trend data
++  startDate: string = '';
++  endDate: string = '';
++  filteredTrendData: { [month: string]: { [actionType: string]: number } } = {};
++
++  // View type: 'monthly' or 'yearly'
++  viewType: 'monthly' | 'yearly' = 'monthly';
++
++  // Aggregated yearly data
++  yearlyTrendData: { [year: string]: { [actionType: string]: number } } = {};
++
++  // Flag to track if data has been loaded from API
++  chartDataLoaded = false;
++
++  // ApexCharts instance
++  private chartInstance: ApexCharts | null = null;
++  private submissionsChartInstance: ApexCharts | null = null;
++  private reviewsChartInstance: ApexCharts | null = null;
++  private approvalsChartInstance: ApexCharts | null = null;
++  private rejectionsChartInstance: ApexCharts | null = null;
++  private withdrawalsChartInstance: ApexCharts | null = null;
++
++  // Pending chart data to render once view is initialized
++  private pendingChartData: { periods: string[]; series: any[] } | null = null;
++
++  private destroy$ = new Subject<void>();
++
++  constructor(
++    private reportService: UserActivityReportService,
++    private cdr: ChangeDetectorRef,
++    private translate: TranslateService
++  ) {}
++
++  ngOnInit(): void {
++    this.loadDataForTab();
++  }
++
++  ngAfterViewInit(): void {
++    // If there's pending chart data, render it now that the view is initialized
++    if (this.pendingChartData && this.chartContainer) {
++      this.renderChart(this.pendingChartData.periods, this.pendingChartData.series);
++      this.pendingChartData = null;
++    }
++
++    if (this.users && this.activeTab === 'users') {
++      this.renderUserStatsCharts();
++    }
++  }
++
++  ngOnDestroy(): void {
++    if (this.chartInstance) {
++      this.chartInstance.destroy();
++    }
++    if (this.submissionsChartInstance) {
++      this.submissionsChartInstance.destroy();
++    }
++    if (this.reviewsChartInstance) {
++      this.reviewsChartInstance.destroy();
++    }
++    if (this.approvalsChartInstance) {
++      this.approvalsChartInstance.destroy();
++    }
++    if (this.rejectionsChartInstance) {
++      this.rejectionsChartInstance.destroy();
++    }
++    if (this.withdrawalsChartInstance) {
++      this.withdrawalsChartInstance.destroy();
++    }
++    this.destroy$.next();
++    this.destroy$.complete();
++  }
++
++  loadDataForTab(): void {
++    switch (this.activeTab) {
++      case 'summary':
++        this.loadSummary();
++        break;
++      case 'users':
++        this.loadUsers();
++        break;
++      case 'actions':
++        this.loadActions();
++        break;
++    }
++  }
++
++  loadSummary(): void {
++    if (this.summaryWithTrends) {
++      this.initializeDefaultDateRange();
++      this.filteredTrendData = this.getFilteredTrendData();
++      this.chartDataLoaded = true;
++      this.updateChartData();
++      return; // Already loaded
++    }
++
++    this.loading = true;
++    this.error = null;
++
++    this.reportService.getSummaryWithTrends()
++      .pipe(takeUntil(this.destroy$))
++      .subscribe({
++        next: (data) => {
++          this.summaryWithTrends = data;
++          this.summary = data;
++          this.initializeDefaultDateRange();
++          this.filteredTrendData = this.getFilteredTrendData();
++          this.chartDataLoaded = true;
++          this.updateChartData();
++          this.loading = false;
++          this.cdr.detectChanges();
++        },
++        error: (err) => {
++          console.error('Error loading summary:', err);
++          this.error = 'Error loading summary data. Please try again later.';
++          this.loading = false;
++          this.cdr.detectChanges();
++        }
++      });
++  }
++
++  loadUsers(): void {
++    if (this.users) {
++      return; // Already loaded
++    }
++
++    this.loading = true;
++    this.error = null;
++
++    this.reportService.getUsers()
++      .pipe(takeUntil(this.destroy$))
++      .subscribe({
++        next: (data) => {
++          this.users = data;
++          this.loading = false;
++          this.cdr.detectChanges();
++          setTimeout(() => {
++            this.renderUserStatsCharts();
++          }, 0);
++        },
++        error: (err) => {
++          console.error('Error loading users:', err);
++          this.error = 'Error loading user statistics. Please try again later.';
++          this.loading = false;
++          this.cdr.detectChanges();
++        }
++      });
++  }
++
++  loadActions(): void {
++    if (this.actions) {
++      return; // Already loaded
++    }
++
++    this.loading = true;
++    this.error = null;
++
++    this.reportService.getAllActions()
++      .pipe(takeUntil(this.destroy$))
++      .subscribe({
++        next: (data) => {
++          this.actions = data;
++          this.loading = false;
++          this.cdr.detectChanges();
++        },
++        error: (err) => {
++          console.error('Error loading actions:', err);
++          this.error = 'Error loading actions data. Please try again later.';
++          this.loading = false;
++          this.cdr.detectChanges();
++        }
++      });
++  }
++
++  getFilteredUsers() {
++    if (!this.users) {
++      return [];
++    }
++
++    let filtered = this.users;
++
++    // Filter by email if search text provided
++    if (this.searchEmail.trim()) {
++      const search = this.searchEmail.toLowerCase();
++      filtered = filtered.filter(u =>
++        u.email.toLowerCase().includes(search) ||
++        u.userName.toLowerCase().includes(search)
++      );
++    }
++
++    // Sort
++    filtered.sort((a, b) => {
++      let aVal: any;
++      let bVal: any;
++
++      switch (this.sortField) {
++        case 'name':
++          aVal = a.userName.toLowerCase();
++          bVal = b.userName.toLowerCase();
++          break;
++        case 'submissions':
++          aVal = a.totalSubmissions;
++          bVal = b.totalSubmissions;
++          break;
++        case 'reviews':
++          aVal = a.totalReviews;
++          bVal = b.totalReviews;
++          break;
++        case 'approvals':
++          aVal = a.totalApprovals;
++          bVal = b.totalApprovals;
++          break;
++        case 'rejections':
++          aVal = a.totalRejections;
++          bVal = b.totalRejections;
++          break;
++        case 'withdrawals':
++          aVal = a.totalWithdrawals;
++          bVal = b.totalWithdrawals;
++          break;
++      }
++
++      if (aVal < bVal) return this.sortDirection === 'asc' ? -1 : 1;
++      if (aVal > bVal) return this.sortDirection === 'asc' ? 1 : -1;
++      return 0;
++    });
++
++    return filtered;
++  }
++
++  /**
++   * Get paginated users for the current page
++   */
++  getPaginatedUsers() {
++    const filtered = this.getFilteredUsers();
++    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
++    const endIndex = startIndex + this.itemsPerPage;
++    return filtered.slice(startIndex, endIndex);
++  }
++
++  /**
++   * Get total number of pages
++   */
++  getTotalPages(): number {
++    const filtered = this.getFilteredUsers();
++    return Math.ceil(filtered.length / this.itemsPerPage);
++  }
++
++  /**
++   * Go to a specific page
++   */
++  goToPage(page: number): void {
++    const totalPages = this.getTotalPages();
++    if (page >= 1 && page <= totalPages) {
++      this.currentPage = page;
++    }
++  }
++
++  /**
++   * Get array of page numbers for pagination display
++   */
++  getPageNumbers(): number[] {
++    const totalPages = this.getTotalPages();
++    const pages: number[] = [];
++    for (let i = 1; i <= totalPages; i++) {
++      pages.push(i);
++    }
++    return pages;
++  }
++
++  toggleSort(field: 'name' | 'submissions' | 'reviews' | 'approvals' | 'rejections' | 'withdrawals'): void {
++    this.currentPage = 1;
++    if (this.sortField === field) {
++      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
++    } else {
++      this.sortField = field;
++      this.sortDirection = 'asc';
++    }
++  }
++
++  private renderUserStatsCharts(): void {
++    if (!this.users || this.users.length === 0) {
++      return;
++    }
++
++    this.renderUserChart(
++      'submissions',
++      this.submissionsChartContainer,
++      this.getUserChartTitle('submissions'),
++      this.getTopUsersBy('submissions')
++    );
++
++    this.renderUserChart(
++      'reviews',
++      this.reviewsChartContainer,
++      this.getUserChartTitle('reviews'),
++      this.getTopUsersBy('reviews')
++    );
++
++    this.renderUserChart(
++      'approvals',
++      this.approvalsChartContainer,
++      this.getUserChartTitle('approvals'),
++      this.getTopUsersBy('approvals')
++    );
++
++    this.renderUserChart(
++      'rejections',
++      this.rejectionsChartContainer,
++      this.getUserChartTitle('rejections'),
++      this.getTopUsersBy('rejections')
++    );
++
++    this.renderUserChart(
++      'withdrawals',
++      this.withdrawalsChartContainer,
++      this.getUserChartTitle('withdrawals'),
++      this.getTopUsersBy('withdrawals')
++    );
++  }
++
++  private getUserChartTitle(metric: 'submissions' | 'reviews' | 'approvals' | 'rejections' | 'withdrawals'): string {
++    return this.translate.instant(`admin.reports.users-activities.top-10-${metric}`);
++  }
++
++  private getTopUsersBy(metric: 'submissions' | 'reviews' | 'approvals' | 'rejections' | 'withdrawals') {
++    const users = this.users ? [...this.users] : [];
++
++    const getValue = (user: UserActivityStats): number => {
++      switch (metric) {
++        case 'submissions':
++          return user.totalSubmissions || 0;
++        case 'reviews':
++          return typeof (user as any).totalReviews === 'number'
++            ? (user as any).totalReviews
++            : (user.totalApprovals + user.totalRejections + user.totalWithdrawals);
++        case 'approvals':
++          return user.totalApprovals || 0;
++        case 'rejections':
++          return user.totalRejections || 0;
++        case 'withdrawals':
++          return user.totalWithdrawals || 0;
++        default:
++          return 0;
++      }
++    };
++
++    return users
++      .map(user => ({
++        name: user.userName || user.email,
++        value: getValue(user)
++      }))
++      .filter(item => item.value > 0)
++      .sort((a, b) => b.value - a.value)
++      .slice(0, 10);
++  }
++
++  private renderUserChart(
++    key: 'submissions' | 'reviews' | 'approvals' | 'rejections' | 'withdrawals',
++    container: ElementRef<HTMLDivElement> | undefined,
++    title: string,
++    data: { name: string; value: number }[]
++  ): void {
++    if (!container || !container.nativeElement) {
++      return;
++    }
++
++    if (data.length === 0) {
++      return;
++    }
++
++    const categories = data.map(item => item.name);
++    const series = [{ name: title, data: data.map(item => item.value) }];
++
++    const titleText = this.viewType === 'yearly'
++      ? this.translate.instant('admin.reports.users-activities.yearly')
++      : this.translate.instant('admin.reports.users-activities.monthly');
++    const xAxisTitle = this.viewType === 'yearly'
++      ? this.translate.instant('admin.reports.users-activities.year')
++      : this.translate.instant('admin.reports.users-activities.month');
++    const yAxisTitle = this.translate.instant('admin.reports.users-activities.count');
++
++    const options: ApexOptions = {
++      chart: {
++        type: 'bar',
++        height: 320,
++        toolbar: { show: false }
++      },
++      title: { text: title },
++      series,
++      xaxis: {
++        categories,
++        labels: { trim: true }
++      },
++      plotOptions: {
++        bar: {
++          horizontal: true,
++          barHeight: '70%'
++        }
++      },
++      dataLabels: { enabled: false },
++      tooltip: {
++        theme: 'light',
++        y: { formatter: (value: number) => Math.round(value).toString() }
++      }
++    };
++
++    const destroyInstance = (instance: ApexCharts | null) => {
++      if (instance) {
++        instance.destroy();
++      }
++    };
++
++    switch (key) {
++      case 'submissions':
++        destroyInstance(this.submissionsChartInstance);
++        this.submissionsChartInstance = new ApexCharts(container.nativeElement, options);
++        this.submissionsChartInstance.render();
++        break;
++      case 'reviews':
++        destroyInstance(this.reviewsChartInstance);
++        this.reviewsChartInstance = new ApexCharts(container.nativeElement, options);
++        this.reviewsChartInstance.render();
++        break;
++      case 'approvals':
++        destroyInstance(this.approvalsChartInstance);
++        this.approvalsChartInstance = new ApexCharts(container.nativeElement, options);
++        this.approvalsChartInstance.render();
++        break;
++      case 'rejections':
++        destroyInstance(this.rejectionsChartInstance);
++        this.rejectionsChartInstance = new ApexCharts(container.nativeElement, options);
++        this.rejectionsChartInstance.render();
++        break;
++      case 'withdrawals':
++        destroyInstance(this.withdrawalsChartInstance);
++        this.withdrawalsChartInstance = new ApexCharts(container.nativeElement, options);
++        this.withdrawalsChartInstance.render();
++        break;
++    }
++  }
++
++  setTab(tab: 'summary' | 'users' | 'actions'): void {
++    this.activeTab = tab;
++    this.loadDataForTab();
++
++    if (tab === 'users') {
++      setTimeout(() => {
++        this.renderUserStatsCharts();
++      }, 0);
++    }
++  }
++
++  /**
++   * Initialize default date range to last 12 months
++   */
++  private initializeDefaultDateRange(): void {
++    if (!this.summaryWithTrends?.trendData || Object.keys(this.summaryWithTrends.trendData).length === 0) {
++      return;
++    }
++
++    const months = Object.keys(this.summaryWithTrends.trendData).sort();
++    if (months.length === 0) {
++      return;
++    }
++
++    // Get the last month available
++    const lastMonth = months[months.length - 1];
++
++    // Calculate 12 months back from the last month
++    const date = new Date(lastMonth + '-01');
++    date.setMonth(date.getMonth() - 11); // 12 months total (current + 11 previous)
++
++    const year = date.getFullYear();
++    const month = String(date.getMonth() + 1).padStart(2, '0');
++    const startOfRange = `${year}-${month}`;
++
++    this.startDate = startOfRange;
++    this.endDate = lastMonth;
++  }
++
++  /**
++   * Validate date range - only check order, no maximum range restriction
++   */
++  private validateDateRange(): void {
++    if (!this.startDate || !this.endDate) {
++      return;
++    }
++
++    // Calculate months between start and end
++    const [startYear, startMonth] = this.startDate.split('-').map(Number);
++    const [endYear, endMonth] = this.endDate.split('-').map(Number);
++
++    const startDate = new Date(startYear, startMonth - 1);
++    const endDate = new Date(endYear, endMonth - 1);
++
++    if (startDate > endDate) {
++      // Swap if start is after end
++      const temp = this.startDate;
++      this.startDate = this.endDate;
++      this.endDate = temp;
++      return;
++    }
++  }
++
++  /**
++   * Aggregate monthly data into yearly data
++   */
++  private aggregateYearlyData(): void {
++    this.yearlyTrendData = {};
++
++    if (!this.summaryWithTrends?.trendData) {
++      return;
++    }
++
++    for (const [month, monthData] of Object.entries(this.summaryWithTrends.trendData)) {
++      const year = month.split('-')[0];
++
++      if (!this.yearlyTrendData[year]) {
++        this.yearlyTrendData[year] = {
++          SUBMITTED: 0,
++          APPROVED: 0,
++          REJECTED: 0,
++          WITHDRAWN: 0
++        };
++      }
++
++      for (const [actionType, count] of Object.entries(monthData)) {
++        if (this.yearlyTrendData[year][actionType] !== undefined) {
++          this.yearlyTrendData[year][actionType] += count;
++        }
++      }
++    }
++  }
++
++  /**
++   * Toggle between monthly and yearly view
++   */
++  switchViewType(viewType: 'monthly' | 'yearly'): void {
++    this.viewType = viewType;
++
++    if (viewType === 'yearly') {
++      // For yearly view, we don't need date validation as strict
++      this.aggregateYearlyData();
++    }
++
++    this.updateChartData();
++  }
++
++  /**
++   * Filter trend data by date range (YYYY-MM format)
++   */
++  getFilteredTrendData(): { [month: string]: { [actionType: string]: number } } {
++    if (!this.summaryWithTrends?.trendData) {
++      return {};
++    }
++
++    const filtered: { [month: string]: { [actionType: string]: number } } = {};
++
++    for (const [month, data] of Object.entries(this.summaryWithTrends.trendData)) {
++      // If no date filter, include all data
++      if (!this.startDate && !this.endDate) {
++        filtered[month] = data;
++        continue;
++      }
++
++      // Check if month is within the range
++      const includeMonth = (
++        (!this.startDate || month >= this.startDate) &&
++        (!this.endDate || month <= this.endDate)
++      );
++
++      if (includeMonth) {
++        filtered[month] = data;
++      }
++    }
++
++    return filtered;
++  }
++
++  /**
++   * Update filtered trend data when date filter changes
++   */
++  onDateFilterChange(): void {
++    if (this.viewType === 'monthly') {
++      this.validateDateRange();
++    }
++    this.filteredTrendData = this.getFilteredTrendData();
++    this.updateChartData();
++  }
++
++  /**
++   * Reset date filters
++   */
++  resetDateFilter(): void {
++    this.initializeDefaultDateRange();
++    this.filteredTrendData = this.getFilteredTrendData();
++    this.updateChartData();
++  }
++
++  /**
++   * Prepare and update chart data from filtered trend data
++   */
++  updateChartData(): void {
++    const dataToUse = this.viewType === 'yearly' ? this.yearlyTrendData : this.filteredTrendData;
++
++    if (!dataToUse || Object.keys(dataToUse).length === 0) {
++      if (this.chartInstance) {
++        this.chartInstance.destroy();
++        this.chartInstance = null;
++      }
++      return;
++    }
++
++    // Get sorted periods (months or years)
++    const periods = Object.keys(dataToUse).sort();
++
++    // Define colors for each action type
++    const colors: { [key: string]: string } = {
++      SUBMITTED: '#0066cc',
++      APPROVED: '#28a745',
++      REJECTED: '#dc3545',
++      WITHDRAWN: '#ffc107'
++    };
++
++    // Prepare series data for each action type
++    const series: any[] = [];
++    const actionTypes = ['SUBMITTED', 'APPROVED', 'REJECTED', 'WITHDRAWN'];
++
++    const legendLabels: { [key: string]: string } = {
++      SUBMITTED: this.translate.instant('admin.reports.users-activities.submitted'),
++      APPROVED: this.translate.instant('admin.reports.users-activities.approved'),
++      REJECTED: this.translate.instant('admin.reports.users-activities.rejected'),
++      WITHDRAWN: this.translate.instant('admin.reports.users-activities.withdrawn')
++    };
++
++    for (const actionType of actionTypes) {
++      const data = periods.map(period => {
++        const periodData = dataToUse[period] || {};
++        return periodData[actionType] || 0;
++      });
++
++      series.push({
++        name: legendLabels[actionType] || actionType,
++        data: data,
++        color: colors[actionType]
++      });
++    }
++
++    // Trigger change detection and render chart
++    // Use Promise.resolve() to defer to the next microtask to ensure DOM is ready
++    Promise.resolve().then(() => {
++      this.cdr.detectChanges();
++      if (this.chartContainer) {
++        this.renderChart(periods, series);
++      } else {
++        // If container not available yet, store pending data
++        this.pendingChartData = { periods, series };
++      }
++    });
++  }
++
++  /**
++   * Render ApexCharts chart
++   */
++  private renderChart(periods: string[], series: any[]): void {
++    if (!this.chartContainer || !this.chartContainer.nativeElement) {
++      console.warn('Chart container not available');
++      return;
++    }
++
++    // Destroy previous chart if it exists
++    if (this.chartInstance) {
++      this.chartInstance.destroy();
++      this.chartInstance = null;
++    }
++
++    // Clear the container
++    const container = this.chartContainer.nativeElement;
++    container.innerHTML = '';
++
++    const titleText = this.viewType === 'yearly'
++      ? this.translate.instant('admin.reports.users-activities.yearly')
++      : this.translate.instant('admin.reports.users-activities.monthly');
++    const xAxisTitle = this.viewType === 'yearly'
++      ? this.translate.instant('admin.reports.users-activities.year')
++      : this.translate.instant('admin.reports.users-activities.month');
++    const yAxisTitle = this.translate.instant('admin.reports.users-activities.count');
++
++    const options: ApexOptions = {
++      chart: {
++        type: 'bar',
++        height: 400,
++        toolbar: {
++          show: true,
++          tools: {
++            download: true,
++            selection: true,
++            zoom: true,
++            zoomin: true,
++            zoomout: true,
++            pan: true,
++            reset: true
++          }
++        }
++      },
++      title: {
++        text: titleText
++      },
++      series: series,
++      xaxis: {
++        categories: periods,
++        type: 'category',
++        title: {
++          text: xAxisTitle
++        }
++      },
++      yaxis: {
++        title: {
++          text: yAxisTitle
++        },
++        min: 0
++      },
++      plotOptions: {
++        bar: {
++          horizontal: false,
++          columnWidth: '55%',
++          dataLabels: {
++            position: 'top'
++          }
++        }
++      },
++      legend: {
++        position: 'top',
++        horizontalAlign: 'right'
++      },
++      grid: {
++        show: true,
++        borderColor: '#f1f1f1'
++      },
++      tooltip: {
++        theme: 'light',
++        y: {
++          formatter: (value: number) => Math.round(value).toString()
++        }
++      }
++    };
++
++    try {
++      this.chartInstance = new ApexCharts(container, options);
++      this.chartInstance.render();
++    } catch (error) {
++      console.error('Error rendering chart:', error);
++    }
++  }
++
++  downloadCSV(): void {
++    if (!this.users) {
++      return;
++    }
++
++    const headers = ['Email', 'Name', 'Submissions', 'Reviews', 'Approvals', 'Rejections', 'Withdrawals'];
++    const rows = this.users.map(user => [
++      user.email,
++      user.userName,
++      user.totalSubmissions,
++      user.totalApprovals + user.totalRejections + user.totalWithdrawals,
++      user.totalApprovals,
++      user.totalRejections,
++      user.totalWithdrawals
++    ]);
++
++    const csvContent = [
++      headers.join(','),
++      ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
++    ].join('\n');
++
++    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
++    const link = document.createElement('a');
++    const url = URL.createObjectURL(blob);
++
++    link.setAttribute('href', url);
++    link.setAttribute('download', `users-activities-report-${new Date().toISOString().split('T')[0]}.csv`);
++    link.style.visibility = 'hidden';
++    document.body.appendChild(link);
++    link.click();
++    document.body.removeChild(link);
++  }
++}
+diff --git a/src/app/admin/admin-reports/users-activities/users-activities-report.service.ts b/src/app/admin/admin-reports/users-activities/users-activities-report.service.ts
+new file mode 100644
+index 000000000..c5f87c6fe
+--- /dev/null
++++ b/src/app/admin/admin-reports/users-activities/users-activities-report.service.ts
+@@ -0,0 +1,92 @@
++import { HttpClient } from '@angular/common/http';
++import { Injectable, inject } from '@angular/core';
++import { Observable } from 'rxjs';
++
++import { APP_CONFIG, AppConfig } from '@dspace/config/app-config.interface';
++import { RESTURLCombiner } from '../../../core/url-combiner/rest-url-combiner';
++
++export interface UserAction {
++  actionType: 'SUBMITTED' | 'APPROVED' | 'REJECTED' | 'WITHDRAWN' | 'REVIEWED';
++  userName: string;
++  email: string;
++  actionDate: string;
++  itemUUID: string;
++  details?: string;
++}
++
++export interface UserActivityStats {
++  userName: string;
++  email: string;
++  totalSubmissions: number;
++  totalReviews: number;
++  totalApprovals: number;
++  totalRejections: number;
++  totalWithdrawals: number;
++  actions: UserAction[];
++}
++
++export interface UserActivityReport {
++  totalUsers: number;
++  totalSubmissions: number;
++  totalReviews: number;
++  totalApprovals: number;
++  totalRejections: number;
++  totalWithdrawals: number;
++  userStats: UserActivityStats[];
++}
++
++export interface ReportSummary {
++  submissions: number;
++  reviews: number;
++  approvals: number;
++  rejections: number;
++  withdrawals: number;
++  totalUsers: number;
++}
++
++export interface SummaryWithTrendData extends ReportSummary {
++  trendData: { [month: string]: { [actionType: string]: number } };
++}
++
++
++@Injectable({
++  providedIn: 'root'
++})
++export class UserActivityReportService {
++  private readonly appConfig: AppConfig = inject(APP_CONFIG);
++  private readonly ENPOINT_URL = '/reports/users-activities';
++
++  constructor(private http: HttpClient) {}
++
++  /**
++   * Get all user statistics
++   */
++  getUsers(): Observable<UserActivityStats[]> {
++    const url = new RESTURLCombiner(this.appConfig.rest.baseUrl, this.ENPOINT_URL).toString();
++    return this.http.get<UserActivityStats[]>(url);
++  }
++
++  /**
++   * Get summary statistics only
++   */
++  getSummary(): Observable<ReportSummary> {
++    const url = new RESTURLCombiner(this.appConfig.rest.baseUrl, `${this.ENPOINT_URL}/summary`).toString();
++    return this.http.get<ReportSummary>(url);
++  }
++
++  /**
++   * Get all actions without aggregation
++   */
++  getAllActions(): Observable<UserAction[]> {
++    const url = new RESTURLCombiner(this.appConfig.rest.baseUrl, `${this.ENPOINT_URL}/actions`).toString();
++    return this.http.get<UserAction[]>(url);
++  }
++
++  /**
++   * Get summary statistics with trend data aggregated by month
++   */
++  getSummaryWithTrends(): Observable<SummaryWithTrendData> {
++    const url = new RESTURLCombiner(this.appConfig.rest.baseUrl, `${this.ENPOINT_URL}/summary-with-trends`).toString();
++    return this.http.get<SummaryWithTrendData>(url);
++  }
++}
+diff --git a/src/app/app.menus.ts b/src/app/app.menus.ts
+index e230b0397..6ef690604 100644
+--- a/src/app/app.menus.ts
++++ b/src/app/app.menus.ts
+@@ -5,9 +5,9 @@
+  *
+  * http://www.dspace.org/license/
+  */
+-import { buildMenuStructure } from './shared/menu/menu.structure';
+ import { MenuID } from './shared/menu/menu-id.model';
+ import { MenuRoute } from './shared/menu/menu-route.model';
++import { buildMenuStructure } from './shared/menu/menu.structure';
+ import { AccessControlMenuProvider } from './shared/menu/providers/access-control.menu';
+ import { AdminSearchMenuProvider } from './shared/menu/providers/admin-search.menu';
+ import { AuditLogsMenuProvider } from './shared/menu/providers/audit-item.menu';
+@@ -33,6 +33,7 @@ import { ProcessesMenuProvider } from './shared/menu/providers/processes.menu';
+ import { RegistriesMenuProvider } from './shared/menu/providers/registries.menu';
+ import { StatisticsMenuProvider } from './shared/menu/providers/statistics.menu';
+ import { SystemWideAlertMenuProvider } from './shared/menu/providers/system-wide-alert.menu';
++import { UsersActivitiesReportMenuProvider } from './shared/menu/providers/users-activities-report.menu';
+ import { WithdrawnReinstateItemMenuProvider } from './shared/menu/providers/withdrawn-reinstate-item.menu';
+ import { WorkflowMenuProvider } from './shared/menu/providers/workflow.menu';
+ 
+@@ -68,6 +69,7 @@ export const MENUS = buildMenuStructure({
+     AdminSearchMenuProvider,
+     CreateReportMenuProvider,
+     RegistriesMenuProvider,
++    UsersActivitiesReportMenuProvider,
+     CurationMenuProvider,
+     ProcessesMenuProvider,
+     WorkflowMenuProvider,
+diff --git a/src/app/shared/menu/providers/users-activities-report.menu.ts b/src/app/shared/menu/providers/users-activities-report.menu.ts
+new file mode 100644
+index 000000000..d0a7a017c
+--- /dev/null
++++ b/src/app/shared/menu/providers/users-activities-report.menu.ts
+@@ -0,0 +1,47 @@
++/**
++ * The contents of this file are subject to the license and copyright
++ * detailed in the LICENSE and NOTICE files at the root of the source
++ * tree and available online at
++ *
++ * http://www.dspace.org/license/
++ */
++
++import { Injectable } from '@angular/core';
++import { AuthorizationDataService } from '@dspace/core/data/feature-authorization/authorization-data.service';
++import { FeatureID } from '@dspace/core/data/feature-authorization/feature-id';
++import { combineLatest, map, Observable } from 'rxjs';
++
++import { MenuItemType } from '../menu-item-type.model';
++import { AbstractMenuProvider, PartialMenuSection } from '../menu-provider.model';
++
++/**
++ * Menu provider to create the "Users Activities Report" menu in the admin sidebar
++ */
++@Injectable()
++export class UsersActivitiesReportMenuProvider extends AbstractMenuProvider {
++  constructor(
++    protected authorizationService: AuthorizationDataService,
++  ) {
++    super();
++  }
++
++  public getSections(): Observable<PartialMenuSection[]> {
++    return combineLatest([
++      this.authorizationService.isAuthorized(FeatureID.AdministratorOf),
++    ]).pipe(
++      map(([isSiteAdmin]) => {
++        return [
++          {
++            visible: isSiteAdmin,
++            model: {
++              type: MenuItemType.LINK,
++              text: 'menu.section.reports.users-activities',
++              link: '/admin/reports/users-activities',
++            },
++            icon: 'chart-line',
++          },
++        ] as PartialMenuSection[];
++      }),
++    );
++  }
++}
+diff --git a/src/assets/i18n/en.json5 b/src/assets/i18n/en.json5
+index 0fc94d162..6d5d43db2 100644
+--- a/src/assets/i18n/en.json5
++++ b/src/assets/i18n/en.json5
+@@ -749,6 +749,111 @@
+ 
+   "admin.reports.commons.filters.permission.has_restricted_metadata.tooltip": "Item has metadata that is not accessible to Anonymous user",
+ 
++  "admin.reports.users-activities.title": "Users Activities Report",
++
++  "admin.reports.users-activities.breadcrumbs": "Users Activities Report",
++
++  "admin.reports.users-activities.description": "View detailed statistics about users' activity across submissions and reviews",
++
++  "admin.reports.users-activities.summary": "Summary",
++
++  "admin.reports.users-activities.user-stats": "Users Statistics",
++
++  "admin.reports.users-activities.users-indicators": "Users Indicators",
++
++  "admin.reports.users-activities.actions": "All Actions",
++
++  "admin.reports.users-activities.total-users": "Total Users",
++
++  "admin.reports.users-activities.total-submissions": "Total Submissions",
++
++  "admin.reports.users-activities.total-reviews": "Total Reviews",
++
++  "admin.reports.users-activities.total-approvals": "Total Approvals",
++
++  "admin.reports.users-activities.total-rejections": "Total Rejections",
++
++  "admin.reports.users-activities.total-withdrawals": "Total Withdrawals",
++
++  "admin.reports.users-activities.report-summary": "Report Summary",
++
++  "admin.reports.users-activities.user-statistics": "Users Statistics",
++
++  "admin.reports.users-activities.all-actions": "All Actions",
++
++  "admin.reports.users-activities.download-CSV": "Download CSV",
++
++  "admin.reports.users-activities.name": "Name",
++
++  "admin.reports.users-activities.email": "Email",
++
++  "admin.reports.users-activities.submissions": "Submissions",
++
++  "admin.reports.users-activities.reviews": "Reviews",
++
++  "admin.reports.users-activities.approvals": "Approvals",
++
++  "admin.reports.users-activities.rejections": "Rejections",
++
++  "admin.reports.users-activities.withdrawals": "Withdrawals",
++
++  "admin.reports.users-activities.searchByEmailOrName": "Search by email or name...",
++
++  "admin.reports.users-activities.action": "Action",
++
++  "admin.reports.users-activities.user": "User",
++
++  "admin.reports.users-activities.date": "Date",
++
++  "admin.reports.users-activities.details": "Details",
++
++  "admin.reports.users-activities.submitted": "Submitted",
++
++  "admin.reports.users-activities.reviewed": "Reviewed",
++
++  "admin.reports.users-activities.approved": "Approved",
++
++  "admin.reports.users-activities.rejected": "Rejected",
++
++  "admin.reports.users-activities.withdrawn": "Withdrawn",
++
++  "admin.reports.users-activities.no-results": "No results found",
++
++  "admin.reports.users-activities.activity-trends": "Activity Trends by Month",
++
++  "admin.reports.users-activities.start-date": "Start Date (YYYY-MM)",
++
++  "admin.reports.users-activities.end-date": "End Date (YYYY-MM)",
++
++  "admin.reports.users-activities.reset-filter": "Reset Filter",
++
++  "admin.reports.users-activities.monthly": "Monthly",
++
++  "admin.reports.users-activities.year": "Year",
++
++  "admin.reports.users-activities.yearly": "Yearly",
++
++  "admin.reports.users-activities.count": "Count",
++  "admin.reports.users-activities.month": "Month",
++
++  "admin.reports.users-activities.top-10-submissions": "Top 10 Users by Submissions",
++
++  "admin.reports.users-activities.top-10-reviews": "Top 10 Users by Reviews",
++
++  "admin.reports.users-activities.top-10-approvals": "Top 10 Users by Approvals",
++
++  "admin.reports.users-activities.top-10-rejections": "Top 10 Users by Rejections",
++
++  "admin.reports.users-activities.top-10-withdrawals": "Top 10 Users by Withdrawals",
++
++  "admin.reports.users-activities.download-csv": "Download CSV",
++
++  "admin.reports.users-activities.search-by-email-or-name": "Search by email or name...",
++
++  "admin.reports.users-activities.no-trend-data": "No trend data available for selected period",
++
++  "admin.reports.users-activities.user-stats": "Users Statistics",
++
+   "admin.search.breadcrumbs": "Administrative Search",
+ 
+   "admin.search.collection.edit": "Edit",
+@@ -3515,6 +3620,8 @@
+ 
+   "menu.section.reports.queries": "Metadata Query",
+ 
++  "menu.section.reports.users-activities": "Users Activities Report",
++
+   "menu.section.admin_search": "Admin Search",
+ 
+   "menu.section.browse_community": "This Community",
+diff --git a/src/assets/i18n/es.json5 b/src/assets/i18n/es.json5
+index 7f1b2f4d6..e1a8c50dd 100644
+--- a/src/assets/i18n/es.json5
++++ b/src/assets/i18n/es.json5
+@@ -1130,6 +1130,155 @@
+   // "admin.reports.commons.filters.permission.has_restricted_metadata.tooltip": "Item has metadata that is not accessible to Anonymous user",
+   "admin.reports.commons.filters.permission.has_restricted_metadata.tooltip": "Item con metadatos no accesibles a usuarios anónimos",
+ 
++  // "admin.reports.users-activities.title": "Users Activity Report",
++  "admin.reports.users-activities.title": "Informe de Actividades de Usuarios",
++
++  // "admin.reports.users-activities.breadcrumbs": "Users Activity Report",
++  "admin.reports.users-activities.breadcrumbs": "Informe de Actividades de Usuarios",
++
++  // "admin.reports.users-activities.description": "View detailed statistics about users' activity across submissions and reviews",
++  "admin.reports.users-activities.description": "Ver estadísticas detalladas sobre la actividad de los usuarios en envíos y revisiones",
++
++  // "admin.reports.users-activities.summary": "Summary",
++  "admin.reports.users-activities.summary": "Resumen",
++
++  // "admin.reports.users-activities.user-stats": "Users Statistics",
++  "admin.reports.users-activities.user-stats": "Estadísticas de usuarios",
++
++  "admin.reports.users-activities.users-indicators": "Indicadores de Usuarios",
++
++  // "admin.reports.users-activities.actions": "All Actions",
++  "admin.reports.users-activities.actions": "Todas las acciones",
++
++  // "admin.reports.users-activities.total-users": "Total Users",
++  "admin.reports.users-activities.total-users": "Total de usuarios",
++
++  // "admin.reports.users-activities.total-submissions": "Total Submissions",
++  "admin.reports.users-activities.total-submissions": "Total de envíos",
++
++  // "admin.reports.users-activities.total-reviews": "Total Reviews",
++  "admin.reports.users-activities.total-reviews": "Total de revisiones",
++
++  // "admin.reports.users-activities.total-approvals": "Total Approvals",
++  "admin.reports.users-activities.total-approvals": "Total de aprobaciones",
++
++  // "admin.reports.users-activities.total-rejections": "Total Rejections",
++  "admin.reports.users-activities.total-rejections": "Total de rechazos",
++
++  // "admin.reports.users-activities.total-withdrawals": "Total Withdrawals",
++  "admin.reports.users-activities.total-withdrawals": "Total de retiros",
++
++  // "admin.reports.users-activities.report-summary": "Report Summary",
++  "admin.reports.users-activities.report-summary": "Resumen del informe",
++
++  // "admin.reports.users-activities.user-statistics": "Users Statistics",
++  "admin.reports.users-activities.user-statistics": "Estadísticas de usuarios",
++
++  // "admin.reports.users-activities.all-actions": "All Actions",
++  "admin.reports.users-activities.all-actions": "Todas las acciones",
++
++  // "admin.reports.users-activities.download-CSV": "Download CSV",
++  "admin.reports.users-activities.download-CSV": "Descargar CSV",
++
++  // "admin.reports.users-activities.name": "Name",
++  "admin.reports.users-activities.name": "Nombre",
++
++  // "admin.reports.users-activities.email": "Email",
++  "admin.reports.users-activities.email": "Email",
++
++  // "admin.reports.users-activities.submissions": "Submissions",
++  "admin.reports.users-activities.submissions": "Envíos",
++
++  // "admin.reports.users-activities.reviews": "Reviews",
++  "admin.reports.users-activities.reviews": "Revisiones",
++
++  // "admin.reports.users-activities.approvals": "Approvals",
++  "admin.reports.users-activities.approvals": "Aprobaciones",
++
++  // "admin.reports.users-activities.rejections": "Rejections",
++  "admin.reports.users-activities.rejections": "Rechazos",
++
++  // "admin.reports.users-activities.withdrawals": "Withdrawals",
++  "admin.reports.users-activities.withdrawals": "Retiros",
++
++  // "admin.reports.users-activities.searchByEmailOrName": "Search by email or name...",
++  "admin.reports.users-activities.searchByEmailOrName": "Buscar por email o nombre...",
++
++  // "admin.reports.users-activities.action": "Action",
++  "admin.reports.users-activities.action": "Acción",
++
++  // "admin.reports.users-activities.user": "User",
++  "admin.reports.users-activities.user": "Usuario",
++
++  // "admin.reports.users-activities.date": "Date",
++  "admin.reports.users-activities.date": "Fecha",
++
++  // "admin.reports.users-activities.details": "Details",
++  "admin.reports.users-activities.details": "Detalles",
++
++  // "admin.reports.users-activities.submitted": "Submitted",
++  "admin.reports.users-activities.submitted": "Enviado",
++
++  // "admin.reports.users-activities.reviewed": "Reviewed",
++  "admin.reports.users-activities.reviewed": "Revisado",
++
++  // "admin.reports.users-activities.approved": "Approved",
++  "admin.reports.users-activities.approved": "Aprobado",
++
++  // "admin.reports.users-activities.rejected": "Rejected",
++  "admin.reports.users-activities.rejected": "Rechazado",
++
++  // "admin.reports.users-activities.withdrawn": "Withdrawn",
++  "admin.reports.users-activities.withdrawn": "Retirado",
++
++  // "admin.reports.users-activities.noResults": "No results found",
++  "admin.reports.users-activities.noResults": "No se encontraron resultados",
++
++  // "admin.reports.users-activities.activity-trends": "Activity Trends by Month",
++  "admin.reports.users-activities.activity-trends": "Tendencias de Actividad por Mes",
++
++  // "admin.reports.users-activities.start-date": "Start Date (YYYY-MM)",
++  "admin.reports.users-activities.start-date": "Fecha de Inicio (YYYY-MM)",
++
++  // "admin.reports.users-activities.end-date": "End Date (YYYY-MM)",
++  "admin.reports.users-activities.end-date": "Fecha de Fin (YYYY-MM)",
++
++  // "admin.reports.users-activities.reset-filter": "Reset Filter",
++  "admin.reports.users-activities.reset-filter": "Restablecer Filtro",
++
++  // "admin.reports.users-activities.monthly": "Monthly",
++  "admin.reports.users-activities.monthly": "Mensual",
++
++  // "admin.reports.users-activities.yearly": "Yearly",
++  "admin.reports.users-activities.yearly": "Anual",
++  "admin.reports.users-activities.year": "Año",
++   "admin.reports.users-activities.count": "Cantidad",
++   "admin.reports.users-activities.month": "Mes",
++
++  // "admin.reports.users-activities.top-10-submissions": "Top 10 Users by Submissions",
++  "admin.reports.users-activities.top-10-submissions": "Top 10 usuarios por envíos",
++
++  // "admin.reports.users-activities.top-10-reviews": "Top 10 Users by Reviews",
++  "admin.reports.users-activities.top-10-reviews": "Top 10 usuarios por revisiones",
++
++  // "admin.reports.users-activities.top-10-approvals": "Top 10 Users by Approvals",
++  "admin.reports.users-activities.top-10-approvals": "Top 10 usuarios por aprobaciones",
++
++  // "admin.reports.users-activities.top-10-rejections": "Top 10 Users by Rejections",
++  "admin.reports.users-activities.top-10-rejections": "Top 10 usuarios por rechazos",
++
++  // "admin.reports.users-activities.top-10-withdrawals": "Top 10 Users by Withdrawals",
++  "admin.reports.users-activities.top-10-withdrawals": "Top 10 usuarios por retiros",
++
++  // "admin.reports.users-activities.download-csv": "Download CSV",
++  "admin.reports.users-activities.download-csv": "Descargar CSV",
++
++  // "admin.reports.users-activities.search-by-email-or-name": "Search by email or name...",
++  "admin.reports.users-activities.search-by-email-or-name": "Buscar por email o nombre...",
++
++  // "admin.reports.users-activities.no-trend-data": "No trend data available for selected period",
++  "admin.reports.users-activities.no-trend-data": "Sin datos de tendencia disponibles para el período seleccionado",
++
+   // "admin.search.breadcrumbs": "Administrative Search",
+   "admin.search.breadcrumbs": "Búsqueda administrativa",
+ 
+@@ -5221,6 +5370,9 @@
+   // "menu.section.reports.queries": "Metadata Query",
+   "menu.section.reports.queries": "Consulta de metadatos",
+ 
++  // "menu.section.reports.users-activities": "Users Activity Report",
++  "menu.section.reports.users-activities": "Informe de Actividades de Usuarios",
++
+   // "menu.section.admin_search": "Admin Search",
+   "menu.section.admin_search": "Búsqueda de administrador",
+ 
+diff --git a/src/assets/i18n/pt-BR.json5 b/src/assets/i18n/pt-BR.json5
+index 57512c5a4..43364a190 100644
+--- a/src/assets/i18n/pt-BR.json5
++++ b/src/assets/i18n/pt-BR.json5
+@@ -1124,6 +1124,156 @@
+   // "admin.reports.commons.filters.permission.has_restricted_metadata.tooltip": "Item has metadata that is not accessible to Anonymous user",
+   "admin.reports.commons.filters.permission.has_restricted_metadata.tooltip": "O item possui metadados que não estão acessíveis ao usuário anônimo",
+ 
++  // "admin.reports.users-activities.title": "Users Activity Report",
++  "admin.reports.users-activities.title": "Relatório de Atividades de Usuários",
++
++  // "admin.reports.users-activities.breadcrumbs": "Users Activity Report",
++  "admin.reports.users-activities.breadcrumbs": "Relatório de Atividades de Usuários",
++
++  // "admin.reports.users-activities.description": "View detailed statistics about users' activity across submissions and reviews",
++  "admin.reports.users-activities.description": "Ver estatísticas detalhadas sobre a atividade dos usuários em envios e revisões",
++
++  // "admin.reports.users-activities.summary": "Summary",
++  "admin.reports.users-activities.summary": "Resumo",
++
++  // "admin.reports.users-activities.user-stats": "Users Statistics",
++  "admin.reports.users-activities.user-stats": "Estatísticas de Usuários",
++
++  // "admin.reports.users-activities.actions": "All Actions",
++  "admin.reports.users-activities.actions": "Todas as Ações",
++
++  // "admin.reports.users-activities.total-users": "Total Users",
++  "admin.reports.users-activities.total-users": "Total de Usuários",
++
++  // "admin.reports.users-activities.total-submissions": "Total Submissions",
++  "admin.reports.users-activities.total-submissions": "Total de Envios",
++
++  // "admin.reports.users-activities.total-reviews": "Total Reviews",
++  "admin.reports.users-activities.total-reviews": "Total de Revisões",
++
++  // "admin.reports.users-activities.total-approvals": "Total Approvals",
++  "admin.reports.users-activities.total-approvals": "Total de Aprovações",
++
++  // "admin.reports.users-activities.total-rejections": "Total Rejections",
++  "admin.reports.users-activities.total-rejections": "Total de Rejeições",
++
++  // "admin.reports.users-activities.total-withdrawals": "Total Withdrawals",
++  "admin.reports.users-activities.total-withdrawals": "Total de Retiradas",
++
++  // "admin.reports.users-activities.report-summary": "Report Summary",
++  "admin.reports.users-activities.report-summary": "Resumo do Relatório",
++
++  // "admin.reports.users-activities.user-statistics": "Users Statistics",
++  "admin.reports.users-activities.user-statistics": "Estatísticas de Usuários",
++
++  // "admin.reports.users-activities.user-statistics": "Users indicators",
++  "admin.reports.users-activities.users-indicators": "Indicadores de Usuários",
++
++  // "admin.reports.users-activities.all-actions": "All Actions",
++  "admin.reports.users-activities.all-actions": "Todas as Ações",
++
++  // "admin.reports.users-activities.download-CSV": "Download CSV",
++  "admin.reports.users-activities.download-CSV": "Baixar CSV",
++
++  // "admin.reports.users-activities.name": "Name",
++  "admin.reports.users-activities.name": "Nome",
++
++  // "admin.reports.users-activities.email": "Email",
++  "admin.reports.users-activities.email": "Email",
++
++  // "admin.reports.users-activities.submissions": "Submissions",
++  "admin.reports.users-activities.submissions": "Envios",
++
++  // "admin.reports.users-activities.reviews": "Reviews",
++  "admin.reports.users-activities.reviews": "Revisões",
++
++  // "admin.reports.users-activities.approvals": "Approvals",
++  "admin.reports.users-activities.approvals": "Aprovações",
++
++  // "admin.reports.users-activities.rejections": "Rejections",
++  "admin.reports.users-activities.rejections": "Rejeições",
++
++  // "admin.reports.users-activities.withdrawals": "Withdrawals",
++  "admin.reports.users-activities.withdrawals": "Retiradas",
++
++  // "admin.reports.users-activities.searchByEmailOrName": "Search by email or name...",
++  "admin.reports.users-activities.searchByEmailOrName": "Pesquisar por email ou nome...",
++
++  // "admin.reports.users-activities.action": "Action",
++  "admin.reports.users-activities.action": "Ação",
++
++  // "admin.reports.users-activities.user": "User",
++  "admin.reports.users-activities.user": "Usuário",
++
++  // "admin.reports.users-activities.date": "Date",
++  "admin.reports.users-activities.date": "Data",
++
++  // "admin.reports.users-activities.details": "Details",
++  "admin.reports.users-activities.details": "Detalhes",
++
++  // "admin.reports.users-activities.submitted": "Submitted",
++  "admin.reports.users-activities.submitted": "Enviado",
++
++  // "admin.reports.users-activities.reviewed": "Reviewed",
++  "admin.reports.users-activities.reviewed": "Revisado",
++
++  // "admin.reports.users-activities.approved": "Approved",
++  "admin.reports.users-activities.approved": "Aprovado",
++
++  // "admin.reports.users-activities.rejected": "Rejected",
++  "admin.reports.users-activities.rejected": "Rejeitado",
++
++  // "admin.reports.users-activities.withdrawn": "Withdrawn",
++  "admin.reports.users-activities.withdrawn": "Retirado",
++
++  // "admin.reports.users-activities.no-results": "No results found",
++  "admin.reports.users-activities.no-results": "Nenhum resultado encontrado",
++
++  // "admin.reports.users-activities.activity-trends": "Activity Trends by Month",
++  "admin.reports.users-activities.activity-trends": "Tendências de Atividade por Mês",
++
++  // "admin.reports.users-activities.start-date": "Start Date (YYYY-MM)",
++  "admin.reports.users-activities.start-date": "Data de Início (YYYY-MM)",
++
++  // "admin.reports.users-activities.end-date": "End Date (YYYY-MM)",
++  "admin.reports.users-activities.end-date": "Data de Fim (YYYY-MM)",
++
++  // "admin.reports.users-activities.reset-filter": "Reset Filter",
++  "admin.reports.users-activities.reset-filter": "Redefinir Filtro",
++
++  // "admin.reports.users-activities.monthly": "Monthly",
++  "admin.reports.users-activities.monthly": "Mensal",
++
++  // "admin.reports.users-activities.yearly": "Yearly",
++  "admin.reports.users-activities.yearly": "Anual",
++  "admin.reports.users-activities.year": "Ano",
++  "admin.reports.users-activities.count": "Quantidade",
++   "admin.reports.users-activities.month": "Mês",
++
++  // "admin.reports.users-activities.top-10-submissions": "Top 10 Users by Submissions",
++  "admin.reports.users-activities.top-10-submissions": "Top 10 usuários por submissões",
++
++  // "admin.reports.users-activities.top-10-reviews": "Top 10 Users by Reviews",
++  "admin.reports.users-activities.top-10-reviews": "Top 10 usuários por revisões",
++
++  // "admin.reports.users-activities.top-10-approvals": "Top 10 Users by Approvals",
++  "admin.reports.users-activities.top-10-approvals": "Top 10 usuários por aprovações",
++
++  // "admin.reports.users-activities.top-10-rejections": "Top 10 Users by Rejections",
++  "admin.reports.users-activities.top-10-rejections": "Top 10 usuários por rejeições",
++
++  // "admin.reports.users-activities.top-10-withdrawals": "Top 10 Users by Withdrawals",
++  "admin.reports.users-activities.top-10-withdrawals": "Top 10 usuários por retiradas",
++
++  // "admin.reports.users-activities.download-csv": "Download CSV",
++  "admin.reports.users-activities.download-csv": "Baixar CSV",
++
++  // "admin.reports.users-activities.search-by-email-or-name": "Search by email or name...",
++  "admin.reports.users-activities.search-by-email-or-name": "Pesquisar por email ou nome...",
++
++  // "admin.reports.users-activities.no-trend-data": "No trend data available for selected period",
++  "admin.reports.users-activities.no-trend-data": "Nenhum dado de tendência disponível para o período selecionado",
++
+   // "admin.search.breadcrumbs": "Administrative Search",
+   "admin.search.breadcrumbs": "Pesquisa Administrativa",
+ 
+@@ -5168,6 +5318,9 @@
+   // "menu.section.reports.queries": "Metadata Query",
+   "menu.section.reports.queries": "Consultas de Metadados",
+ 
++  // "menu.section.reports.users-activities": "Users Activity Report",
++  "menu.section.reports.users-activities": "Relatório de Atividades de Usuários",
++
+   // "menu.section.admin_search": "Admin Search",
+   "menu.section.admin_search": "Pesquisa Administrativa",
+ 
