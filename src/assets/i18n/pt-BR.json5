@@ -1202,6 +1202,18 @@
   // "admin.reports.users-activities.action": "Action",
   "admin.reports.users-activities.action": "Ação",
 
+  // "admin.reports.users-activities.item-id-title": "Item ID - Title",
+  "admin.reports.users-activities.item-id-title": "ID do Item - Título",
+
+  // "admin.reports.users-activities.item-title": "Item Title",
+  "admin.reports.users-activities.item-title": "Título do Item",
+
+  // "admin.reports.users-activities.item-id": "Item ID",
+  "admin.reports.users-activities.item-id": "ID do Item",
+
+  // "admin.reports.users-activities.show-item-id": "Show item ID",
+  "admin.reports.users-activities.show-item-id": "Mostrar ID do item",
+
   // "admin.reports.users-activities.user": "User",
   "admin.reports.users-activities.user": "Usuário",
 
@@ -1210,6 +1222,21 @@
 
   // "admin.reports.users-activities.details": "Details",
   "admin.reports.users-activities.details": "Detalhes",
+
+  // "admin.reports.users-activities.filter-item-id": "Item ID",
+  "admin.reports.users-activities.filter-item-id": "ID do Item",
+
+  // "admin.reports.users-activities.filter-action-type": "Action Type",
+  "admin.reports.users-activities.filter-action-type": "Tipo de Ação",
+
+  // "admin.reports.users-activities.filter-user-email": "User Email",
+  "admin.reports.users-activities.filter-user-email": "Email do Usuário",
+
+  // "admin.reports.users-activities.filter-user-name": "User Name",
+  "admin.reports.users-activities.filter-user-name": "Nome do Usuário",
+
+  // "admin.reports.users-activities.filter-reset": "Reset",
+  "admin.reports.users-activities.filter-reset": "Redefinir",
 
   // "admin.reports.users-activities.submitted": "Submitted",
   "admin.reports.users-activities.submitted": "Enviado",
@@ -9027,7 +9054,7 @@
   "thumbnail.person.placeholder": "Nenhuma Foto de Perfil Disponível",
 
   // "title": "DSpace",
-  "title": "DSpace",
+  title: "DSpace",
 
   // "vocabulary-treeview.header": "Hierarchical tree view",
   "vocabulary-treeview.header": "Visualização de árvore hierárquica",

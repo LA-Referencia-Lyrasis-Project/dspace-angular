@@ -1207,6 +1207,18 @@
   // "admin.reports.users-activities.action": "Action",
   "admin.reports.users-activities.action": "Acción",
 
+  // "admin.reports.users-activities.item-id-title": "Item ID - Title",
+  "admin.reports.users-activities.item-id-title": "ID del ítem - Título",
+
+  // "admin.reports.users-activities.item-title": "Item Title",
+  "admin.reports.users-activities.item-title": "Título del ítem",
+
+  // "admin.reports.users-activities.item-id": "Item ID",
+  "admin.reports.users-activities.item-id": "ID del ítem",
+
+  // "admin.reports.users-activities.show-item-id": "Show item ID",
+  "admin.reports.users-activities.show-item-id": "Mostrar ID del ítem",
+
   // "admin.reports.users-activities.user": "User",
   "admin.reports.users-activities.user": "Usuario",
 
@@ -1215,6 +1227,21 @@
 
   // "admin.reports.users-activities.details": "Details",
   "admin.reports.users-activities.details": "Detalles",
+
+  // "admin.reports.users-activities.filter-item-id": "Item ID",
+  "admin.reports.users-activities.filter-item-id": "ID del ítem",
+
+  // "admin.reports.users-activities.filter-action-type": "Action Type",
+  "admin.reports.users-activities.filter-action-type": "Tipo de acción",
+
+  // "admin.reports.users-activities.filter-user-email": "User Email",
+  "admin.reports.users-activities.filter-user-email": "Correo del usuario",
+
+  // "admin.reports.users-activities.filter-user-name": "User Name",
+  "admin.reports.users-activities.filter-user-name": "Nombre del usuario",
+
+  // "admin.reports.users-activities.filter-reset": "Reset",
+  "admin.reports.users-activities.filter-reset": "Restablecer",
 
   // "admin.reports.users-activities.submitted": "Submitted",
   "admin.reports.users-activities.submitted": "Enviado",
@@ -1517,7 +1544,7 @@
   "bitstream.download.page": "Descargando {{ bitstream }}...",
 
   // "bitstream.download.page.back": "Back",
-  "bitstream.download.page.back": "Atrás" ,
+  "bitstream.download.page.back": "Atrás",
 
   // "bitstream.edit.authorizations.link": "Edit bitstream's Policies",
   "bitstream.edit.authorizations.link": "Editar las políticas del archivo",
@@ -9129,7 +9156,7 @@
   "thumbnail.person.placeholder": "No hay imagen de perfil disponible",
 
   // "title": "DSpace",
-  "title": "DSpace",
+  title: "DSpace",
 
   // "vocabulary-treeview.header": "Hierarchical tree view",
   "vocabulary-treeview.header": "Vista de árbol jerárquico",
@@ -11126,6 +11153,4 @@
   // "file-download-link.request-copy": "Request a copy of ",
   // TODO New key - Add a translation
   "file-download-link.request-copy": "Request a copy of ",
-
-
 }

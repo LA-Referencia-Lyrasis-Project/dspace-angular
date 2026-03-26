@@ -24,6 +24,7 @@ import {
 
 import { UserActivitiesReportComponent } from './users-activities-report.component';
 import {
+  PaginatedUserActionsResponse,
   SummaryWithTrendData,
   UserAction,
   UserActivityReportService,
@@ -89,8 +90,18 @@ describe('UserActivitiesReportComponent', () => {
       email: 'alice@example.com',
       actionDate: '2023-01-15',
       itemUUID: 'uuid-1',
+      itemId: 'uuid-1',
+      itemTitle: 'Item 1',
     },
   ];
+
+  const mockActionsResponse: PaginatedUserActionsResponse = {
+    content: mockActionsData,
+    totalElements: 1,
+    totalPages: 1,
+    currentPage: 0,
+    pageSize: 10,
+  };
 
   beforeEach(waitForAsync(() => {
     reportService = jasmine.createSpyObj('UserActivityReportService', [
@@ -101,7 +112,7 @@ describe('UserActivitiesReportComponent', () => {
 
     reportService.getSummaryWithTrends.and.returnValue(of(mockSummaryData));
     reportService.getUsers.and.returnValue(of(mockUsersData));
-    reportService.getAllActions.and.returnValue(of(mockActionsData));
+    reportService.getAllActions.and.returnValue(of(mockActionsResponse));
 
     TestBed.configureTestingModule({
       imports: [
@@ -155,7 +166,14 @@ describe('UserActivitiesReportComponent', () => {
       component.setTab('actions');
       tick();
       expect(component.activeTab).toBe('actions');
-      expect(reportService.getAllActions).toHaveBeenCalled();
+      expect(reportService.getAllActions).toHaveBeenCalledWith({
+        page: 0,
+        size: 10,
+        itemId: undefined,
+        actionType: undefined,
+        userEmail: undefined,
+        userName: undefined,
+      });
       expect(component.actions).toEqual(mockActionsData);
     }));
   });

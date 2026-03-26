@@ -1,4 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpParams,
+} from '@angular/common/http';
 import {
   inject,
   Injectable,
@@ -17,6 +20,8 @@ export interface UserAction {
   email: string;
   actionDate: string;
   itemUUID: string;
+  itemId?: string;
+  itemTitle?: string;
   details?: string;
 }
 
@@ -54,6 +59,23 @@ export interface SummaryWithTrendData extends ReportSummary {
   trendData: { [month: string]: { [actionType: string]: number } };
 }
 
+export interface PaginatedUserActionsResponse {
+  content: UserAction[];
+  totalElements: number;
+  totalPages: number;
+  currentPage: number;
+  pageSize: number;
+}
+
+export interface UserActionsQueryParams {
+  page?: number;
+  size?: number;
+  itemId?: string;
+  actionType?: string;
+  userEmail?: string;
+  userName?: string;
+}
+
 
 @Injectable({
   providedIn: 'root',
@@ -62,7 +84,7 @@ export class UserActivityReportService {
   private readonly appConfig: AppConfig = inject(APP_CONFIG);
   private readonly ENPOINT_URL = '/reports/users-activities';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Get all user statistics
@@ -81,11 +103,32 @@ export class UserActivityReportService {
   }
 
   /**
-   * Get all actions without aggregation
+   * Get all actions with optional filters and pagination
    */
-  getAllActions(): Observable<UserAction[]> {
+  getAllActions(params: UserActionsQueryParams = {}): Observable<PaginatedUserActionsResponse> {
     const url = new RESTURLCombiner(this.appConfig.rest.baseUrl, `${this.ENPOINT_URL}/actions`).toString();
-    return this.http.get<UserAction[]>(url);
+    let httpParams = new HttpParams();
+
+    if (params.page !== undefined) {
+      httpParams = httpParams.set('page', params.page.toString());
+    }
+    if (params.size !== undefined) {
+      httpParams = httpParams.set('size', params.size.toString());
+    }
+    if (params.itemId) {
+      httpParams = httpParams.set('itemId', params.itemId);
+    }
+    if (params.actionType) {
+      httpParams = httpParams.set('actionType', params.actionType);
+    }
+    if (params.userEmail) {
+      httpParams = httpParams.set('userEmail', params.userEmail);
+    }
+    if (params.userName) {
+      httpParams = httpParams.set('userName', params.userName);
+    }
+
+    return this.http.get<PaginatedUserActionsResponse>(url, { params: httpParams });
   }
 
   /**

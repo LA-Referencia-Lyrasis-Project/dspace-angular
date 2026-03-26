@@ -8,6 +8,7 @@ import { APP_CONFIG } from '@dspace/config/app-config.interface';
 
 import { environment } from '../../../../environments/environment';
 import {
+  PaginatedUserActionsResponse,
   ReportSummary,
   SummaryWithTrendData,
   UserAction,
@@ -91,7 +92,7 @@ describe('UserActivityReportService', () => {
   });
 
   describe('getAllActions', () => {
-    it('should return an Observable<UserAction[]>', () => {
+    it('should return an Observable<PaginatedUserActionsResponse>', () => {
       const mockActions: UserAction[] = [
         {
           actionType: 'SUBMITTED',
@@ -99,17 +100,32 @@ describe('UserActivityReportService', () => {
           email: 'user1@example.com',
           actionDate: '2023-01-01',
           itemUUID: 'uuid-1',
+          itemId: 'uuid-1',
+          itemTitle: 'Item 1',
         },
       ];
 
-      service.getAllActions().subscribe((actions) => {
-        expect(actions.length).toBe(1);
-        expect(actions).toEqual(mockActions);
+      const mockResponse: PaginatedUserActionsResponse = {
+        content: mockActions,
+        totalElements: 1,
+        totalPages: 1,
+        currentPage: 0,
+        pageSize: 10,
+      };
+
+      service.getAllActions({ page: 0, size: 10, actionType: 'SUB' }).subscribe((actions) => {
+        expect(actions.content.length).toBe(1);
+        expect(actions).toEqual(mockResponse);
       });
 
-      const req = httpMock.expectOne(`${baseUrl}${endpoint}/actions`);
+      const req = httpMock.expectOne((request) =>
+        request.url === `${baseUrl}${endpoint}/actions`
+        && request.params.get('page') === '0'
+        && request.params.get('size') === '10'
+        && request.params.get('actionType') === 'SUB',
+      );
       expect(req.request.method).toBe('GET');
-      req.flush(mockActions);
+      req.flush(mockResponse);
     });
   });
 

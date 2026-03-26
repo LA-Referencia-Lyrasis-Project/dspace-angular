@@ -19,6 +19,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import {
+  PaginatedUserActionsResponse,
   ReportSummary,
   SummaryWithTrendData,
   UserAction,
@@ -46,6 +47,9 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
   @ViewChild('rejectionsChartContainer') rejectionsChartContainer?: ElementRef<HTMLDivElement>;
   @ViewChild('withdrawalsChartContainer') withdrawalsChartContainer?: ElementRef<HTMLDivElement>;
 
+  // LocalStorage key for tab persistence
+  private readonly ACTIVE_TAB_KEY = 'dspace-users-activities-active-tab';
+
   report: UserActivityReport | null = null;
   summary: ReportSummary | null = null;
   summaryWithTrends: SummaryWithTrendData | null = null;
@@ -62,6 +66,17 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
   // Pagination for users table
   currentPage = 1;
   itemsPerPage = 10;
+
+  // Server-side pagination/filtering for actions table
+  actionsCurrentPage = 1;
+  actionsPageSize = 10;
+  actionsTotalElements = 0;
+  actionsTotalPages = 0;
+  actionsFilterItemId = '';
+  actionsFilterActionType = '';
+  actionsFilterUserEmail = '';
+  actionsFilterUserName = '';
+  private actionsLoaded = false;
 
   // Date filter for trend data
   startDate = '';
@@ -94,9 +109,10 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
     private reportService: UserActivityReportService,
     private cdr: ChangeDetectorRef,
     private translate: TranslateService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.restoreActiveTab();
     this.loadDataForTab();
   }
 
@@ -212,18 +228,25 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
   }
 
   loadActions(): void {
-    if (this.actions) {
+    if (this.actionsLoaded) {
       return; // Already loaded
     }
+
+    this.fetchActions();
+  }
+
+  private fetchActions(): void {
+    const params = this.getActionsQueryParams();
 
     this.loading = true;
     this.error = null;
 
-    this.reportService.getAllActions()
+    this.reportService.getAllActions(params)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data) => {
-          this.actions = data;
+          this.assignActionsResponse(data);
+          this.actionsLoaded = true;
           this.loading = false;
           this.cdr.detectChanges();
         },
@@ -234,6 +257,47 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
           this.cdr.detectChanges();
         },
       });
+  }
+
+  private getActionsQueryParams() {
+    return {
+      page: this.actionsCurrentPage - 1,
+      size: this.actionsPageSize,
+      itemId: this.actionsFilterItemId.trim() || undefined,
+      actionType: this.actionsFilterActionType.trim() || undefined,
+      userEmail: this.actionsFilterUserEmail.trim() || undefined,
+      userName: this.actionsFilterUserName.trim() || undefined,
+    };
+  }
+
+  private assignActionsResponse(response: PaginatedUserActionsResponse): void {
+    this.actions = response.content || [];
+    this.actionsTotalElements = response.totalElements ?? 0;
+    this.actionsTotalPages = response.totalPages ?? 0;
+    this.actionsCurrentPage = (response.currentPage ?? 0) + 1;
+    this.actionsPageSize = response.pageSize ?? this.actionsPageSize;
+  }
+
+  onActionsFilterChange(): void {
+    this.actionsCurrentPage = 1;
+    this.actionsLoaded = false;
+    this.fetchActions();
+  }
+
+  resetActionsFilters(): void {
+    this.actionsFilterItemId = '';
+    this.actionsFilterActionType = '';
+    this.actionsFilterUserEmail = '';
+    this.actionsFilterUserName = '';
+    this.actionsCurrentPage = 1;
+    this.actionsLoaded = false;
+    this.fetchActions();
+  }
+
+  onActionsPageChange(page: number): void {
+    this.actionsCurrentPage = page;
+    this.actionsLoaded = false;
+    this.fetchActions();
   }
 
   getFilteredUsers() {
@@ -284,8 +348,8 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
           break;
       }
 
-      if (aVal < bVal) {return this.sortDirection === 'asc' ? -1 : 1;}
-      if (aVal > bVal) {return this.sortDirection === 'asc' ? 1 : -1;}
+      if (aVal < bVal) { return this.sortDirection === 'asc' ? -1 : 1; }
+      if (aVal > bVal) { return this.sortDirection === 'asc' ? 1 : -1; }
       return 0;
     });
 
@@ -513,6 +577,7 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
 
   setTab(tab: 'summary' | 'users' | 'actions'): void {
     this.activeTab = tab;
+    this.saveActiveTab();
     this.loadDataForTab();
 
     if (tab === 'users') {
@@ -520,6 +585,23 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
         this.renderUserStatsCharts();
       }, 0);
     }
+  }
+
+  /**
+   * Restore the active tab from localStorage, defaulting to 'summary' if not found
+   */
+  private restoreActiveTab(): void {
+    const savedTab = localStorage.getItem(this.ACTIVE_TAB_KEY);
+    if (savedTab === 'summary' || savedTab === 'users' || savedTab === 'actions') {
+      this.activeTab = savedTab;
+    }
+  }
+
+  /**
+   * Save the active tab to localStorage
+   */
+  private saveActiveTab(): void {
+    localStorage.setItem(this.ACTIVE_TAB_KEY, this.activeTab);
   }
 
   /**
@@ -857,4 +939,5 @@ export class UserActivitiesReportComponent implements OnInit, AfterViewInit, OnD
     link.click();
     document.body.removeChild(link);
   }
+
 }
