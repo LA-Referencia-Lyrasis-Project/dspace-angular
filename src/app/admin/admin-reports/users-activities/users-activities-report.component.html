@@ -282,6 +282,12 @@
                   "admin.reports.users-activities.user-statistics" | translate
                 }}
               </h4>
+              <p class="text-muted mb-3">
+                {{
+                  "admin.reports.users-activities.total-number-of-users"
+                    | translate: { count: users?.length || 0 }
+                }}
+              </p>
 
               <!-- Loading State -->
               @if (loading && !users) {
@@ -658,6 +664,12 @@
                 <h4>
                   {{ "admin.reports.users-activities.all-actions" | translate }}
                 </h4>
+                <p class="text-muted mb-3">
+                  {{
+                    "admin.reports.users-activities.total-number-of-actions"
+                      | translate: { count: actionsTotalElements }
+                  }}
+                </p>
 
                 <div class="table-responsive">
                   <table class="table table-striped table-sm">
@@ -747,7 +759,9 @@
                           <td>{{ action.itemTitle || "-" }}</td>
                           <td>{{ action.userName }}</td>
                           <td>{{ action.email }}</td>
-                          <td>{{ action.actionDate | date: "short" }}</td>
+                          <td>
+                            {{ action.actionDate | date: "dd/MM/yyyy hh:mm a" }}
+                          </td>
                           <td>{{ action.details }}</td>
                         </tr>
                       }
