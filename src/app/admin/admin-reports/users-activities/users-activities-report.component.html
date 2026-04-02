@@ -1,0 +1,802 @@
+<div class="users-activities-report-container">
+  <div class="page-header">
+    <h1>{{ "admin.reports.users-activities.title" | translate }}</h1>
+    <p class="text-muted">
+      {{ "admin.reports.users-activities.description" | translate }}
+    </p>
+  </div>
+
+  <!-- Error Alert -->
+  @if (error) {
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{ "error.general" | translate }}</strong> {{ error }}
+      <button
+        type="button"
+        class="btn-close"
+        (click)="error = null"
+        aria-label="Close"
+      ></button>
+    </div>
+  }
+
+  <!-- Report Content -->
+  @if (!loading || summary || users || actions) {
+    <div class="report-content">
+      <!-- Navigation Tabs -->
+      <ul class="nav nav-tabs mb-3" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'summary'"
+            (click)="setTab('summary')"
+            type="button"
+          >
+            {{ "admin.reports.users-activities.summary" | translate }}
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'users'"
+            (click)="setTab('users')"
+            type="button"
+          >
+            {{ "admin.reports.users-activities.user-stats" | translate }}
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            [class.active]="activeTab === 'actions'"
+            (click)="setTab('actions')"
+            type="button"
+          >
+            {{ "admin.reports.users-activities.actions" | translate }}
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Summary Tab -->
+        @if (activeTab === "summary") {
+          <div class="tab-pane active">
+            <div class="summary-tab">
+              <h4>
+                {{
+                  "admin.reports.users-activities.report-summary" | translate
+                }}
+              </h4>
+
+              <!-- Loading State -->
+              @if (loading && !summary) {
+                <div class="d-flex justify-content-center my-4">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">{{
+                      "loading" | translate
+                    }}</span>
+                  </div>
+                </div>
+              }
+
+              @if (summary) {
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <div class="summary-info">
+                      <!-- Summary Stats -->
+                      <div class="summary-stats mb-4">
+                        <div class="row">
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-users"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.totalUsers || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-submissions"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.submissions || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-reviews"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.reviews || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-approvals"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.approvals || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-rejections"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.rejections || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-lg-2">
+                            <div class="stat-card">
+                              <div class="stat-label">
+                                {{
+                                  "admin.reports.users-activities.total-withdrawals"
+                                    | translate
+                                }}
+                              </div>
+                              <div class="stat-value">
+                                {{ summary?.withdrawals || 0 }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trend Chart Section -->
+                <div class="trend-section mt-5">
+                  <h5 class="mb-3">
+                    {{
+                      "admin.reports.users-activities.activity-trends"
+                        | translate
+                    }}
+                  </h5>
+
+                  <!-- View Type Toggle -->
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <div class="btn-group" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary"
+                          [class.active]="viewType === 'monthly'"
+                          (click)="switchViewType('monthly')"
+                        >
+                          {{
+                            "admin.reports.users-activities.monthly" | translate
+                          }}
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary"
+                          [class.active]="viewType === 'yearly'"
+                          (click)="switchViewType('yearly')"
+                        >
+                          {{
+                            "admin.reports.users-activities.yearly" | translate
+                          }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date Filter Controls - Only show in monthly view -->
+                  @if (viewType === "monthly") {
+                    <div class="row mb-3">
+                      <div class="col-md-3">
+                        <label for="startDate" class="form-label">
+                          {{
+                            "admin.reports.users-activities.start-date"
+                              | translate
+                          }}
+                        </label>
+                        <input
+                          type="month"
+                          id="startDate"
+                          class="form-control"
+                          [(ngModel)]="startDate"
+                          (change)="onDateFilterChange()"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="endDate" class="form-label">
+                          {{
+                            "admin.reports.users-activities.end-date"
+                              | translate
+                          }}
+                        </label>
+                        <input
+                          type="month"
+                          id="endDate"
+                          class="form-control"
+                          [(ngModel)]="endDate"
+                          (change)="onDateFilterChange()"
+                        />
+                      </div>
+                      <div class="col-md-6 d-flex align-items-end">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          (click)="resetDateFilter()"
+                        >
+                          {{
+                            "admin.reports.users-activities.reset-filter"
+                              | translate
+                          }}
+                        </button>
+                      </div>
+                    </div>
+                  }
+
+                  <!-- Line Chart - Show after data is loaded from API -->
+                  @if (chartDataLoaded) {
+                    <div
+                      #trendChartContainer
+                      class="chart-container"
+                      style="width: 100%"
+                    ></div>
+                  } @else {
+                    <div class="alert alert-info" role="alert">
+                      {{ "loading" | translate }}
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Users Tab -->
+        @if (activeTab === "users") {
+          <div class="tab-pane active">
+            <div class="users-tab">
+              <h4>
+                {{
+                  "admin.reports.users-activities.user-statistics" | translate
+                }}
+              </h4>
+              <p class="text-muted mb-3">
+                {{
+                  "admin.reports.users-activities.total-number-of-users"
+                    | translate: { count: users?.length || 0 }
+                }}
+              </p>
+
+              <!-- Loading State -->
+              @if (loading && !users) {
+                <div class="d-flex justify-content-center my-4">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">{{
+                      "loading" | translate
+                    }}</span>
+                  </div>
+                </div>
+              }
+
+              @if (users) {
+                <div>
+                  <!-- Search Box -->
+                  <div class="d-flex justify-content-between gap-2 mb-3">
+                    <div class="flex-grow-1">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="{{
+                          'admin.reports.users-activities.search-by-email-or-name'
+                            | translate
+                        }}"
+                        [(ngModel)]="searchEmail"
+                        (ngModelChange)="currentPage = 1"
+                      />
+                    </div>
+                    <div class="flex-grow-1 d-flex justify-content-end">
+                      <button
+                        class="btn btn-primary mb-3"
+                        (click)="downloadCSV()"
+                      >
+                        <i class="bi bi-download"></i>
+                        {{
+                          "admin.reports.users-activities.download-csv"
+                            | translate
+                        }}
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Users Table -->
+                  <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                      <thead class="table-header-bg">
+                        <tr>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('name')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.name"
+                                  | translate
+                              }}
+                              @if (sortField === "name") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                          <th>
+                            {{
+                              "admin.reports.users-activities.email" | translate
+                            }}
+                          </th>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('submissions')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.submissions"
+                                  | translate
+                              }}
+                              @if (sortField === "submissions") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('reviews')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.reviews"
+                                  | translate
+                              }}
+                              @if (sortField === "reviews") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('approvals')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.approvals"
+                                  | translate
+                              }}
+                              @if (sortField === "approvals") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('rejections')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.rejections"
+                                  | translate
+                              }}
+                              @if (sortField === "rejections") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                          <th>
+                            <a
+                              href="javascript:void(0)"
+                              (click)="toggleSort('withdrawals')"
+                              class="sort-link"
+                            >
+                              {{
+                                "admin.reports.users-activities.withdrawals"
+                                  | translate
+                              }}
+                              @if (sortField === "withdrawals") {
+                                <span class="sort-icon">
+                                  {{ sortDirection === "asc" ? "▲" : "▼" }}
+                                </span>
+                              }
+                            </a>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (user of getPaginatedUsers(); track user.email) {
+                          <tr>
+                            <td>{{ user.userName }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                              <span class="badge bg-primary">{{
+                                user.totalSubmissions
+                              }}</span>
+                            </td>
+                            <td>
+                              <span class="badge bg-info">{{
+                                user.totalApprovals +
+                                  user.totalRejections +
+                                  user.totalWithdrawals
+                              }}</span>
+                            </td>
+                            <td>
+                              <span class="badge bg-success">{{
+                                user.totalApprovals
+                              }}</span>
+                            </td>
+                            <td>
+                              <span class="badge bg-danger">{{
+                                user.totalRejections
+                              }}</span>
+                            </td>
+                            <td>
+                              <span class="badge bg-warning text-dark">{{
+                                user.totalWithdrawals
+                              }}</span>
+                            </td>
+                          </tr>
+                        }
+                        @if (getFilteredUsers().length === 0) {
+                          <tr>
+                            <td colspan="7" class="text-center text-muted">
+                              {{
+                                "admin.reports.users-activities.noResults"
+                                  | translate
+                              }}
+                            </td>
+                          </tr>
+                        }
+                      </tbody>
+                    </table>
+                  </div>
+
+                  @if (getFilteredUsers().length > itemsPerPage) {
+                    <div class="d-flex justify-content-center mt-3">
+                      <ngb-pagination
+                        [collectionSize]="getFilteredUsers().length"
+                        [pageSize]="itemsPerPage"
+                        [(page)]="currentPage"
+                        [maxSize]="5"
+                        [rotate]="true"
+                        [boundaryLinks]="true"
+                      ></ngb-pagination>
+                    </div>
+                  }
+                  <h5>
+                    {{
+                      "admin.reports.users-activities.users-indicators"
+                        | translate
+                    }}
+                  </h5>
+                  <div class="row g-3 mb-4">
+                    @if (hasDataFor("submissions")) {
+                      <div class="col-12 col-lg-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <div
+                              #submissionsChartContainer
+                              style="height: 320px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    @if (hasDataFor("reviews")) {
+                      <div class="col-12 col-lg-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <div
+                              #reviewsChartContainer
+                              style="height: 320px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    @if (hasDataFor("approvals")) {
+                      <div class="col-12 col-lg-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <div
+                              #approvalsChartContainer
+                              style="height: 320px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    @if (hasDataFor("rejections")) {
+                      <div class="col-12 col-lg-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <div
+                              #rejectionsChartContainer
+                              style="height: 320px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                    @if (hasDataFor("withdrawals")) {
+                      <div class="col-12 col-lg-6">
+                        <div class="card">
+                          <div class="card-body">
+                            <div
+                              #withdrawalsChartContainer
+                              style="height: 320px"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Actions Tab -->
+        @if (activeTab === "actions") {
+          <div class="tab-pane active">
+            <div class="actions-tab">
+              <!-- Loading State -->
+              @if (loading && !actions) {
+                <div class="d-flex justify-content-center my-4">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">{{
+                      "loading" | translate
+                    }}</span>
+                  </div>
+                </div>
+              }
+
+              @if (actions) {
+                <h5 class="mb-2">
+                  {{ "admin.reports.commons.filters" | translate }}
+                </h5>
+
+                <div class="row g-2 mb-3">
+                  <div class="col-md-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="{{
+                        'admin.reports.users-activities.filter-action-type'
+                          | translate
+                      }}"
+                      [(ngModel)]="actionsFilterActionType"
+                      (change)="onActionsFilterChange()"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="{{
+                        'admin.reports.users-activities.filter-item-id'
+                          | translate
+                      }}"
+                      [(ngModel)]="actionsFilterItemId"
+                      (change)="onActionsFilterChange()"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="{{
+                        'admin.reports.users-activities.filter-user-name'
+                          | translate
+                      }}"
+                      [(ngModel)]="actionsFilterUserName"
+                      (change)="onActionsFilterChange()"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="{{
+                        'admin.reports.users-activities.filter-user-email'
+                          | translate
+                      }}"
+                      [(ngModel)]="actionsFilterUserEmail"
+                      (change)="onActionsFilterChange()"
+                    />
+                  </div>
+                  <div class="col-md-1 d-flex justify-content-end">
+                    <button
+                      type="button"
+                      class="btn btn-outline-secondary w-100"
+                      (click)="resetActionsFilters()"
+                    >
+                      {{
+                        "admin.reports.users-activities.filter-reset"
+                          | translate
+                      }}
+                    </button>
+                  </div>
+                </div>
+
+                <h4>
+                  {{ "admin.reports.users-activities.all-actions" | translate }}
+                </h4>
+                <p class="text-muted mb-3">
+                  {{
+                    "admin.reports.users-activities.total-number-of-actions"
+                      | translate: { count: actionsTotalElements }
+                  }}
+                </p>
+
+                <div class="table-responsive">
+                  <table class="table table-striped table-sm">
+                    <thead class="table-header-bg">
+                      <tr>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.action" | translate
+                          }}
+                        </th>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.item-title"
+                              | translate
+                          }}
+                        </th>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.user" | translate
+                          }}
+                        </th>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.email" | translate
+                          }}
+                        </th>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.date" | translate
+                          }}
+                        </th>
+                        <th>
+                          {{
+                            "admin.reports.users-activities.details" | translate
+                          }}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (
+                        action of actions;
+                        track action.itemUUID + action.actionDate
+                      ) {
+                        <tr>
+                          <td>
+                            @if (action.actionType === "SUBMITTED") {
+                              <span class="badge bg-primary">
+                                {{
+                                  "admin.reports.users-activities.submitted"
+                                    | translate
+                                }}
+                              </span>
+                            }
+                            @if (action.actionType === "REVIEWED") {
+                              <span class="badge bg-info">
+                                {{
+                                  "admin.reports.users-activities.reviewed"
+                                    | translate
+                                }}
+                              </span>
+                            }
+                            @if (action.actionType === "APPROVED") {
+                              <span class="badge bg-success">
+                                {{
+                                  "admin.reports.users-activities.approved"
+                                    | translate
+                                }}
+                              </span>
+                            }
+                            @if (action.actionType === "REJECTED") {
+                              <span class="badge bg-danger">
+                                {{
+                                  "admin.reports.users-activities.rejected"
+                                    | translate
+                                }}
+                              </span>
+                            }
+                            @if (action.actionType === "WITHDRAWN") {
+                              <span class="badge bg-warning text-dark">
+                                {{
+                                  "admin.reports.users-activities.withdrawn"
+                                    | translate
+                                }}
+                              </span>
+                            }
+                          </td>
+                          <td>{{ action.itemTitle || "-" }}</td>
+                          <td>{{ action.userName }}</td>
+                          <td>{{ action.email }}</td>
+                          <td>
+                            {{ action.actionDate | date: "dd/MM/yyyy hh:mm a" }}
+                          </td>
+                          <td>{{ action.details }}</td>
+                        </tr>
+                      }
+                      @if (actions.length === 0) {
+                        <tr>
+                          <td colspan="6" class="text-center text-muted">
+                            {{
+                              "admin.reports.users-activities.noResults"
+                                | translate
+                            }}
+                          </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+
+                @if (actionsTotalElements > actionsPageSize) {
+                  <div class="d-flex justify-content-center mt-3">
+                    <ngb-pagination
+                      [collectionSize]="actionsTotalElements"
+                      [pageSize]="actionsPageSize"
+                      [(page)]="actionsCurrentPage"
+                      [maxSize]="5"
+                      [rotate]="true"
+                      [boundaryLinks]="true"
+                      (pageChange)="onActionsPageChange($event)"
+                    ></ngb-pagination>
+                  </div>
+                }
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

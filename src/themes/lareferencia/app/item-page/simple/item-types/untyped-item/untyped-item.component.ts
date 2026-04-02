@@ -34,7 +34,7 @@ import { ThemedResultsBackButtonComponent } from '../../../../../../../app/share
 import { ThemedThumbnailComponent } from '../../../../../../../app/thumbnail/themed-thumbnail.component';
 
 import { lareferenciaWidgetEmbedModule } from 'lareferencia-widget-embed';
-import { ItemPageBibliographyComponent } from '../../field-components/specific-field/bibliography/item-page-bibliography.component';
+import { ItemPageBibliographyComponent } from "../../field-components/specific-field/bibliography/item-page-bibliography.component";
 
 @listableObjectComponent(Item, ViewMode.StandalonePage, Context.Any, 'lareferencia')
 @Component({
@@ -46,7 +46,6 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
   templateUrl: './untyped-item.component.html',
   //templateUrl: '../../../../../../../app/item-page/simple/item-types/untyped-item/untyped-item.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     AsyncPipe,
     CollectionsComponent,
@@ -54,7 +53,6 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
     GenericItemPageFieldComponent,
     GeospatialItemPageFieldComponent,
     ItemPageAbstractFieldComponent,
-    ItemPageBibliographyComponent,
     ItemPageCcLicenseFieldComponent,
     ItemPageDateFieldComponent,
     ItemPageUriFieldComponent,
@@ -69,7 +67,8 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
     ThemedThumbnailComponent,
     TranslateModule,
     lareferenciaWidgetEmbedModule,
-  ],
+    ItemPageBibliographyComponent
+  ]
 })
 export class UntypedItemComponent extends BaseComponent implements OnInit {
 

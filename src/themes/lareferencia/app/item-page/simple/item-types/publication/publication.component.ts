@@ -38,7 +38,7 @@ import { ThemedThumbnailComponent } from '../../../../../../../app/thumbnail/the
 import { getFirstSucceededRemoteDataPayload } from '../../../../../../../app/core/shared/operators';
 
 import { lareferenciaWidgetEmbedModule } from 'lareferencia-widget-embed';
-import { ItemPageBibliographyComponent } from '../../field-components/specific-field/bibliography/item-page-bibliography.component';
+import { ItemPageBibliographyComponent } from "../../field-components/specific-field/bibliography/item-page-bibliography.component";
 
 @listableObjectComponent('Publication', ViewMode.StandalonePage, Context.Any, 'lareferencia')
 @Component({
@@ -46,7 +46,6 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
   styleUrls: ['./publication.component.scss'],
   templateUrl: './publication.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     AsyncPipe,
     CollectionsComponent,
@@ -54,7 +53,6 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
     GenericItemPageFieldComponent,
     GeospatialItemPageFieldComponent,
     ItemPageAbstractFieldComponent,
-    ItemPageBibliographyComponent,
     ItemPageDateFieldComponent,
     ItemPageUriFieldComponent,
     MetadataFieldWrapperComponent,
@@ -69,6 +67,7 @@ import { ItemPageBibliographyComponent } from '../../field-components/specific-f
     ThemedThumbnailComponent,
     TranslateModule,
     lareferenciaWidgetEmbedModule,
+    ItemPageBibliographyComponent
   ],
 })
 export class PublicationComponent extends BaseComponent implements OnInit {
