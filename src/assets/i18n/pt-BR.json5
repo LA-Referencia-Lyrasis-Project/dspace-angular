@@ -7324,8 +7324,6 @@
 
   "item.preview.organization.alternateName": "Nome alternativo",
 
-<<<<<<< ours
-<<<<<<< ours
   "community.no-description": "Sem descrição disponível",
 
   "home.news.heading.part1": "Hub Regional de",
@@ -7359,8 +7357,6 @@
   "home.news.heading": "Bem-vindo à LA Referencia",
 
   "home.news.button.view-collections": "Ver Coleções",
-}
-=======
   "media-viewer.pdf.files": "Arquivos",
 
   "media-viewer.pdf.browser-not-support": "Seu navegador não é compatível com o visualizador de PDF.",
@@ -7369,7 +7365,6 @@
 
   "media-viewer.loading": "Carregando",
 
-=======
   "item.cite.open-modal": "Citar",
 
   "item.cite.modal.title": "Citar",
@@ -7390,6 +7385,4 @@
   "bibtex": "BibTeX",
 
   "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt": "ABNT",
->>>>>>> theirs
 }
->>>>>>> theirs

@@ -31,6 +31,7 @@ import { ProcessesMenuProvider } from './shared/menu/providers/processes.menu';
 import { RegistriesMenuProvider } from './shared/menu/providers/registries.menu';
 import { StatisticsMenuProvider } from './shared/menu/providers/statistics.menu';
 import { SystemWideAlertMenuProvider } from './shared/menu/providers/system-wide-alert.menu';
+import { UsersActivitiesReportMenuProvider } from './shared/menu/providers/users-activities-report.menu';
 import { WithdrawnReinstateItemMenuProvider } from './shared/menu/providers/withdrawn-reinstate-item.menu';
 import { WorkflowMenuProvider } from './shared/menu/providers/workflow.menu';
 
@@ -66,6 +67,7 @@ export const MENUS = buildMenuStructure({
     AdminSearchMenuProvider,
     CreateReportMenuProvider,
     RegistriesMenuProvider,
+    UsersActivitiesReportMenuProvider,
     CurationMenuProvider,
     ProcessesMenuProvider,
     WorkflowMenuProvider,

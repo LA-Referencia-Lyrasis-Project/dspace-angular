@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 import { i18nBreadcrumbResolver } from '../../core/breadcrumbs/i18n-breadcrumb.resolver';
 import { FilteredCollectionsComponent } from './filtered-collections/filtered-collections.component';
 import { FilteredItemsComponent } from './filtered-items/filtered-items.component';
+import { UserActivitiesReportComponent } from './users-activities/users-activities-report.component';
 
 export const ROUTES: Route[] = [
   {
@@ -24,6 +25,17 @@ export const ROUTES: Route[] = [
       {
         path: '',
         component: FilteredItemsComponent,
+      },
+    ],
+  },
+  {
+    path: 'users-activities',
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    data: { title: 'admin.reports.users-activities.title', breadcrumbKey: 'admin.reports.users-activities' },
+    children: [
+      {
+        path: '',
+        component: UserActivitiesReportComponent,
       },
     ],
   },

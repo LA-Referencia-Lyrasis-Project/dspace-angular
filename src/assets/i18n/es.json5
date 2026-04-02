@@ -7318,8 +7318,6 @@
 
   "file-download-link.request-copy": "Request a copy of ",
 
-<<<<<<< ours
-<<<<<<< ours
   "item.preview.organization.url": "URL",
 
   "item.preview.organization.address.addressLocality": "City",
@@ -7357,7 +7355,6 @@
   "footer.copyright.text": "LA Referencia Lyrasis - Todos los derechos reservados ©{{year}}",
 
   "home.news.heading": "Bienvenido a LA Referencia",
-=======
   "media-viewer.pdf.files": "Archivos",
 
   "media-viewer.pdf.browser-not-support": "Tu navegador no es compatible con el visor de PDF.",
@@ -7365,8 +7362,6 @@
   "media-viewer.pdf.download": "Descargar el PDF",
 
   "media-viewer.loading": "Cargando",
->>>>>>> theirs
-=======
   "item.cite.open-modal": "Cita",
 
   "item.cite.modal.title": "Cita",
@@ -7387,7 +7382,6 @@
   "bibtex": "BibTeX",
 
   "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt": "ABNT",
->>>>>>> theirs
 
   "home.news.button.view-collections": "Ver Colecciones",
 }
