@@ -7358,6 +7358,35 @@
 
   "home.news.button.view-collections": "Ver Coleções",
 
+    "media-viewer.pdf.files": "Arquivos",
+
+  "media-viewer.pdf.browser-not-support": "Seu navegador não é compatível com o visualizador de PDF.",
+
+  "media-viewer.pdf.download": "Baixar o PDF",
+
+  "media-viewer.loading": "Carregando",
+
+  "item.cite.open-modal": "Citar",
+
+  "item.cite.modal.title": "Citar",
+
+  "item.cite.modal.close": "Fechar",
+
+  "item.cite.modal.copy": "Copiar",
+
+  // TODO New key - Add a translation
+  "item.cite.modal.error": "Erro",
+
+  "modern-language-association": "MLA",
+
+  "apa": "APA",
+
+  "vancouver": "Vancouver",
+
+  "bibtex": "BibTeX",
+
+  "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt": "ABNT",
+
   "admin.reports.users-activities.title": "Relatório de Atividades dos Usuários",
   "admin.reports.users-activities.breadcrumbs": "Relatório de Atividades dos Usuários",
   "admin.reports.users-activities.description": "Visualizar estatísticas detalhadas sobre a atividade dos usuários em submissões e revisões",
@@ -7403,6 +7432,7 @@
   "admin.reports.users-activities.approved": "Aprovado",
   "admin.reports.users-activities.rejected": "Rejeitado",
   "admin.reports.users-activities.withdrawn": "Retirado",
+  "admin.reports.users-activities.noResults": "Nenhum resultado encontrado",
   "admin.reports.users-activities.no-results": "Nenhum resultado encontrado",
   "admin.reports.users-activities.activity-trends": "Tendências de Atividade por Mês",
   "admin.reports.users-activities.start-date": "Data de Início (YYYY-MM)",
@@ -7421,4 +7451,5 @@
   "admin.reports.users-activities.download-csv": "Baixar CSV",
   "admin.reports.users-activities.search-by-email-or-name": "Pesquisar por email ou nome...",
   "admin.reports.users-activities.no-trend-data": "Nenhum dado de tendência disponível para o período selecionado",
+
 }

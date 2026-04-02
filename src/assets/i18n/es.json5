@@ -7358,6 +7358,35 @@
 
   "home.news.button.view-collections": "Ver Colecciones",
 
+  "media-viewer.pdf.files": "Archivos",
+
+  "media-viewer.pdf.browser-not-support": "Tu navegador no es compatible con el visor de PDF.",
+
+  "media-viewer.pdf.download": "Descargar el PDF",
+
+  "media-viewer.loading": "Cargando",
+  "item.cite.open-modal": "Cita",
+
+  "item.cite.modal.title": "Cita",
+
+  "item.cite.modal.close": "Cerrar",
+
+  "item.cite.modal.copy": "Copiar",
+
+  "item.cite.modal.error": "Error",
+
+  "modern-language-association": "MLA",
+
+  "apa": "APA",
+
+  "vancouver": "Vancouver",
+
+  "bibtex": "BibTeX",
+
+  "instituto-brasileiro-de-informacao-em-ciencia-e-tecnologia-abnt": "ABNT",
+
+  "home.news.button.view-collections": "Ver Colecciones",
+
   "admin.reports.users-activities.title": "Informe de Actividades de Usuarios",
   "admin.reports.users-activities.breadcrumbs": "Informe de Actividades de Usuarios",
   "admin.reports.users-activities.description": "Ver estadísticas detalladas sobre la actividad de los usuarios en envíos y revisiones",
