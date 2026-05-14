@@ -1,8 +1,8 @@
 import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
 } from '@angular/core';
 
 import { ThemedComponent } from '../theme-support/themed.component';
@@ -18,6 +18,8 @@ import { SearchFormComponent } from './search-form.component';
 export class ThemedSearchFormComponent extends ThemedComponent<SearchFormComponent> {
 
   @Input() query: string;
+
+  @Input() semanticSearch: boolean;
 
   @Input() inPlaceSearch: boolean;
 
@@ -39,6 +41,7 @@ export class ThemedSearchFormComponent extends ThemedComponent<SearchFormCompone
 
   protected inAndOutputNames: (keyof SearchFormComponent & keyof this)[] = [
     'query',
+    'semanticSearch',
     'inPlaceSearch',
     'scope',
     'hideScopeInUrl',

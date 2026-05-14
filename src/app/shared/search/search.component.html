@@ -107,6 +107,7 @@
   <ds-search-form id="search-form"
     [query]="(searchOptions$ | async)?.query"
     [scope]="(searchOptions$ | async)?.scope"
+    [semanticSearch]="(searchOptions$ | async)?.searchType === 'semantic'"
     [hideScopeInUrl]="hideScopeInUrl"
     [currentUrl]="searchLink"
     [showScopeSelector]="showScopeSelector"

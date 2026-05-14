@@ -1,10 +1,10 @@
 import { AsyncPipe } from '@angular/common';
 import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
+    Component,
+    EventEmitter,
+    Input,
+    OnChanges,
+    Output,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,20 +15,20 @@ import { currentPath } from '@dspace/core/router/utils/route.utils';
 import { DSpaceObject } from '@dspace/core/shared/dspace-object.model';
 import { getFirstSucceededRemoteDataPayload } from '@dspace/core/shared/operators';
 import {
-  hasValue,
-  isNotEmpty,
+    hasValue,
+    isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
 import {
-  NgbModal,
-  NgbTooltip,
+    NgbModal,
+    NgbTooltip,
 } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { SearchService } from '../search/search.service';
 import { SearchConfigurationService } from '../search/search-configuration.service';
 import { SearchFilterService } from '../search/search-filters/search-filter.service';
+import { SearchService } from '../search/search.service';
 import { BrowserOnlyPipe } from '../utils/browser-only.pipe';
 import { ScopeSelectorModalComponent } from './scope-selector-modal/scope-selector-modal.component';
 
@@ -52,6 +52,11 @@ export class SearchFormComponent implements OnChanges {
    * The search query
    */
   @Input() query: string;
+
+  /**
+   * True when semantic search is enabled
+   */
+  @Input() semanticSearch = false;
 
   /**
    * True when the search component should show results on the current page
@@ -148,11 +153,15 @@ export class SearchFormComponent implements OnChanges {
   updateSearch(data: any) {
     const goToFirstPage = { 'spc.page': 1 };
 
+    const searchType = data.semanticSearch ? 'semantic' : null;
+    delete data.semanticSearch;
+
     const queryParams = Object.assign(
       {
         ...goToFirstPage,
       },
       data,
+      { searchType },
     );
     if (hasValue(data.scope) && this.hideScopeInUrl) {
       delete queryParams.scope;
