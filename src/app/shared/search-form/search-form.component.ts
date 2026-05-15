@@ -59,6 +59,11 @@ export class SearchFormComponent implements OnChanges {
   @Input() semanticSearch = false;
 
   /**
+   * True when semantic search option is enabled from backend configuration
+   */
+  @Input() semanticSearchEnabled = false;
+
+  /**
    * True when the search component should show results on the current page
    */
   @Input() inPlaceSearch: boolean;
@@ -153,7 +158,7 @@ export class SearchFormComponent implements OnChanges {
   updateSearch(data: any) {
     const goToFirstPage = { 'spc.page': 1 };
 
-    const searchType = data.semanticSearch ? 'semantic' : null;
+    const searchType = this.semanticSearchEnabled && data.semanticSearch ? 'semantic' : null;
     delete data.semanticSearch;
 
     const queryParams = Object.assign(

@@ -21,6 +21,8 @@ export class ThemedSearchFormComponent extends ThemedComponent<SearchFormCompone
 
   @Input() semanticSearch: boolean;
 
+  @Input() semanticSearchEnabled: boolean;
+
   @Input() inPlaceSearch: boolean;
 
   @Input() scope: string;
@@ -42,6 +44,7 @@ export class ThemedSearchFormComponent extends ThemedComponent<SearchFormCompone
   protected inAndOutputNames: (keyof SearchFormComponent & keyof this)[] = [
     'query',
     'semanticSearch',
+    'semanticSearchEnabled',
     'inPlaceSearch',
     'scope',
     'hideScopeInUrl',
