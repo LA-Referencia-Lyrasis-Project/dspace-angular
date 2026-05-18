@@ -10,8 +10,8 @@ import { GetRequest } from '@dspace/core/data/request.models';
 import { RequestService } from '@dspace/core/data/request.service';
 import { RestRequest } from '@dspace/core/data/rest-request.model';
 import { SearchResponseParsingService } from '@dspace/core/data/search-response-parsing.service';
-import { PaginationComponentOptions } from '@dspace/core/pagination/pagination-component-options.model';
 import { PaginationService } from '@dspace/core/pagination/pagination.service';
+import { PaginationComponentOptions } from '@dspace/core/pagination/pagination-component-options.model';
 import { RouteService } from '@dspace/core/services/route.service';
 import { DSpaceObject } from '@dspace/core/shared/dspace-object.model';
 import { FollowLinkConfig } from '@dspace/core/shared/follow-link-config.model';
@@ -19,8 +19,8 @@ import { GenericConstructor } from '@dspace/core/shared/generic-constructor';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
 import { ListableObject } from '@dspace/core/shared/object-collection/listable-object.model';
 import {
-    getFirstCompletedRemoteData,
-    getRemoteDataPayload,
+  getFirstCompletedRemoteData,
+  getRemoteDataPayload,
 } from '@dspace/core/shared/operators';
 import { AppliedFilter } from '@dspace/core/shared/search/models/applied-filter.model';
 import { FacetValues } from '@dspace/core/shared/search/models/facet-values.model';
@@ -31,23 +31,23 @@ import { SearchResult } from '@dspace/core/shared/search/models/search-result.mo
 import { ViewMode } from '@dspace/core/shared/view-mode.model';
 import { URLCombiner } from '@dspace/core/url-combiner/url-combiner';
 import {
-    hasValue,
-    hasValueOperator,
-    isNotEmpty,
+  hasValue,
+  hasValueOperator,
+  isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
 import { Angulartics2 } from 'angulartics2';
 import {
-    BehaviorSubject,
-    Observable,
-    combineLatest as observableCombineLatest,
+  BehaviorSubject,
+  combineLatest as observableCombineLatest,
+  Observable,
 } from 'rxjs';
 import {
-    distinctUntilChanged,
-    map,
-    skipWhile,
-    switchMap,
-    take,
-    tap,
+  distinctUntilChanged,
+  map,
+  skipWhile,
+  switchMap,
+  take,
+  tap,
 } from 'rxjs/operators';
 
 import { SearchConfigurationService } from './search-configuration.service';

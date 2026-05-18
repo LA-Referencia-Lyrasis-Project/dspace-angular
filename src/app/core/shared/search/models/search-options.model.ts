@@ -1,6 +1,6 @@
 import {
-    hasValue,
-    isNotEmpty,
+  hasValue,
+  isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
 
 import { URLCombiner } from '../../../url-combiner/url-combiner';

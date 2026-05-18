@@ -6,8 +6,8 @@ import { DSpaceSerializer } from '../dspace-rest/dspace.serializer';
 import { RawRestResponse } from '../dspace-rest/raw-rest-response.model';
 import { getUrlWithoutEmbedParams } from '../index/index.selectors';
 import {
-    MetadataMap,
-    MetadataValue,
+  MetadataMap,
+  MetadataValue,
 } from '../shared/metadata.models';
 import { SearchObjects } from '../shared/search/models/search-objects.model';
 import { DspaceRestResponseParsingService } from './dspace-rest-response-parsing.service';

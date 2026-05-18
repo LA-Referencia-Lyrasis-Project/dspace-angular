@@ -1,16 +1,16 @@
 import {
-    AsyncPipe,
-    NgTemplateOutlet,
+  AsyncPipe,
+  NgTemplateOutlet,
 } from '@angular/common';
 import {
-    Component,
-    Inject,
-    OnInit,
+  Component,
+  Inject,
+  OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
-    APP_CONFIG,
-    AppConfig,
+  APP_CONFIG,
+  AppConfig,
 } from '@dspace/config/app-config.interface';
 import { ConfigurationDataService } from '@dspace/core/data/configuration-data.service';
 import { RemoteData } from '@dspace/core/data/remote-data';
@@ -20,12 +20,12 @@ import { getFirstCompletedRemoteData } from '@dspace/core/shared/operators';
 import { Site } from '@dspace/core/shared/site.model';
 import { TranslateModule } from '@ngx-translate/core';
 import {
-    combineLatest,
-    Observable,
+  combineLatest,
+  Observable,
 } from 'rxjs';
 import {
-    map,
-    take,
+  map,
+  take,
 } from 'rxjs/operators';
 
 import { SuggestionsPopupComponent } from '../notifications/suggestions/popup/suggestions-popup.component';

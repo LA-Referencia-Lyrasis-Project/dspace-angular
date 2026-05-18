@@ -1,8 +1,8 @@
 import {
-    Component,
-    EventEmitter,
-    Input,
-    Output,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
 } from '@angular/core';
 
 import { ThemedComponent } from '../theme-support/themed.component';

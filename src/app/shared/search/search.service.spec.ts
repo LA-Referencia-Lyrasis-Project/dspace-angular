@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { RemoteDataBuildService } from '@dspace/core/cache/builders/remote-data-build.service';
 import { DSpaceObjectDataService } from '@dspace/core/data/dspace-object-data.service';
 import { RemoteData } from '@dspace/core/data/remote-data';
-import { RequestEntryState } from '@dspace/core/data/request-entry-state.model';
 import { RequestService } from '@dspace/core/data/request.service';
+import { RequestEntryState } from '@dspace/core/data/request-entry-state.model';
 import { PaginationService } from '@dspace/core/pagination/pagination.service';
 import { RouteService } from '@dspace/core/services/route.service';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
@@ -24,9 +25,8 @@ import { Angulartics2 } from 'angulartics2';
 import { of } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
 
-import { Component } from '@angular/core';
-import { SearchConfigurationService } from './search-configuration.service';
 import { SearchService } from './search.service';
+import { SearchConfigurationService } from './search-configuration.service';
 import anything = jasmine.anything;
 import SpyObj = jasmine.SpyObj;
 

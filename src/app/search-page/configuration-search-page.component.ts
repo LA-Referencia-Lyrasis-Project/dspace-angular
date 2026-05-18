@@ -1,17 +1,17 @@
 import {
-    AsyncPipe,
-    NgTemplateOutlet,
+  AsyncPipe,
+  NgTemplateOutlet,
 } from '@angular/common';
 import {
-    ChangeDetectionStrategy,
-    Component,
-    Inject,
-    PLATFORM_ID,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  PLATFORM_ID,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
-    APP_CONFIG,
-    AppConfig,
+  APP_CONFIG,
+  AppConfig,
 } from '@dspace/config/app-config.interface';
 import { SearchManager } from '@dspace/core/browse/search-manager';
 import { ConfigurationDataService } from '@dspace/core/data/configuration-data.service';
@@ -21,13 +21,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SEARCH_CONFIG_SERVICE } from '../my-dspace-page/my-dspace-configuration.service';
 import { pushInOut } from '../shared/animations/push';
 import { HostWindowService } from '../shared/host-window.service';
-import { ThemedSearchFormComponent } from '../shared/search-form/themed-search-form.component';
+import { SearchComponent } from '../shared/search/search.component';
+import { SearchService } from '../shared/search/search.service';
 import { SearchConfigurationService } from '../shared/search/search-configuration.service';
 import { SearchLabelsComponent } from '../shared/search/search-labels/search-labels.component';
 import { ThemedSearchResultsComponent } from '../shared/search/search-results/themed-search-results.component';
 import { ThemedSearchSidebarComponent } from '../shared/search/search-sidebar/themed-search-sidebar.component';
-import { SearchComponent } from '../shared/search/search.component';
-import { SearchService } from '../shared/search/search.service';
+import { ThemedSearchFormComponent } from '../shared/search-form/themed-search-form.component';
 import { PageWithSidebarComponent } from '../shared/sidebar/page-with-sidebar.component';
 import { SidebarService } from '../shared/sidebar/sidebar.service';
 import { ViewModeSwitchComponent } from '../shared/view-mode-switch/view-mode-switch.component';
