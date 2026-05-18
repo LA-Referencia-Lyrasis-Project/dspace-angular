@@ -59,6 +59,11 @@ export class SearchFormComponent implements OnChanges {
   @Input() semanticSearch = false;
 
   /**
+   * Selected search mode in the form.
+   */
+  searchType: 'lexical' | 'semantic' = 'lexical';
+
+  /**
    * True when semantic search option is enabled from backend configuration
    */
   @Input() semanticSearchEnabled = false;
@@ -124,6 +129,8 @@ export class SearchFormComponent implements OnChanges {
    * Retrieve the scope object from the URL so we can show its name
    */
   ngOnChanges(): void {
+    this.searchType = this.semanticSearchEnabled && this.semanticSearch ? 'semantic' : 'lexical';
+
     if (isNotEmpty(this.scope)) {
       this.dsoService.findById(this.scope).pipe(getFirstSucceededRemoteDataPayload())
         .subscribe((scope: DSpaceObject) => this.selectedScope.next(scope));
@@ -158,7 +165,9 @@ export class SearchFormComponent implements OnChanges {
   updateSearch(data: any) {
     const goToFirstPage = { 'spc.page': 1 };
 
-    const searchType = this.semanticSearchEnabled && data.semanticSearch ? 'semantic' : null;
+    const selectedSearchType = data.searchType || (data.semanticSearch ? 'semantic' : 'lexical');
+    const searchType = this.semanticSearchEnabled && selectedSearchType === 'semantic' ? 'semantic' : 'lexical';
+    delete data.searchType;
     delete data.semanticSearch;
 
     const queryParams = Object.assign(

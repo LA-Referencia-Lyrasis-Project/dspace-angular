@@ -12,14 +12,12 @@
       <input type="text" [(ngModel)]="query" name="query" class="form-control"
         [attr.aria-label]="searchPlaceholder" [attr.data-test]="'search-box' | dsBrowserOnly"
         [placeholder]="searchPlaceholder" tabindex="0">
+      <select class="form-select select-search-type" [(ngModel)]="searchType" name="searchType"
+        aria-label="Search type" [attr.data-test]="'search-type-select' | dsBrowserOnly">
+        <option value="lexical">Lexical</option>
+        <option value="semantic" [disabled]="!semanticSearchEnabled">Semantic</option>
+      </select>
       <button type="submit" class="search-button btn btn-{{brandColor}}" [attr.data-test]="'search-button' | dsBrowserOnly" role="button" tabindex="0"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
     </div>
-    @if (semanticSearchEnabled) {
-      <div class="form-check mb-2">
-        <input id="semantic-search-toggle" class="form-check-input" type="checkbox" name="semanticSearch"
-          [(ngModel)]="semanticSearch">
-        <label class="form-check-label" for="semantic-search-toggle">Semantic - AI-powered meaning search <span class="badge bg-secondary">Beta</span></label>
-      </div>
-    }
   </div>
 </form>
