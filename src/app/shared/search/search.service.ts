@@ -10,8 +10,8 @@ import { GetRequest } from '@dspace/core/data/request.models';
 import { RequestService } from '@dspace/core/data/request.service';
 import { RestRequest } from '@dspace/core/data/rest-request.model';
 import { SearchResponseParsingService } from '@dspace/core/data/search-response-parsing.service';
-import { PaginationService } from '@dspace/core/pagination/pagination.service';
 import { PaginationComponentOptions } from '@dspace/core/pagination/pagination-component-options.model';
+import { PaginationService } from '@dspace/core/pagination/pagination.service';
 import { RouteService } from '@dspace/core/services/route.service';
 import { DSpaceObject } from '@dspace/core/shared/dspace-object.model';
 import { FollowLinkConfig } from '@dspace/core/shared/follow-link-config.model';
@@ -19,8 +19,8 @@ import { GenericConstructor } from '@dspace/core/shared/generic-constructor';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
 import { ListableObject } from '@dspace/core/shared/object-collection/listable-object.model';
 import {
-  getFirstCompletedRemoteData,
-  getRemoteDataPayload,
+    getFirstCompletedRemoteData,
+    getRemoteDataPayload,
 } from '@dspace/core/shared/operators';
 import { AppliedFilter } from '@dspace/core/shared/search/models/applied-filter.model';
 import { FacetValues } from '@dspace/core/shared/search/models/facet-values.model';
@@ -31,23 +31,23 @@ import { SearchResult } from '@dspace/core/shared/search/models/search-result.mo
 import { ViewMode } from '@dspace/core/shared/view-mode.model';
 import { URLCombiner } from '@dspace/core/url-combiner/url-combiner';
 import {
-  hasValue,
-  hasValueOperator,
-  isNotEmpty,
+    hasValue,
+    hasValueOperator,
+    isNotEmpty,
 } from '@dspace/shared/utils/empty.util';
 import { Angulartics2 } from 'angulartics2';
 import {
-  BehaviorSubject,
-  combineLatest as observableCombineLatest,
-  Observable,
+    BehaviorSubject,
+    Observable,
+    combineLatest as observableCombineLatest,
 } from 'rxjs';
 import {
-  distinctUntilChanged,
-  map,
-  skipWhile,
-  switchMap,
-  take,
-  tap,
+    distinctUntilChanged,
+    map,
+    skipWhile,
+    switchMap,
+    take,
+    tap,
 } from 'rxjs/operators';
 
 import { SearchConfigurationService } from './search-configuration.service';
@@ -167,7 +167,9 @@ export class SearchService {
    * @returns {Observable<RemoteData<SearchObjects<T>>>} Emits a paginated list with all search results found
    */
   search<T extends DSpaceObject>(searchOptions?: PaginatedSearchOptions, responseMsToLive?: number, useCachedVersionIfAvailable = true, reRequestOnStale = true, ...linksToFollow: FollowLinkConfig<T>[]): Observable<RemoteData<SearchObjects<T>>> {
-    const href$ = this.getEndpoint(searchOptions);
+    const href$ = this.getEndpoint(searchOptions).pipe(
+      map((href: string) => this.addSearchTypeParam(href, searchOptions)),
+    );
 
     let startTime: number;
     href$.pipe(
@@ -208,6 +210,27 @@ export class SearchService {
       // cached completed object
       skipWhile((rd: RemoteData<SearchObjects<T>>) => rd.isStale || (!useCachedVersionIfAvailable && rd.lastUpdated < startTime)),
     );
+  }
+
+  /**
+   * Ensures searchType is part of the request URL so cache entries are unique per query + search type.
+   */
+  private addSearchTypeParam(href: string, searchOptions?: PaginatedSearchOptions): string {
+    const searchType = searchOptions?.searchType === 'semantic' ? 'semantic' : 'lexical';
+
+    try {
+      const parsedUrl = new URL(href);
+      parsedUrl.searchParams.set('searchType', searchType);
+      return parsedUrl.toString();
+    } catch (e) {
+      const [base, query = ''] = href.split('?');
+      const params = query
+        .split('&')
+        .filter((part: string) => isNotEmpty(part) && !part.startsWith('searchType='));
+      params.push(`searchType=${encodeURIComponent(searchType)}`);
+
+      return isNotEmpty(params) ? `${base}?${params.join('&')}` : base;
+    }
   }
 
   /**

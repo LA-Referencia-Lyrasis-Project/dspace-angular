@@ -14,8 +14,8 @@
         [placeholder]="searchPlaceholder" tabindex="0">
       <select class="form-select select-search-type" [(ngModel)]="searchType" name="searchType"
         aria-label="Search type" [attr.data-test]="'search-type-select' | dsBrowserOnly">
-        <option value="lexical">Lexical</option>
-        <option value="semantic" [disabled]="!semanticSearchEnabled">Semantic</option>
+        <option value="lexical" title="Keyword search with operators">Lexical</option>
+        <option value="semantic" [disabled]="!semanticSearchEnabled" title="AI-powered meaning search">Semantic (beta)</option>
       </select>
       <button type="submit" class="search-button btn btn-{{brandColor}}" [attr.data-test]="'search-button' | dsBrowserOnly" role="button" tabindex="0"><i class="fas fa-search"></i> {{ ('search.form.search' | translate) }}</button>
     </div>

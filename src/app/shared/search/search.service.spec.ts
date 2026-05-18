@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { RemoteDataBuildService } from '@dspace/core/cache/builders/remote-data-build.service';
 import { DSpaceObjectDataService } from '@dspace/core/data/dspace-object-data.service';
 import { RemoteData } from '@dspace/core/data/remote-data';
-import { RequestService } from '@dspace/core/data/request.service';
 import { RequestEntryState } from '@dspace/core/data/request-entry-state.model';
+import { RequestService } from '@dspace/core/data/request.service';
 import { PaginationService } from '@dspace/core/pagination/pagination.service';
 import { RouteService } from '@dspace/core/services/route.service';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
@@ -24,11 +24,11 @@ import { Angulartics2 } from 'angulartics2';
 import { of } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
 
-import { SearchService } from './search.service';
+import { Component } from '@angular/core';
 import { SearchConfigurationService } from './search-configuration.service';
+import { SearchService } from './search.service';
 import anything = jasmine.anything;
 import SpyObj = jasmine.SpyObj;
-import { Component } from '@angular/core';
 
 @Component({
   template: '',
@@ -244,7 +244,8 @@ describe('SearchService', () => {
 
       service.search(new PaginatedSearchOptions({})).subscribe();
 
-      expect(remoteDataBuildService.buildFromHref).toHaveBeenCalledWith(envConfig.rest.baseUrl + '/discover/search/objects');
+      expect(remoteDataBuildService.buildFromHref)
+        .toHaveBeenCalledWith(envConfig.rest.baseUrl + '/discover/search/objects?searchType=lexical');
     });
   });
 

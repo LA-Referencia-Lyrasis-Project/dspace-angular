@@ -4,9 +4,10 @@ import { hasValue } from '@dspace/shared/utils/empty.util';
 import { ParsedResponse } from '../cache/response.models';
 import { DSpaceSerializer } from '../dspace-rest/dspace.serializer';
 import { RawRestResponse } from '../dspace-rest/raw-rest-response.model';
+import { getUrlWithoutEmbedParams } from '../index/index.selectors';
 import {
-  MetadataMap,
-  MetadataValue,
+    MetadataMap,
+    MetadataValue,
 } from '../shared/metadata.models';
 import { SearchObjects } from '../shared/search/models/search-objects.model';
 import { DspaceRestResponseParsingService } from './dspace-rest-response-parsing.service';
@@ -54,6 +55,12 @@ export class SearchResponseParsingService extends DspaceRestResponseParsingServi
       }));
     payload.objects = objects;
     const deserialized: any = new DSpaceSerializer(SearchObjects).deserialize(payload);
+    // Use request URL as cache identity so searchType differences do not collide in object cache.
+    deserialized._links = Object.assign({}, deserialized._links, {
+      self: {
+        href: getUrlWithoutEmbedParams(request.href),
+      },
+    });
     deserialized.pageInfo = this.processPageInfo(payload);
     this.addToObjectCache(deserialized, request, data);
     return new ParsedResponse(data.statusCode, deserialized._links.self);
