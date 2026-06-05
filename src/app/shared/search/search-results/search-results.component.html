@@ -15,7 +15,7 @@
     <h1 class="d-flex align-items-start gap-2">
       {{ (configuration ? configuration + '.search.results.head' : 'search.results.head') | translate }}
       <span class="badge bg-secondary search-type-badge">
-        {{ searchConfig?.searchType === 'semantic' ? 'Semantic' : 'Lexical' }}
+        {{ ('search.form.search-type.' + (searchConfig?.searchType || 'lexical')) | translate }}
       </span>
     </h1>
   }

@@ -109,6 +109,7 @@
     [scope]="(searchOptions$ | async)?.scope"
     [semanticSearchEnabled]="(semanticSearchEnabled$ | async) === true"
     [semanticSearch]="(semanticSearchEnabled$ | async) === true && (searchOptions$ | async)?.searchType === 'semantic'"
+    [selectedSearchType]="(searchOptions$ | async)?.searchType"
     [hideScopeInUrl]="hideScopeInUrl"
     [currentUrl]="searchLink"
     [showScopeSelector]="showScopeSelector"

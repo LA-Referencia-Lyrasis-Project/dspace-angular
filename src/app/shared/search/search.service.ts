@@ -216,7 +216,9 @@ export class SearchService {
    * Ensures searchType is part of the request URL so cache entries are unique per query + search type.
    */
   private addSearchTypeParam(href: string, searchOptions?: PaginatedSearchOptions): string {
-    const searchType = searchOptions?.searchType === 'semantic' ? 'semantic' : 'lexical';
+    const requestedSearchType = searchOptions?.searchType;
+    const searchType = requestedSearchType === 'semantic' || requestedSearchType === 'hybrid' ?
+      requestedSearchType : 'lexical';
 
     try {
       const parsedUrl = new URL(href);
