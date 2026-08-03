@@ -6,29 +6,31 @@ This document summarizes semantic-search changes in branch `semantic-search` com
 
 ## Frontend Feature Summary
 
-1. Search UI now supports mode selection: `lexical` or `semantic`.
+1. Search UI now supports mode selection: `lexical`, `semantic`, or `hybrid`.
 2. Search requests include `searchType` to avoid backend/cache ambiguity.
 3. Semantic enablement is driven by backend config property `semantic.search.enabled`.
-4. Result header shows current mode (`Semantic` or `Lexical`).
-5. Item list element renders backend relevance `score`.
+4. Hybrid enablement is driven by backend config property `hybrid.search.enabled`.
+5. Result header shows current mode (`Lexical`, `Semantic`, or `Hybrid`).
+6. Item list element renders backend relevance `score`.
 
 ## Runtime Behavior
 
 1. `SearchFormComponent` shows a search-type select.
-2. `SearchComponent` reads backend property `semantic.search.enabled` via `/api/config/properties`.
+2. `SearchComponent` reads backend properties `semantic.search.enabled` and `hybrid.search.enabled` via `/api/config/properties`.
 3. `SearchService` always includes `searchType` in request URL.
-4. `SearchResponseParsingService` uses request URL as self/cache identity to avoid collisions between lexical/semantic responses for same query.
+4. `SearchResponseParsingService` uses request URL as self/cache identity to avoid collisions between lexical, semantic, and hybrid responses for same query.
 5. `SearchOptions` and `PaginatedSearchOptions` now serialize `searchType` to REST.
 
-## Semantic Search Configuration Inputs
+## Semantic And Hybrid Search Configuration Inputs
 
 ### Backend-driven flag (consumed by Angular)
 
 1. `semantic.search.enabled` (read from REST config properties endpoint)
+2. `hybrid.search.enabled` (read from REST config properties endpoint)
 
 ### Query parameter used by Angular search requests
 
-1. `searchType=lexical|semantic`
+1. `searchType=lexical|semantic|hybrid`
 
 ### Search result payload fields used by Angular
 
@@ -37,9 +39,9 @@ This document summarizes semantic-search changes in branch `semantic-search` com
 
 ## Environment Variables
 
-No semantic-specific environment variable was added in Angular for this branch.
+No semantic- or hybrid-specific environment variable was added in Angular for this branch.
 
-Use existing config loading variables when deploying semantic search behavior:
+Use existing config loading variables when deploying semantic or hybrid search behavior:
 
 1. `DSPACE_APP_CONFIG_PATH` (external app config file)
 2. `DSPACE_REST_SSL`
@@ -54,7 +56,7 @@ Use existing config loading variables when deploying semantic search behavior:
 Notes:
 
 1. These are generic Angular deployment variables.
-2. Semantic mode itself is toggled by backend property exposure and search query parameter.
+2. Semantic and hybrid modes are toggled by backend property exposure and search query parameter.
 
 ## Files Changed in Branch
 

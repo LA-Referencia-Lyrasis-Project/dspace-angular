@@ -69,17 +69,19 @@ Alternately you can set the following environment variables. If any of these are
   DSPACE_REST_NAMESPACE=/server
 ```
 
-## Semantic Search
+## Semantic And Hybrid Search
 
-Semantic search support in Angular depends on backend capabilities and configuration exposure.
+Semantic and hybrid search support in Angular depends on backend capabilities and configuration exposure.
 
 ### Required backend property exposure
 
-Angular checks the backend configuration property below via `/api/config/properties`:
+Angular checks the backend configuration properties below via `/api/config/properties`:
 
 1. `semantic.search.enabled`
+2. `hybrid.search.enabled`
 
-If this property is missing or `false`, semantic mode is shown as disabled in the search form.
+If `semantic.search.enabled` is missing or `false`, semantic mode is shown as disabled in the search form.
+If `hybrid.search.enabled` is missing or `false`, hybrid mode is shown as disabled in the search form.
 
 ### Request parameter used by Angular
 
@@ -87,14 +89,15 @@ Angular sends search mode using query parameter:
 
 1. `searchType=lexical`
 2. `searchType=semantic`
+3. `searchType=hybrid`
 
-This parameter is included in search request URLs so lexical and semantic responses are cached independently.
+This parameter is included in search request URLs so lexical, semantic, and hybrid responses are cached independently.
 
 ### Angular environment variables
 
-No semantic-specific environment variable was introduced.
+No semantic- or hybrid-specific environment variable was introduced.
 
-Use the standard configuration variables documented in this file (`DSPACE_APP_CONFIG_PATH`, `DSPACE_REST_*`, `DSPACE_UI_*` / `DSPACE_*`) to point Angular to the backend where semantic search is enabled.
+Use the standard configuration variables documented in this file (`DSPACE_APP_CONFIG_PATH`, `DSPACE_REST_*`, `DSPACE_UI_*` / `DSPACE_*`) to point Angular to the backend where semantic and hybrid search are enabled.
 
 ## Environment variable naming convention
 
