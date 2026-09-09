@@ -73,6 +73,8 @@ Alternately you can set the following environment variables. If any of these are
 
 Semantic and hybrid search support in Angular depends on backend capabilities and configuration exposure.
 
+The backend uses embeddings with Solr 10.1 beta. It can index a single vector or multiple vectors for each item; long abstracts are split into chunks before vectorization. Hybrid mode combines lexical and vector rankings with RRF (*Reciprocal Rank Fusion*).
+
 ### Required backend property exposure
 
 Angular checks the backend configuration properties below via `/api/config/properties`:

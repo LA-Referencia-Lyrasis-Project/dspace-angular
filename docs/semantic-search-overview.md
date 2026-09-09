@@ -1,62 +1,25 @@
-# Semantic Search Feature Overview (dspace-angular)
+# Busca Semântica e Híbrida no Angular (beta)
 
-## Scope
+## Visão geral
 
-This document summarizes semantic-search changes in branch `semantic-search` compared to `main`.
+O portal Angular passa a oferecer três modos de busca: **Léxica**, **Semântica** e **Híbrida**. Os dois últimos usam a infraestrutura beta de embeddings no Solr 10.1 do backend:
 
-## Frontend Feature Summary
+- a busca semântica encontra itens por proximidade de significado;
+- a busca híbrida combina palavras-chave e similaridade semântica com RRF (*Reciprocal Rank Fusion*).
 
-1. Search UI now supports mode selection: `lexical`, `semantic`, or `hybrid`.
-2. Search requests include `searchType` to avoid backend/cache ambiguity.
-3. Semantic enablement is driven by backend config property `semantic.search.enabled`.
-4. Hybrid enablement is driven by backend config property `hybrid.search.enabled`.
-5. Result header shows current mode (`Lexical`, `Semantic`, or `Hybrid`).
-6. Item list element renders backend relevance `score`.
+## Interface e requisições
 
-## Runtime Behavior
+O formulário de busca apresenta as opções Semântica e Híbrida somente quando o backend expõe, respectivamente, `semantic.search.enabled=true` e `hybrid.search.enabled=true`.
 
-1. `SearchFormComponent` shows a search-type select.
-2. `SearchComponent` reads backend properties `semantic.search.enabled` and `hybrid.search.enabled` via `/api/config/properties`.
-3. `SearchService` always includes `searchType` in request URL.
-4. `SearchResponseParsingService` uses request URL as self/cache identity to avoid collisions between lexical, semantic, and hybrid responses for same query.
-5. `SearchOptions` and `PaginatedSearchOptions` now serialize `searchType` to REST.
+Ao pesquisar, o Angular envia `searchType=lexical|semantic|hybrid` para o Discovery. O parâmetro faz parte da URL e da chave de cache, garantindo que uma mesma consulta não reutilize resultados entre modos diferentes.
 
-## Semantic And Hybrid Search Configuration Inputs
+A página de resultados identifica o modo ativo e exibe o `score` de relevância fornecido pelo backend. As traduções das novas opções estão disponíveis em inglês, espanhol e português do Brasil.
 
-### Backend-driven flag (consumed by Angular)
+## Dependência do backend
 
-1. `semantic.search.enabled` (read from REST config properties endpoint)
-2. `hybrid.search.enabled` (read from REST config properties endpoint)
+O Angular não gera embeddings. O backend indexa título, resumo e demais metadados configurados como vetores; em textos longos, o resumo é dividido em segmentos (*chunks*) com o título como contexto. O Solr 10.1 beta consulta esses vetores em modo único ou multivetores e, no modo híbrido, une o ranking vetorial e o léxico por RRF.
 
-### Query parameter used by Angular search requests
-
-1. `searchType=lexical|semantic|hybrid`
-
-### Search result payload fields used by Angular
-
-1. `score` (mapped into `SearchResult.score`)
-2. `hitHighlights`
-
-## Environment Variables
-
-No semantic- or hybrid-specific environment variable was added in Angular for this branch.
-
-Use existing config loading variables when deploying semantic or hybrid search behavior:
-
-1. `DSPACE_APP_CONFIG_PATH` (external app config file)
-2. `DSPACE_REST_SSL`
-3. `DSPACE_REST_HOST`
-4. `DSPACE_REST_PORT`
-5. `DSPACE_REST_NAMESPACE`
-6. `DSPACE_UI_SSL` or `DSPACE_SSL`
-7. `DSPACE_UI_HOST` or `DSPACE_HOST`
-8. `DSPACE_UI_PORT` or `DSPACE_PORT`
-9. `DSPACE_UI_NAMESPACE` or `DSPACE_NAMESPACE`
-
-Notes:
-
-1. These are generic Angular deployment variables.
-2. Semantic and hybrid modes are toggled by backend property exposure and search query parameter.
+Não foram criadas variáveis de ambiente específicas no Angular. A ativação e a configuração do serviço de embeddings ocorrem no backend.
 
 ## Files Changed in Branch
 
