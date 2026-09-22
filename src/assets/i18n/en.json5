@@ -7914,9 +7914,10 @@
 
   "bitstream.related.deleted": "deleted",
 
-  "menu.section.darks": "dARK registry",
-  "admin.darks.title": "dARK registry",
-  "admin.darks.view": "Registry view",
+  "menu.section.darks": "dARK registries",
+  "admin.darks.title": "dARK registries",
+  "admin.darks.title.breadcrumbs": "dARK registries",
+  "admin.darks.view": "Registries view",
   "admin.darks.assigned": "Items with dARK",
   "admin.darks.missing": "Items without dARK",
   "admin.darks.ark": "dARK",
@@ -7939,8 +7940,8 @@
   "admin.darks.export": "Export CSV",
   "admin.darks.empty": "No items match the current filters.",
   "admin.darks.results": "results",
-  "admin.darks.load.error": "Could not load the local dARK registry.",
-  "admin.darks.export.error": "Could not export the local dARK registry.",
+  "admin.darks.load.error": "Could not load the local dARK registries.",
+  "admin.darks.export.error": "Could not export the local dARK registries.",
   "admin.darks.mint.started": "The dARK process has started.",
   "admin.darks.mint.error": "Could not start the dARK process.",
 }

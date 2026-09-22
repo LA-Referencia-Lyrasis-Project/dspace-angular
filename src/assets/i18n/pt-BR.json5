@@ -11894,8 +11894,9 @@
   // TODO New key - Add a translation
   "bitstream.related.deleted": "deleted",
 
-  "menu.section.darks": "Registro dARK",
-  "admin.darks.title": "Registro dARK",
+  "menu.section.darks": "Registros dARK",
+  "admin.darks.title": "Registros dARK",
+  "admin.darks.title.breadcrumbs": "Registros dARK",
   "admin.darks.view": "Visualização do registro",
   "admin.darks.assigned": "Itens com dARK",
   "admin.darks.missing": "Itens sem dARK",
