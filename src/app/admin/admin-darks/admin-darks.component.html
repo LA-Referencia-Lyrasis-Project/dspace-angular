@@ -1,68 +1,81 @@
-<div class="container py-4">
+<section class="container py-4" aria-labelledby="admin-darks-heading">
   <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
-    <h1 class="h3 mb-0">{{ 'admin.darks.title' | translate }}</h1>
-    <div class="btn-group" role="group">
-      <button class="btn btn-outline-secondary" type="button" (click)="exportCsv()">
+    <h1 id="admin-darks-heading" class="h3 mb-0">{{ 'admin.darks.title' | translate }}</h1>
+    <div>
+      <button class="btn btn-outline-secondary" type="button" (click)="exportCsv()" [title]="'admin.darks.export' | translate">
         <i class="fas fa-download me-1" aria-hidden="true"></i>{{ 'admin.darks.export' | translate }}
       </button>
-      @if (view === 'missing') {
-        <button class="btn btn-primary" type="button" [disabled]="running || total === 0" (click)="mintAll()">
-          <i class="fas fa-plus me-1" aria-hidden="true"></i>{{ 'admin.darks.mint-all' | translate }}
-        </button>
-      }
     </div>
   </div>
 
   <div class="btn-group mb-3" role="group" [attr.aria-label]="'admin.darks.view' | translate">
-    <button type="button" class="btn" [class.btn-primary]="view === 'assigned'" [class.btn-outline-primary]="view !== 'assigned'" (click)="changeView('assigned')">{{ 'admin.darks.assigned' | translate }}</button>
-    <button type="button" class="btn" [class.btn-primary]="view === 'missing'" [class.btn-outline-primary]="view !== 'missing'" (click)="changeView('missing')">{{ 'admin.darks.missing' | translate }}</button>
+    <button type="button" class="btn" [class.btn-primary]="view === 'assigned'" [class.btn-outline-primary]="view !== 'assigned'" [attr.aria-pressed]="view === 'assigned'" (click)="changeView('assigned')" [title]="'admin.darks.assigned' | translate">{{ 'admin.darks.assigned' | translate }}</button>
+    <button type="button" class="btn" [class.btn-primary]="view === 'missing'" [class.btn-outline-primary]="view !== 'missing'" [attr.aria-pressed]="view === 'missing'" (click)="changeView('missing')" [title]="'admin.darks.missing' | translate">{{ 'admin.darks.missing' | translate }}</button>
   </div>
 
-  <form class="row g-3 align-items-end mb-4" (ngSubmit)="applyFilters()">
+  <form class="row g-3 align-items-end mb-4" (ngSubmit)="applyFilters()" [attr.aria-label]="'admin.darks.filter-form' | translate">
     @if (view === 'assigned') {
-      <div class="col-sm-4 col-lg-3"><label class="form-label" for="dark-ark">{{ 'admin.darks.ark' | translate }}</label><input id="dark-ark" class="form-control" [(ngModel)]="ark" name="ark"></div>
-      <div class="col-sm-3 col-lg-2"><label class="form-label" for="dark-status">{{ 'admin.darks.status' | translate }}</label><select id="dark-status" class="form-select" [(ngModel)]="status" name="status"><option value="">{{ 'admin.darks.any' | translate }}</option><option value="R">R</option><option value="D">D</option><option value="U">U</option><option value="P">P</option><option value="T">T</option></select></div>
+      <div class="col-sm-4 col-lg-3"><label class="form-label" for="dark-ark">{{ 'admin.darks.ark' | translate }}</label><input id="dark-ark" class="form-control" [(ngModel)]="ark" name="ark" [title]="'admin.darks.ark' | translate"></div>
+      <div class="col-sm-3 col-lg-2"><label class="form-label" for="dark-status">{{ 'admin.darks.status' | translate }}</label><select id="dark-status" class="form-select" [(ngModel)]="status" name="status" [title]="'admin.darks.status' | translate"><option value="">{{ 'admin.darks.any' | translate }}</option><option value="R">R</option><option value="D">D</option><option value="U">U</option><option value="P">P</option><option value="T">T</option></select></div>
     }
-    <div class="col-sm-5 col-lg-4"><label class="form-label" for="dark-item">{{ 'admin.darks.item-id' | translate }}</label><input id="dark-item" class="form-control" [(ngModel)]="itemId" name="itemId"></div>
+    <div class="col-sm-5 col-lg-4"><label class="form-label" for="dark-item">{{ 'admin.darks.item-id' | translate }}</label><input id="dark-item" class="form-control" [(ngModel)]="itemId" name="itemId" [title]="'admin.darks.item-id' | translate"></div>
     @if (view === 'assigned') {
-      <div class="col-auto"><div class="form-check"><input id="dark-errors" class="form-check-input" type="checkbox" [(ngModel)]="errorsOnly" name="errorsOnly"><label class="form-check-label" for="dark-errors">{{ 'admin.darks.errors-only' | translate }}</label></div></div>
+      <div class="col-auto"><div class="form-check"><input id="dark-errors" class="form-check-input" type="checkbox" [(ngModel)]="errorsOnly" name="errorsOnly" [title]="'admin.darks.errors-only' | translate"><label class="form-check-label" for="dark-errors">{{ 'admin.darks.errors-only' | translate }}</label></div></div>
     }
-    <div class="col-auto"><button class="btn btn-secondary" type="submit">{{ 'admin.darks.filter' | translate }}</button></div>
+    <div class="col-auto"><button class="btn btn-secondary" type="submit" [title]="'admin.darks.filter' | translate">{{ 'admin.darks.filter' | translate }}</button></div>
+    <div class="col-auto ms-auto">
+      <div class="btn-group" role="group" [attr.aria-label]="'admin.darks.actions-group' | translate">
+        @if (view === 'assigned') {
+          <button class="btn btn-outline-primary" type="button" [disabled]="running" (click)="refreshPendingStatuses()" [title]="'admin.darks.refresh-all' | translate">
+            <i class="fas fa-arrows-rotate me-1" aria-hidden="true"></i>{{ 'admin.darks.refresh-all' | translate }}
+          </button>
+        }
+        @if (view === 'missing') {
+          <button class="btn btn-primary" type="button" [disabled]="running || total === 0" (click)="mintAll()" [title]="'admin.darks.mint-all' | translate">
+            <i class="fas fa-plus me-1" aria-hidden="true"></i>{{ 'admin.darks.mint-all' | translate }}
+          </button>
+        }
+      </div>
+    </div>
   </form>
 
   @if (view === 'assigned') {
-    <div class="mb-3 d-flex gap-2 align-items-center"><span>{{ 'admin.darks.order' | translate }}:</span><button class="btn btn-sm btn-outline-secondary" type="button" (click)="setDateSort('createdAt')">{{ 'admin.darks.created-at' | translate }}</button><button class="btn btn-sm btn-outline-secondary" type="button" (click)="setDateSort('updatedAt')">{{ 'admin.darks.updated-at' | translate }}</button><span class="small text-muted">{{ direction }}</span></div>
+    <div class="mb-3 d-flex flex-wrap justify-content-end gap-2 align-items-center" role="group" [attr.aria-label]="'admin.darks.order' | translate"><span>{{ 'admin.darks.order' | translate }}:</span><button class="btn btn-sm btn-outline-secondary" type="button" [attr.aria-pressed]="sort === 'createdAt'" (click)="setDateSort('createdAt')" [title]="'admin.darks.created-at' | translate">{{ 'admin.darks.created-at' | translate }}</button><button class="btn btn-sm btn-outline-secondary" type="button" [attr.aria-pressed]="sort === 'updatedAt'" (click)="setDateSort('updatedAt')" [title]="'admin.darks.updated-at' | translate">{{ 'admin.darks.updated-at' | translate }}</button><span class="small text-muted" aria-live="polite">{{ 'admin.darks.sort-direction' | translate:{ direction: direction } }}</span></div>
   }
 
-  <div class="table-responsive">
+  @if (loading) {
+    <p class="visually-hidden" role="status">{{ 'admin.darks.loading' | translate }}</p>
+  }
+  <div class="table-responsive" [attr.aria-busy]="loading">
     <table class="table table-striped table-hover">
+      <caption class="visually-hidden">{{ (view === 'assigned' ? 'admin.darks.assigned-table' : 'admin.darks.missing-table') | translate }}</caption>
       <thead><tr>
-        @if (view === 'assigned') { <th>{{ 'admin.darks.ark' | translate }}</th><th>{{ 'admin.darks.item-id' | translate }}</th><th>{{ 'admin.darks.status' | translate }}</th><th>{{ 'admin.darks.target' | translate }}</th><th>{{ 'admin.darks.error' | translate }}</th><th>{{ 'admin.darks.created-at' | translate }}</th><th>{{ 'admin.darks.updated-at' | translate }}</th> }
-        @if (view === 'missing') { <th>{{ 'admin.darks.item-id' | translate }}</th><th>{{ 'admin.darks.title-column' | translate }}</th> }
-        <th class="text-end">{{ 'admin.darks.actions' | translate }}</th>
+        @if (view === 'assigned') { <th scope="col">{{ 'admin.darks.ark' | translate }}</th><th scope="col">{{ 'admin.darks.item-id' | translate }}</th><th scope="col">{{ 'admin.darks.status' | translate }}</th><th scope="col">{{ 'admin.darks.target' | translate }}</th><th scope="col">{{ 'admin.darks.error' | translate }}</th><th scope="col">{{ 'admin.darks.created-at' | translate }}</th><th scope="col">{{ 'admin.darks.updated-at' | translate }}</th> }
+        @if (view === 'missing') { <th scope="col">{{ 'admin.darks.item-id' | translate }}</th><th scope="col">{{ 'admin.darks.title-column' | translate }}</th> }
+        <th scope="col" class="text-end">{{ 'admin.darks.actions' | translate }}</th>
       </tr></thead>
       <tbody>
         @for (row of rows; track row.itemId) {
           <tr>
             @if (isDark(row)) {
-              <td class="text-nowrap">{{ row.ark }}</td><td><a [routerLink]="['/items', row.itemId]">{{ row.itemId }}</a></td><td><span class="badge" [ngClass]="statusClass(row.status)">{{ row.status }}</span></td><td class="small">{{ row.target }}</td><td class="error-cell text-danger" [title]="row.lastError">{{ row.lastError }}</td><td class="text-nowrap">{{ row.createdAt | date:'short' }}</td><td class="text-nowrap">{{ row.updatedAt | date:'short' }}</td>
+              <td class="text-nowrap">{{ row.ark }}</td><td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td><span class="badge" [ngClass]="statusClass(row.status)" [attr.aria-label]="'admin.darks.status-value' | translate:{ status: row.status }">{{ row.status }}</span></td><td class="small" [title]="row.target">{{ row.target }}</td><td class="error-cell text-danger" [title]="row.lastError" [attr.aria-label]="row.lastError ? ('admin.darks.error-value' | translate:{ error: row.lastError }) : null">{{ row.lastError }}</td><td class="text-nowrap" [title]="row.createdAt">{{ row.createdAt | date:'short' }}</td><td class="text-nowrap" [title]="row.updatedAt">{{ row.updatedAt | date:'short' }}</td>
             } @else {
-              <td><a [routerLink]="['/items', row.itemId]">{{ row.itemId }}</a></td><td>{{ row.title }}</td>
+              <td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td>{{ row.title }}</td>
             }
             <td class="text-end">
               @if (!isDark(row)) {
-                <button class="btn btn-sm btn-outline-primary" type="button" [disabled]="running" (click)="mintItem(row.itemId)"><i class="fas fa-plus" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.mint-item' | translate }}</span></button>
+                <button class="btn btn-sm btn-outline-primary" type="button" [disabled]="running" (click)="mintItem(row.itemId)" [title]="'admin.darks.mint-item' | translate"><i class="fas fa-plus" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.mint-item' | translate }}</span></button>
               } @else if (row.status !== 'P' && row.lastError) {
-                <button class="btn btn-sm btn-outline-danger" type="button" [disabled]="running" (click)="mintItem(row.itemId)"><i class="fas fa-rotate-right" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.retry' | translate }}</span></button>
+                <button class="btn btn-sm btn-outline-danger" type="button" [disabled]="running" (click)="mintItem(row.itemId)" [title]="'admin.darks.retry' | translate"><i class="fas fa-rotate-right" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.retry' | translate }}</span></button>
               } @else if (row.status === 'D' || row.status === 'U') {
-                <button class="btn btn-sm btn-outline-primary" type="button" [disabled]="running" (click)="refreshItem(row.itemId)"><i class="fas fa-arrows-rotate" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.refresh' | translate }}</span></button>
+                <button class="btn btn-sm btn-outline-primary" type="button" [disabled]="running" (click)="refreshItem(row.itemId)" [title]="'admin.darks.refresh' | translate"><i class="fas fa-arrows-rotate" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.refresh' | translate }}</span></button>
               }
             </td>
           </tr>
         }
-        @if (!loading && rows.length === 0) { <tr><td colspan="8" class="text-center py-4 text-muted">{{ 'admin.darks.empty' | translate }}</td></tr> }
+        @if (!loading && rows.length === 0) { <tr><td [attr.colspan]="view === 'assigned' ? 8 : 3" class="text-center py-4 text-muted">{{ 'admin.darks.empty' | translate }}</td></tr> }
       </tbody>
     </table>
   </div>
-  <div class="d-flex justify-content-between align-items-center mt-3"><span class="text-muted">{{ total }} {{ 'admin.darks.results' | translate }}</span><ngb-pagination [collectionSize]="total" [(page)]="page" [pageSize]="size" [maxSize]="5" [boundaryLinks]="true" (pageChange)="load($event)"></ngb-pagination></div>
-</div>
+  <div class="d-flex justify-content-between align-items-center mt-3"><span class="text-muted" aria-live="polite">{{ 'admin.darks.results-summary' | translate:{ total: total } }}</span><ngb-pagination [collectionSize]="total" [(page)]="page" [pageSize]="size" [maxSize]="5" [boundaryLinks]="true" (pageChange)="load($event)"></ngb-pagination></div>
+</section>

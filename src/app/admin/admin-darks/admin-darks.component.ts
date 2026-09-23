@@ -7,6 +7,7 @@ import {
   NgClass,
 } from '@angular/common';
 import {
+  ChangeDetectorRef,
   Component,
   OnInit,
 } from '@angular/core';
@@ -73,6 +74,7 @@ export class AdminDarksComponent implements OnInit {
     private notifications: NotificationsService,
     private translate: TranslateService,
     private router: Router,
+    private changeDetectorRef: ChangeDetectorRef,
   ) { }
 
   ngOnInit(): void {
@@ -82,12 +84,17 @@ export class AdminDarksComponent implements OnInit {
   load(page: number = this.page): void {
     this.page = page;
     this.loading = true;
+    this.changeDetectorRef.markForCheck();
     this.http.get<DarkPage>(this.endpoint(), { params: this.params() }).pipe(
-      finalize(() => this.loading = false),
+      finalize(() => {
+        this.loading = false;
+        this.changeDetectorRef.markForCheck();
+      }),
     ).subscribe({
       next: (result) => {
         this.rows = result.content;
         this.total = result.totalElements;
+        this.changeDetectorRef.markForCheck();
       },
       error: () => this.notifications.error(this.translate.get('admin.darks.load.error')),
     });
@@ -116,15 +123,21 @@ export class AdminDarksComponent implements OnInit {
   }
 
   mintAll(): void {
-    this.runScript([{ name: '--mint-all', value: null }]);
+    this.runScript([{ name: '--mint-all', value: null }], 'admin.darks.mint.started', 'admin.darks.mint.error');
   }
 
   mintItem(itemId: string): void {
-    this.runScript([{ name: '--mint-uuid', value: itemId }]);
+    this.runScript([{ name: '--mint-uuid', value: itemId }], 'admin.darks.mint.started', 'admin.darks.mint.error');
   }
 
   refreshItem(itemId: string): void {
-    this.runScript([{ name: '--refresh-uuid', value: itemId }]);
+    this.runScript([{ name: '--refresh-uuid', value: itemId }],
+      'admin.darks.refresh.started', 'admin.darks.refresh.error');
+  }
+
+  refreshPendingStatuses(): void {
+    this.runScript([{ name: '--refresh-status', value: null }],
+      'admin.darks.refresh-all.started', 'admin.darks.refresh-all.error');
   }
 
   statusClass(status: string): string {
@@ -154,17 +167,17 @@ export class AdminDarksComponent implements OnInit {
     return 'ark' in row;
   }
 
-  private runScript(parameters: { name: string; value: string | null }[]): void {
+  private runScript(parameters: { name: string; value: string | null }[], startedMessage: string, errorMessage: string): void {
     this.running = true;
     this.scriptDataService.invoke('dark', parameters, []).pipe(
       getFirstCompletedRemoteData(),
       finalize(() => this.running = false),
     ).subscribe((result: RemoteData<Process>) => {
       if (result.hasSucceeded) {
-        this.notifications.success(this.translate.get('admin.darks.mint.started'));
+        this.notifications.success(this.translate.get(startedMessage));
         void this.router.navigateByUrl(getProcessDetailRoute(result.payload.processId));
       } else {
-        this.notifications.error(this.translate.get('admin.darks.mint.error'));
+        this.notifications.error(this.translate.get(errorMessage));
       }
     });
   }
