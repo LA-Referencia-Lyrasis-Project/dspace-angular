@@ -7326,15 +7326,15 @@
 
   "community.no-description": "Sin descripción disponible",
 
-  "home.news.heading.part1": "Hub Regional de",
+  "home.news.heading.part1": "Repositorio de recursos técnicos, documentación y activos digitales de",
 
-  "home.news.heading.part2": "Infraestructura y Capacidades",
+  "home.news.heading.part2": "LA Referencia",
 
   "home.news.description": "Repositorio central de recursos técnicos, documentación y activos digitales de los proyectos de LA Referencia",
 
   "home.news.button.view-news": "Ver Novedades",
 
-  "home.news.card.projects.title": "Documentos",
+  "home.news.card.projects.title": "Configuración de DSpace en Angular",
 
   "home.news.card.projects.description": "Accede a la documentación del proyecto",
 
@@ -7342,9 +7342,9 @@
 
   "home.news.card.theme.description": "Accede a recursos y activos digitales",
 
-  "home.news.card.documentation.title": "Documentación Infra",
+  "home.news.card.documentation.title": "Migración de DSpace clásico a Angular: desafíos y consejos prácticos",
 
-  "home.news.card.documentation.description": "Guías técnicas y manuales",
+  "home.news.card.documentation.description": "Guía técnica de migración",
 
   "home.news.card.dashboard.title": "Panel de Control",
 

@@ -1,22 +1,15 @@
-<div class="home-news-content py-5 mt-ncs mb-4">
+<div class="home-news-content py-5 mt-ncs mb-4 home-news-spacing">
   <div class="container">
     <div class="row align-items-center gy-5">
       <!-- Left Column: Title & Description -->
-      <div class="text-white">
-        <h2 class="display-4 fw-bold mb-4 text-white">
+      <div class="col-lg-7 text-white">
+        <h2 class="display-3 fw-bold mb-4 text-white">
           {{ "home.news.heading.part1" | translate }} <br />
           <span style="color: #04bab8">{{
             "home.news.heading.part2" | translate
             }}</span>
         </h2>
-        <p class="lead mb-4" style="max-width: 600px; color: rgba(255, 255, 255, 0.9)">
-          {{ "home.news.description" | translate }}
-        </p>
 
-        <div class="mb-5 search-form-wrapper">
-          <ds-themed-search-form [inPlaceSearch]="false"
-            [searchPlaceholder]="'home.search-form.placeholder' | translate"></ds-themed-search-form>
-        </div>
 
         <a href="https://dspace-prd.lareferencia.info/handle/123456789/1" target="_blank" rel="noopener noreferrer"
           class="btn btn-light text-primary btn-lg px-4 rounded-pill fw-bold shadow-sm">
@@ -26,9 +19,9 @@
       </div>
 
       <!-- Right Column: Interactive Cards -->
-      <!-- <div class="col-lg-5">
+      <div class="col-lg-5">
         <div class="d-grid gap-2">
-          <a href="https://dev.lareferencia.info/documentos/" class="card-link-custom" target="_blank"
+          <a [href]="'home.news.card.projects.url' | translate" class="card-link-custom" target="_blank"
             rel="noopener noreferrer">
             <div class="d-flex align-items-center p-2 px-3 bg-white rounded-3 shadow-sm border-0 h-100">
               <div class="icon-box bg-light-custom text-brand-1 rounded-circle p-2 me-3">
@@ -46,6 +39,24 @@
             </div>
           </a>
 
+          <a [href]="'home.news.card.documentation.url' | translate" target="_blank" rel="noopener noreferrer" class="card-link-custom">
+            <div class="d-flex align-items-center p-2 px-3 bg-white rounded-3 shadow-sm border-0 h-100">
+              <div class="icon-box bg-light-custom text-brand-3 rounded-circle p-2 me-3">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="flex-grow-1">
+                <h6 class="mb-0 fw-bold text-dark">
+                  {{ "home.news.card.documentation.title" | translate }}
+                </h6>
+                <small class="text-muted d-block" style="font-size: 0.75rem;">{{
+                  "home.news.card.documentation.description" | translate
+                  }}</small>
+              </div>
+              <i class="fas fa-chevron-right chevron-icon" style="font-size: 0.8rem;"></i>
+            </div>
+          </a>
+
+          <!-- Card 3 (disabled for now)
           <a href="https://recursos.lareferencia.info/" class="card-link-custom" target="_blank"
             rel="noopener noreferrer">
             <div class="d-flex align-items-center p-2 px-3 bg-white rounded-3 shadow-sm border-0 h-100">
@@ -58,23 +69,6 @@
                 </h6>
                 <small class="text-muted d-block" style="font-size: 0.75rem;">{{
                   "home.news.card.theme.description" | translate
-                  }}</small>
-              </div>
-              <i class="fas fa-chevron-right chevron-icon" style="font-size: 0.8rem;"></i>
-            </div>
-          </a>
-
-          <a routerLink="/items/14186a6a-f344-401c-9514-dccb0e620fea" class="card-link-custom">
-            <div class="d-flex align-items-center p-2 px-3 bg-white rounded-3 shadow-sm border-0 h-100">
-              <div class="icon-box bg-light-custom text-brand-3 rounded-circle p-2 me-3">
-                <i class="fas fa-exchange-alt"></i>
-              </div>
-              <div class="flex-grow-1">
-                <h6 class="mb-0 fw-bold text-dark">
-                  {{ "home.news.card.documentation.title" | translate }}
-                </h6>
-                <small class="text-muted d-block" style="font-size: 0.75rem;">{{
-                  "home.news.card.documentation.description" | translate
                   }}</small>
               </div>
               <i class="fas fa-chevron-right chevron-icon" style="font-size: 0.8rem;"></i>
@@ -97,8 +91,16 @@
               <i class="fas fa-chevron-right chevron-icon" style="font-size: 0.8rem;"></i>
             </div>
           </a>
+          -->
         </div>
-      </div> -->
+      </div>
+      <!-- Search bar: full width below -->
+      <div class="col-12">
+        <div class="search-form-wrapper w-100">
+          <ds-themed-search-form [inPlaceSearch]="false"
+            [searchPlaceholder]="'home.search-form.placeholder' | translate"></ds-themed-search-form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
