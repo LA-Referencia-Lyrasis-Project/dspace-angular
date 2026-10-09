@@ -7944,6 +7944,7 @@
   "admin.darks.loading": "Loading dARK registry",
   "admin.darks.mint-item": "Request dARK",
   "admin.darks.retry": "Retry dARK request",
+  "admin.darks.no-actions": "No available actions",
   "admin.darks.refresh": "Refresh dARK status",
   "admin.darks.refresh-all": "Refresh pending statuses",
   "admin.darks.mint-all": "Request dARKs for all",

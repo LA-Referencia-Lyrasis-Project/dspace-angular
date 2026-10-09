@@ -58,9 +58,9 @@
         @for (row of rows; track row.itemId) {
           <tr>
             @if (isDark(row)) {
-              <td class="text-nowrap">{{ row.ark }}</td><td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td><span class="badge" [ngClass]="statusClass(row.status)" [attr.aria-label]="'admin.darks.status-value' | translate:{ status: row.status }">{{ row.status }}</span></td><td class="small" [title]="row.target">{{ row.target }}</td><td class="error-cell text-danger" [title]="row.lastError" [attr.aria-label]="row.lastError ? ('admin.darks.error-value' | translate:{ error: row.lastError }) : null">{{ row.lastError }}</td><td class="text-nowrap" [title]="row.createdAt">{{ row.createdAt | date:'short' }}</td><td class="text-nowrap" [title]="row.updatedAt">{{ row.updatedAt | date:'short' }}</td>
+              <td class="text-nowrap">{{ row.ark || '-' }}</td><td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td><span class="badge" [ngClass]="statusClass(row.status)" [attr.aria-label]="'admin.darks.status-value' | translate:{ status: row.status }">{{ row.status }}</span></td><td class="small" [title]="row.target || '-'">{{ row.target || '-' }}</td><td class="error-cell text-danger" [title]="row.lastError || '-'" [attr.aria-label]="row.lastError ? ('admin.darks.error-value' | translate:{ error: row.lastError }) : null">{{ row.lastError || '-' }}</td><td class="text-nowrap" [title]="row.createdAt || '-'">@if (row.createdAt) { {{ row.createdAt | date:'yyyy-MM-dd HH:mm:ss' }} } @else { - }</td><td class="text-nowrap" [title]="row.updatedAt || '-'">@if (row.updatedAt) { {{ row.updatedAt | date:'yyyy-MM-dd HH:mm:ss' }} } @else { - }</td>
             } @else {
-              <td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td>{{ row.title }}</td>
+              <td><a [routerLink]="['/items', row.itemId]" [title]="'admin.darks.open-item' | translate:{ itemId: row.itemId }">{{ row.itemId }}</a></td><td>{{ row.title || '-' }}</td>
             }
             <td class="text-end">
               @if (!isDark(row)) {
@@ -69,6 +69,8 @@
                 <button class="btn btn-sm btn-outline-danger" type="button" [disabled]="running" (click)="mintItem(row.itemId)" [title]="'admin.darks.retry' | translate"><i class="fas fa-rotate-right" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.retry' | translate }}</span></button>
               } @else if (row.status === 'D' || row.status === 'U') {
                 <button class="btn btn-sm btn-outline-primary" type="button" [disabled]="running" (click)="refreshItem(row.itemId)" [title]="'admin.darks.refresh' | translate"><i class="fas fa-arrows-rotate" aria-hidden="true"></i><span class="visually-hidden">{{ 'admin.darks.refresh' | translate }}</span></button>
+              } @else {
+                <span aria-hidden="true">-</span><span class="visually-hidden">{{ 'admin.darks.no-actions' | translate }}</span>
               }
             </td>
           </tr>

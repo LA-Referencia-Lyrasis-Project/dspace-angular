@@ -12294,6 +12294,7 @@
   "admin.darks.loading": "Cargando registro de dARK",
   "admin.darks.mint-item": "Solicitar dARK",
   "admin.darks.retry": "Reintentar solicitud de dARK",
+  "admin.darks.no-actions": "No hay acciones disponibles",
   "admin.darks.refresh": "Actualizar estado del dARK",
   "admin.darks.refresh-all": "Actualizar estados pendientes",
   "admin.darks.mint-all": "Solicitar dARKs para todos",
