@@ -1,8 +1,7 @@
 import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ThemedLangSwitchComponent } from 'src/app/shared/lang-switch/themed-lang-switch.component';
 
 import { ContextHelpToggleComponent } from '../../../../app/header/context-help-toggle/context-help-toggle.component';
@@ -23,7 +22,6 @@ import { ThemedNavbarComponent } from 'src/app/navbar/themed-navbar.component';
     ContextHelpToggleComponent,
     ImpersonateNavbarComponent,
     NgbDropdownModule,
-    RouterLink,
     ThemedAuthNavMenuComponent,
     ThemedLangSwitchComponent,
     ThemedSearchNavbarComponent,
@@ -33,4 +31,12 @@ import { ThemedNavbarComponent } from 'src/app/navbar/themed-navbar.component';
   ],
 })
 export class HeaderComponent extends BaseComponent {
+  private readonly translateService = inject(TranslateService);
+
+  /** Landing site URL, localized (es | en | pt) based on the active DSpace language. */
+  get logoUrl(): string {
+    const lang = (this.translateService.currentLang || this.translateService.defaultLang || 'es').toLowerCase();
+    const segment = lang.startsWith('pt') ? 'pt' : lang.startsWith('en') ? 'en' : 'es';
+    return `https://new.lareferencia.info/${segment}/home`;
+  }
 }

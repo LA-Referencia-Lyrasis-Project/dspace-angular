@@ -3,7 +3,7 @@
     <div class="row align-items-center gy-5">
       <!-- Left Column: Title & Description -->
       <div class="col-lg-7 text-white">
-        <h2 class="display-3 fw-bold mb-4 text-white">
+        <h2 class="display-4 fw-bold mb-4 text-white">
           {{ "home.news.heading.part1" | translate }} <br />
           <span style="color: #04bab8">{{
             "home.news.heading.part2" | translate
@@ -11,14 +11,14 @@
         </h2>
 
 
-        <a href="https://dspace-prd.lareferencia.info/handle/123456789/1" target="_blank" rel="noopener noreferrer"
+        <a routerLink="/community-list"
           class="btn btn-light text-primary btn-lg px-4 rounded-pill fw-bold shadow-sm">
           {{ "home.news.button.view-news" | translate }}
           <i class="fas fa-arrow-right ms-2"></i>
         </a>
       </div>
 
-      <!-- Right Column: Interactive Cards -->
+      <!-- Right Column: Interactive Cards (commented out)
       <div class="col-lg-5">
         <div class="d-grid gap-2">
           <a [href]="'home.news.card.projects.url' | translate" class="card-link-custom" target="_blank"
@@ -56,7 +56,7 @@
             </div>
           </a>
 
-          <!-- Card 3 (disabled for now)
+          Card 3 (disabled for now)
           <a href="https://recursos.lareferencia.info/" class="card-link-custom" target="_blank"
             rel="noopener noreferrer">
             <div class="d-flex align-items-center p-2 px-3 bg-white rounded-3 shadow-sm border-0 h-100">
@@ -91,9 +91,9 @@
               <i class="fas fa-chevron-right chevron-icon" style="font-size: 0.8rem;"></i>
             </div>
           </a>
-          -->
         </div>
       </div>
+      END of cards column -->
       <!-- Search bar: full width below -->
       <div class="col-12">
         <div class="search-form-wrapper w-100">

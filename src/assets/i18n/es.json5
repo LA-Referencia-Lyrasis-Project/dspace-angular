@@ -3466,6 +3466,7 @@
 
   "menu.section.browse_global_by_title": "Por titulo",
 
+  "menu.section.home": "Inicio",
   "menu.section.browse_global_communities_and_collections": "Comunidades",
 
   "menu.section.browse_global_geospatial_map": "Por geolocalización (Mapa)",
@@ -7352,7 +7353,7 @@
 
   "home.top-level-communities.view-collections": "Ver Colecciones",
 
-  "footer.copyright.text": "LA Referencia Lyrasis - Este repositorio es un desarrollo del proyecto financiado por Lyrasis para el fortalecimiento y la adopción de DSpace en América Latina y España. Salvo que se indique lo contrario, los contenidos producidos están disponibles bajo una licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0). ©{{year}}",
+  "footer.copyright.text": "LA Referencia - Este repositorio es un desarrollo del proyecto financiado por Lyrasis para el fortalecimiento y la adopción de DSpace en América Latina y España. Salvo que se indique lo contrario, los contenidos producidos están disponibles bajo una licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0). ©{{year}}",
 
   "home.news.heading": "Bienvenido a LA Referencia",
 

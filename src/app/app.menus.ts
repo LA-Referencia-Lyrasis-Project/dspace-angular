@@ -13,6 +13,7 @@ import { AdminSearchMenuProvider } from './shared/menu/providers/admin-search.me
 import { BrowseMenuProvider } from './shared/menu/providers/browse.menu';
 import { CoarNotifyMenuProvider } from './shared/menu/providers/coar-notify.menu';
 import { SubscribeMenuProvider } from './shared/menu/providers/comcol-subscribe.menu';
+import { HomeMenuProvider } from './shared/menu/providers/home.menu';
 import { CommunityListMenuProvider } from './shared/menu/providers/community-list.menu';
 import { CreateReportMenuProvider } from './shared/menu/providers/create-report.menu';
 import { CurationMenuProvider } from './shared/menu/providers/curation.menu';
@@ -53,6 +54,7 @@ import { WorkflowMenuProvider } from './shared/menu/providers/workflow.menu';
  */
 export const MENUS = buildMenuStructure({
   [MenuID.PUBLIC]: [
+    HomeMenuProvider,
     CommunityListMenuProvider,
     BrowseMenuProvider,
     StatisticsMenuProvider,
