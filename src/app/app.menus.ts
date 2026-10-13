@@ -13,12 +13,14 @@ import { AdminSearchMenuProvider } from './shared/menu/providers/admin-search.me
 import { AuditLogsMenuProvider } from './shared/menu/providers/audit-item.menu';
 import { AuditOverviewMenuProvider } from './shared/menu/providers/audit-overview.menu';
 import { BrowseMenuProvider } from './shared/menu/providers/browse.menu';
+import { BulkImportMenuProvider } from './shared/menu/providers/bulk-import.menu';
 import { CoarNotifyMenuProvider } from './shared/menu/providers/coar-notify.menu';
 import { SubscribeMenuProvider } from './shared/menu/providers/comcol-subscribe.menu';
 import { CommunityListMenuProvider } from './shared/menu/providers/community-list.menu';
 import { CreateReportMenuProvider } from './shared/menu/providers/create-report.menu';
 import { CurationMenuProvider } from './shared/menu/providers/curation.menu';
 import { DSpaceObjectEditMenuProvider } from './shared/menu/providers/dso-edit.menu';
+import { DarksMenuProvider } from './shared/menu/providers/darks.menu';
 import { DsoOptionMenuProvider } from './shared/menu/providers/dso-option.menu';
 import { EditMenuProvider } from './shared/menu/providers/edit.menu';
 import { EditCMSMetadataMenuProvider } from './shared/menu/providers/edit-cms-metadata.menu';
@@ -80,6 +82,7 @@ export const MENUS = buildMenuStructure({
     AuditOverviewMenuProvider,
     EditCMSMetadataMenuProvider,
     EditUserAgreementMenuProvider,
+    DarksMenuProvider,
   ],
   [MenuID.DSO_EDIT]: [
     DsoOptionMenuProvider.withSubs([
@@ -111,6 +114,9 @@ export const MENUS = buildMenuStructure({
       ),
       ClaimMenuProvider.onRoute(
         MenuRoute.ITEM_PAGE,
+      ),
+      BulkImportMenuProvider.onRoute(
+        MenuRoute.COLLECTION_PAGE,
       ),
     ]),
   ],

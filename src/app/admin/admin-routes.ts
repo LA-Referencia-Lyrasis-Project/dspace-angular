@@ -4,6 +4,7 @@ import { i18nBreadcrumbResolver } from '@dspace/core/breadcrumbs/i18n-breadcrumb
 import { AdminCurationTasksComponent } from './admin-curation-tasks/admin-curation-tasks.component';
 import { AdminEditCmsMetadataComponent } from './admin-edit-cms-metadata/admin-edit-cms-metadata.component';
 import { AdminEditUserAgreementComponent } from './admin-edit-user-agreement/admin-edit-user-agreement.component';
+import { AdminDarksComponent } from './admin-darks/admin-darks.component';
 import { BatchImportPageComponent } from './admin-import-batch-page/batch-import-page.component';
 import { ThemedMetadataImportPageComponent } from './admin-import-metadata-page/themed-metadata-import-page.component';
 import {
@@ -17,6 +18,12 @@ import { ThemedAdminSearchPageComponent } from './admin-search-page/themed-admin
 import { ThemedAdminWorkflowPageComponent } from './admin-workflow-page/themed-admin-workflow-page.component';
 
 export const ROUTES: Route[] = [
+  {
+    path: 'darks',
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    component: AdminDarksComponent,
+    data: { title: 'admin.darks.title', breadcrumbKey: 'admin.darks.title' },
+  },
   {
     path: NOTIFICATIONS_MODULE_PATH,
     loadChildren: () => import('./admin-notifications/admin-notifications-routes')
