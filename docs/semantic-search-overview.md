@@ -2,7 +2,7 @@
 
 ## Visão geral
 
-O portal Angular passa a oferecer três modos de busca: **Léxica**, **Semântica** e **Híbrida**. Os dois últimos usam a infraestrutura beta de embeddings no Solr 10.1 do backend:
+O portal Angular passa a oferecer três modos de busca: **Léxica**, **Semântica** e **Híbrida**. Os dois últimos usam a infraestrutura de embeddings do Solr 9.11 no backend:
 
 - a busca semântica encontra itens por proximidade de significado;
 - a busca híbrida combina palavras-chave e similaridade semântica com RRF (*Reciprocal Rank Fusion*).
@@ -17,7 +17,7 @@ A página de resultados identifica o modo ativo e exibe o `score` de relevância
 
 ## Dependência do backend
 
-O Angular não gera embeddings. O backend indexa título, resumo e demais metadados configurados como vetores; em textos longos, o resumo é dividido em segmentos (*chunks*) com o título como contexto. O Solr 10.1 beta consulta esses vetores em modo único ou multivetores e, no modo híbrido, une o ranking vetorial e o léxico por RRF.
+O Angular não gera embeddings. O backend indexa título, resumo e demais metadados configurados como vetores; em textos longos, o resumo é dividido em segmentos (*chunks*) com o título como contexto. O Solr 9.11 consulta esses vetores em modo único ou multivetores e, no modo híbrido, une o ranking vetorial e o léxico por RRF.
 
 Não foram criadas variáveis de ambiente específicas no Angular. A ativação e a configuração do serviço de embeddings ocorrem no backend.
 
