@@ -206,7 +206,7 @@
             <th scope="col">{{ "admin.darks.ark" | translate }}</th>
             <th scope="col">{{ "admin.darks.item-id" | translate }}</th>
             <th scope="col">{{ "admin.darks.status" | translate }}</th>
-            <th scope="col">{{ "admin.darks.target" | translate }}</th>
+            <!-- <th scope="col">{{ "admin.darks.target" | translate }}</th> -->
             <th scope="col">{{ "admin.darks.error" | translate }}</th>
             <th scope="col">{{ "admin.darks.created-at" | translate }}</th>
             <th scope="col">{{ "admin.darks.updated-at" | translate }}</th>
@@ -245,9 +245,9 @@
                   >{{ row.status }}</span
                 >
               </td>
-              <td class="small" [title]="row.target || '-'">
+              <!-- <td class="small" [title]="row.target || '-'">
                 {{ row.target || "-" }}
-              </td>
+              </td> -->
               <td
                 class="error-cell text-danger"
                 [title]="row.lastError || '-'"
