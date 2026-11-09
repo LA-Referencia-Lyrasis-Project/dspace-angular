@@ -1,4 +1,44 @@
 {
+  "admin.dark-auth.confirmation-failed": "Não foi possível confirmar o registro. Atualize a configuração e verifique se a impressão digital, a autoridade e o destino atuais foram registrados. Se persistir, solicite ao operador a verificação das permissões de armazenamento da confirmação.",
+  "admin.dark-auth.confirmation-forbidden": "A confirmação foi recusada (HTTP 403). Entre novamente como administrador do repositório para renovar a sessão e o cookie CSRF e tente confirmar novamente. Se persistir, verifique os cookies do navegador e as restrições de acesso do servidor.",
+  "admin.dark-auth.session-expired": "A sessão de administrador expirou. Entre novamente e tente confirmar o registro.",
+  "admin.dark-auth.connection-failed": "Não foi possível contatar o DSpace ao confirmar o registro. Verifique a conexão com o backend e atualize a configuração.",
+
+  "admin.dark-auth.generation-failed": "Não foi possível gerar as chaves. Chaves existentes nunca são sobrescritas. Atualize esta página e, se necessário, solicite ao operador a verificação das permissões de armazenamento.",
+
+  "admin.dark-auth.generated": "Par de chaves gerado. Copie a chave pública, registre-a com o administrador dARK e confirme o registro abaixo.",
+
+  "admin.dark-auth.generation-help": "Gera um par Ed25519 exclusivo no servidor. Chaves existentes nunca são sobrescritas. Apenas a chave pública é exibida.",
+
+  "admin.dark-auth.generating": "Gerando chave…",
+
+  "admin.dark-auth.generate": "Gerar chave",
+
+  "admin.dark-auth.breadcrumbs": "Autenticação dARK",
+
+  "admin.dark-auth.authority": "UUID da autoridade",
+  "admin.dark-auth.destination": "Destino da API Minter",
+  "admin.dark-auth.state.pending_registration": "As alterações assinadas estão pausadas até a confirmação do registro da chave pública para esta autoridade e destino.",
+  "admin.dark-auth.confirm-label": "O administrador dARK registrou exatamente esta chave pública e impressão digital para a autoridade e o destino exibidos.",
+  "admin.dark-auth.confirm": "Confirmar registro e permitir alterações assinadas",
+
+  "admin.dark-auth.title": "Autenticação dARK",
+  "admin.dark-auth.description": "Compartilhe esta chave pública com o administrador dARK para registrar este repositório como cliente do Minter.",
+  "admin.dark-auth.refresh": "Atualizar configuração",
+  "admin.dark-auth.loading": "Carregando configuração…",
+  "admin.dark-auth.failed": "Não foi possível carregar a configuração de autenticação dARK.",
+  "admin.dark-auth.state.disabled": "A autenticação DARK2 está desabilitada. Os fluxos existentes sem assinatura continuam disponíveis.",
+  "admin.dark-auth.state.configured": "A autenticação DARK2 está habilitada e o par de chaves local é válido.",
+  "admin.dark-auth.state.invalid_configuration": "A autenticação DARK2 está habilitada, mas a configuração local é inválida. As alterações serão recusadas.",
+  "admin.dark-auth.unverified": "O registro e o funcionamento remoto não foram verificados. Uma leitura bem-sucedida não comprova autenticação. Confirme o registro com o administrador dARK e valide uma escrita controlada.",
+  "admin.dark-auth.public-key": "Chave pública (Ed25519, base64 raw)",
+  "admin.dark-auth.copy": "Copiar chave pública",
+  "admin.dark-auth.fingerprint": "Impressão digital da chave (SHA-256)",
+  "admin.dark-auth.no-key": "Nenhum par de chaves local válido está disponível. Solicite ao operador do servidor a geração ou correção das chaves.",
+  "admin.dark-auth.copied": "Chave pública copiada.",
+  "admin.dark-auth.copy-failed": "Área de transferência indisponível. Selecione e copie a chave pública manualmente.",
+  "admin.dark-auth.configure": "Habilite DARK2 na configuração do servidor para gerar uma chave aqui. O operador também pode usar bin/dspace dark-auth --generate. Registre a chave pública com o administrador dARK antes de confirmar o registro.",
+
   // "401.help": "You're not authorized to access this page. You can use the button below to get back to the home page.",
   "401.help": "Você não tem autorização para acessar esta página. Clique no botão abaixo para ir à página inicial.",
 

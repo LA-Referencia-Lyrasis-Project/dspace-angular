@@ -1,4 +1,44 @@
 {
+  "admin.dark-auth.confirmation-failed": "Unable to confirm registration. Refresh configuration and verify that the current fingerprint, authority and Minter destination were registered. If this continues, ask the server operator to check registration storage permissions.",
+  "admin.dark-auth.confirmation-forbidden": "Registration confirmation was refused (HTTP 403). Sign in again as a site administrator to renew the session and CSRF cookie, then retry confirmation. If it continues, check browser cookies and server access restrictions.",
+  "admin.dark-auth.session-expired": "Your administrator session has expired. Sign in again and retry registration confirmation.",
+  "admin.dark-auth.connection-failed": "Unable to contact DSpace while confirming registration. Check the backend connection and refresh configuration.",
+
+  "admin.dark-auth.generation-failed": "Unable to generate keys. Existing keys are never overwritten. Refresh this page and ask the server operator to check storage permissions if needed.",
+
+  "admin.dark-auth.generated": "Key pair generated. Copy the public key, register it with the dARK administrator, then confirm registration below.",
+
+  "admin.dark-auth.generation-help": "Generates a dedicated Ed25519 pair on the server. Existing keys are never overwritten. Only the public key is displayed.",
+
+  "admin.dark-auth.generating": "Generating key…",
+
+  "admin.dark-auth.generate": "Generate key",
+
+  "admin.dark-auth.breadcrumbs": "dARK authentication",
+
+  "admin.dark-auth.authority": "Authority UUID",
+  "admin.dark-auth.destination": "Minter API destination",
+  "admin.dark-auth.state.pending_registration": "Signed modifications are paused pending confirmation of public-key registration for this authority and destination.",
+  "admin.dark-auth.confirm-label": "The dARK administrator has registered this exact public key and fingerprint for the displayed authority and destination.",
+  "admin.dark-auth.confirm": "Confirm registration and allow signed modifications",
+
+  "admin.dark-auth.title": "dARK authentication",
+  "admin.dark-auth.description": "Share this public key with the dARK administrator to register this repository as a Minter client.",
+  "admin.dark-auth.refresh": "Refresh configuration",
+  "admin.dark-auth.loading": "Loading configuration…",
+  "admin.dark-auth.failed": "Unable to load dARK authentication configuration.",
+  "admin.dark-auth.state.disabled": "DARK2 authentication is disabled. Existing unsigned workflows remain available.",
+  "admin.dark-auth.state.configured": "DARK2 authentication is enabled and the local key pair is valid.",
+  "admin.dark-auth.state.invalid_configuration": "DARK2 authentication is enabled but the local configuration is invalid. Modifications will be refused.",
+  "admin.dark-auth.unverified": "Remote registration and operation have not been verified. A successful read does not prove authentication. Confirm registration with the dARK administrator and validate a controlled write.",
+  "admin.dark-auth.public-key": "Public key (Ed25519, raw base64)",
+  "admin.dark-auth.copy": "Copy public key",
+  "admin.dark-auth.fingerprint": "Key fingerprint (SHA-256)",
+  "admin.dark-auth.no-key": "No valid local key pair is available. Ask the server operator to generate or repair the keys.",
+  "admin.dark-auth.copied": "Public key copied.",
+  "admin.dark-auth.copy-failed": "Clipboard unavailable. Select and copy the public key manually.",
+  "admin.dark-auth.configure": "Enable DARK2 in the server configuration to generate a key here. The server operator can also use bin/dspace dark-auth --generate. Register the public key with the dARK administrator before confirming registration.",
+
   "401.help": "You're not authorized to access this page. You can use the button below to get back to the home page.",
 
   "401.link.home-page": "Take me to the home page",
