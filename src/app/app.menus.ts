@@ -19,8 +19,8 @@ import { SubscribeMenuProvider } from './shared/menu/providers/comcol-subscribe.
 import { CommunityListMenuProvider } from './shared/menu/providers/community-list.menu';
 import { CreateReportMenuProvider } from './shared/menu/providers/create-report.menu';
 import { CurationMenuProvider } from './shared/menu/providers/curation.menu';
-import { DSpaceObjectEditMenuProvider } from './shared/menu/providers/dso-edit.menu';
 import { DarksMenuProvider } from './shared/menu/providers/darks.menu';
+import { DSpaceObjectEditMenuProvider } from './shared/menu/providers/dso-edit.menu';
 import { DsoOptionMenuProvider } from './shared/menu/providers/dso-option.menu';
 import { EditMenuProvider } from './shared/menu/providers/edit.menu';
 import { EditCMSMetadataMenuProvider } from './shared/menu/providers/edit-cms-metadata.menu';

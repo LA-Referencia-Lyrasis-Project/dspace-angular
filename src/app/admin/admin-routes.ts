@@ -25,6 +25,12 @@ export const ROUTES: Route[] = [
     data: { title: 'admin.darks.title', breadcrumbKey: 'admin.darks.title' },
   },
   {
+    path: 'dark-authentication',
+    resolve: { breadcrumb: i18nBreadcrumbResolver },
+    loadComponent: () => import('./admin-dark-auth/admin-dark-auth.component').then((m) => m.AdminDarkAuthComponent),
+    data: { title: 'admin.dark-auth.title', breadcrumbKey: 'admin.dark-auth' },
+  },
+  {
     path: NOTIFICATIONS_MODULE_PATH,
     loadChildren: () => import('./admin-notifications/admin-notifications-routes')
       .then((m) => m.ROUTES),

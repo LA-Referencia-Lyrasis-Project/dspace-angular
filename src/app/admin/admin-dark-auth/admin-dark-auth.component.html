@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>{{ 'admin.dark-auth.title' | translate }}</h1>
+  <p>{{ 'admin.dark-auth.description' | translate }}</p>
+  <button type="button" class="btn btn-outline-primary mb-3" (click)="refresh()" [dsBtnDisabled]="loading">
+    {{ 'admin.dark-auth.refresh' | translate }}
+  </button>
+  @if (loading) {
+    <p role="status">{{ (generating ? 'admin.dark-auth.generating' : 'admin.dark-auth.loading') | translate }}</p>
+  }
+  @if (failed) {
+    <p role="alert" class="alert alert-danger">{{ 'admin.dark-auth.failed' | translate }}</p>
+  }
+  @if (confirmationError) {
+    <p role="alert" class="alert alert-danger">{{ ('admin.dark-auth.' + confirmationError) | translate }}</p>
+  }
+  @if (generationFailed) {
+    <p role="alert" class="alert alert-danger">{{ 'admin.dark-auth.generation-failed' | translate }}</p>
+  }
+  @if (generated) {
+    <p role="status" class="alert alert-success">{{ 'admin.dark-auth.generated' | translate }}</p>
+  }
+  @if (status) {
+    <p role="status">{{ ('admin.dark-auth.state.' + status.state) | translate }}</p>
+    @if (status.enabled) {
+      <button id="dark-generate-key" type="button" class="btn btn-outline-primary mb-3"
+        (click)="generateKeys()" [dsBtnDisabled]="loading || !!status.publicKey"
+        aria-describedby="dark-key-generation-help">
+        {{ 'admin.dark-auth.generate' | translate }}
+      </button>
+      <p id="dark-key-generation-help">{{ 'admin.dark-auth.generation-help' | translate }}</p>
+    }
+    <dl>
+      <dt>{{ 'admin.dark-auth.authority' | translate }}</dt><dd class="text-break">{{ status.authorityId }}</dd>
+      <dt>{{ 'admin.dark-auth.destination' | translate }}</dt><dd class="text-break">{{ status.minterApiUrl }}</dd>
+    </dl>
+    <p class="alert alert-info">{{ 'admin.dark-auth.unverified' | translate }}</p>
+    @if (status.publicKey) {
+      <label for="dark-public-key">{{ 'admin.dark-auth.public-key' | translate }}</label>
+      <input id="dark-public-key" class="form-control font-monospace mb-2" type="text"
+        [value]="status.publicKey" readonly>
+      <button type="button" class="btn btn-primary mb-2" (click)="copyPublicKey()">
+        {{ 'admin.dark-auth.copy' | translate }}
+      </button>
+      <p class="text-break">{{ 'admin.dark-auth.fingerprint' | translate }}: <code>{{ status.keyId }}</code></p>
+    } @else {
+      <p>{{ 'admin.dark-auth.no-key' | translate }}</p>
+    }
+    @if (status.state === 'pending_registration') {
+      <div class="form-check mb-2">
+        <input id="dark-registration-confirmed" class="form-check-input" type="checkbox"
+          [(ngModel)]="registrationConfirmed" [disabled]="loading">
+        <label for="dark-registration-confirmed" class="form-check-label">
+          {{ 'admin.dark-auth.confirm-label' | translate }}
+        </label>
+      </div>
+      <button type="button" class="btn btn-outline-primary mb-3" (click)="confirmRegistration()"
+        [dsBtnDisabled]="!registrationConfirmed || loading">
+        {{ 'admin.dark-auth.confirm' | translate }}
+      </button>
+    }
+    <p aria-live="polite">
+      @if (copied) { {{ 'admin.dark-auth.copied' | translate }} }
+      @if (copyFailed) { {{ 'admin.dark-auth.copy-failed' | translate }} }
+    </p>
+  }
+  @if (!status?.enabled) {
+    <p>{{ 'admin.dark-auth.configure' | translate }}</p>
+  }
+</div>
