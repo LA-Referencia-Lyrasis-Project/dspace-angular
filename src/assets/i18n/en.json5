@@ -27,9 +27,9 @@
   "admin.dark-auth.refresh": "Refresh configuration",
   "admin.dark-auth.loading": "Loading configuration…",
   "admin.dark-auth.failed": "Unable to load dARK authentication configuration.",
-  "admin.dark-auth.state.disabled": "DARK2 authentication is disabled. Existing unsigned workflows remain available.",
-  "admin.dark-auth.state.configured": "DARK2 authentication is enabled and the local key pair is valid.",
-  "admin.dark-auth.state.invalid_configuration": "DARK2 authentication is enabled but the local configuration is invalid. Modifications will be refused.",
+  "admin.dark-auth.state.disabled": "dARK authentication is disabled. Existing unsigned workflows remain available.",
+  "admin.dark-auth.state.configured": "dARK authentication is enabled and the local key pair is valid.",
+  "admin.dark-auth.state.invalid_configuration": "dARK authentication is enabled but the local configuration is invalid. Modifications will be refused.",
   "admin.dark-auth.unverified": "Remote registration and operation have not been verified. A successful read does not prove authentication. Confirm registration with the dARK administrator and validate a controlled write.",
   "admin.dark-auth.public-key": "Public key (Ed25519, raw base64)",
   "admin.dark-auth.copy": "Copy public key",
@@ -37,7 +37,7 @@
   "admin.dark-auth.no-key": "No valid local key pair is available. Ask the server operator to generate or repair the keys.",
   "admin.dark-auth.copied": "Public key copied.",
   "admin.dark-auth.copy-failed": "Clipboard unavailable. Select and copy the public key manually.",
-  "admin.dark-auth.configure": "Enable DARK2 in the server configuration to generate a key here. The server operator can also use bin/dspace dark-auth --generate. Register the public key with the dARK administrator before confirming registration.",
+  "admin.dark-auth.configure": "Enable dARK in the server configuration to generate a key here. The server operator can also use bin/dspace dark-auth --generate. Register the public key with the dARK administrator before confirming registration.",
 
   "401.help": "You're not authorized to access this page. You can use the button below to get back to the home page.",
 
