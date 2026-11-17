@@ -11960,7 +11960,7 @@
   "admin.darks.open-item": "Abrir Item {{itemId}}",
   "admin.darks.status-value": "Status do dARK: {{status}}",
   "admin.darks.error-value": "Ultimo erro de dARK: {{error}}",
-  "admin.darks.sort-direction": "Direcao atual: {{direction}}",
+  "admin.darks.sort-direction": "Direção",
   "admin.darks.loading": "Carregando registro de dARK",
   "admin.darks.mint-item": "Solicitar dARK",
   "admin.darks.retry": "Tentar solicitar dARK novamente",

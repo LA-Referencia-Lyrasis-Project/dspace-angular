@@ -7980,7 +7980,7 @@
   "admin.darks.open-item": "Open Item {{itemId}}",
   "admin.darks.status-value": "dARK status: {{status}}",
   "admin.darks.error-value": "Last dARK error: {{error}}",
-  "admin.darks.sort-direction": "Current direction: {{direction}}",
+  "admin.darks.sort-direction": "Direction",
   "admin.darks.loading": "Loading dARK registry",
   "admin.darks.mint-item": "Request dARK",
   "admin.darks.retry": "Retry dARK request",

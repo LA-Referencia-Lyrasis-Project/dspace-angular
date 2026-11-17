@@ -12290,7 +12290,7 @@
   "admin.darks.open-item": "Abrir Item {{itemId}}",
   "admin.darks.status-value": "Estado del dARK: {{status}}",
   "admin.darks.error-value": "Ultimo error de dARK: {{error}}",
-  "admin.darks.sort-direction": "Direccion actual: {{direction}}",
+  "admin.darks.sort-direction": "Dirección",
   "admin.darks.loading": "Cargando registro de dARK",
   "admin.darks.mint-item": "Solicitar dARK",
   "admin.darks.retry": "Reintentar solicitud de dARK",

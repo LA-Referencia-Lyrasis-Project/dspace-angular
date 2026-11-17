@@ -1,2 +1,36 @@
-.table { min-width: 1080px; }
-.error-cell { max-width: 22rem; white-space: nowrap; overflow: hidden; overflow: auto; }
+.table {
+  min-width: 1080px;
+  font-size: 0.875rem;
+
+  /* Keep the status badge legible after shrinking the table font. */
+  .badge { font-size: 0.75rem; }
+}
+/* Long values are truncated instead of widening the table. The full value
+   stays available through the tooltip icon and the cell title attribute. */
+.error-cell,
+.target-cell {
+  white-space: nowrap;
+
+  .cell-value {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+  }
+}
+.error-cell .cell-value { max-width: 15rem; }
+.target-cell .cell-value { max-width: 11rem; }
+
+/* Filters share a single line with the table sort controls, so they have to
+   shrink instead of overflowing. `flex: 1 1 0` (instead of the default
+   `auto` basis) lets the filter group take the space left by the sort
+   controls, and `min-width: 0` allows it to shrink below its content size. */
+.filters { flex: 1 1 0; min-width: 0; }
+.filter-field { flex: 1 1 0; min-width: 7rem; }
+/* Short filters keep a fixed width so they do not compete with the item
+   UUID field, which is the one that benefits from the extra space. */
+.filter-narrow { flex: 0 1 11rem; }
+/* The table toolbar is pushed down to separate it from the page toolbar.
+   Bootstrap only ships spacing utilities up to `mt-5` (3rem), so the extra
+   offset is declared here. */
+.table-toolbar { margin-top: 6rem; }

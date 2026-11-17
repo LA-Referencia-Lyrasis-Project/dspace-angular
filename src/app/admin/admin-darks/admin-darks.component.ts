@@ -20,7 +20,7 @@ import { Process } from '@dspace/core/processes/process.model';
 import { HALEndpointService } from '@dspace/core/shared/hal-endpoint.service';
 import { getFirstCompletedRemoteData } from '@dspace/core/shared/operators';
 import { getProcessDetailRoute } from '../../process-page/process-page-routing.paths';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbPaginationModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { finalize } from 'rxjs/operators';
 
@@ -50,7 +50,7 @@ interface MissingRow {
   selector: 'ds-admin-darks',
   templateUrl: './admin-darks.component.html',
   styleUrls: ['./admin-darks.component.scss'],
-  imports: [DatePipe, FormsModule, NgbPaginationModule, NgClass, RouterLink, TranslateModule],
+  imports: [DatePipe, FormsModule, NgbDropdownModule, NgbPaginationModule, NgbTooltipModule, NgClass, RouterLink, TranslateModule],
 })
 export class AdminDarksComponent implements OnInit {
   view: 'assigned' | 'missing' = 'assigned';

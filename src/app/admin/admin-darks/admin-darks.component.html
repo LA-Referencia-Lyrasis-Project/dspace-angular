@@ -1,57 +1,56 @@
-<section class="container py-4" aria-labelledby="admin-darks-heading">
+<section class="container pb-4" aria-labelledby="admin-darks-heading">
   <div
-    class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4"
+    class="d-flex flex-wrap justify-content-between align-items-center gap-2 border-bottom pb-2 mb-4"
   >
-    <h1 id="admin-darks-heading" class="h3 mb-0">
-      {{ "admin.darks.title" | translate }}
-    </h1>
-    <div>
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h1 id="admin-darks-heading" class="h4 mb-0">
+        {{ "admin.darks.title" | translate }}
+      </h1>
+      <div
+        class="btn-group btn-group-sm"
+        role="group"
+        [attr.aria-label]="'admin.darks.view' | translate"
+      >
+        <button
+          type="button"
+          class="btn"
+          [class.btn-primary]="view === 'assigned'"
+          [class.btn-outline-primary]="view !== 'assigned'"
+          [attr.aria-pressed]="view === 'assigned'"
+          (click)="changeView('assigned')"
+          [title]="'admin.darks.assigned' | translate"
+        >
+          {{ "admin.darks.assigned" | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn"
+          [class.btn-primary]="view === 'missing'"
+          [class.btn-outline-primary]="view !== 'missing'"
+          [attr.aria-pressed]="view === 'missing'"
+          (click)="changeView('missing')"
+          [title]="'admin.darks.missing' | translate"
+        >
+          {{ "admin.darks.missing" | translate }}
+        </button>
+      </div>
+    </div>
+    <div
+      class="d-flex flex-wrap align-items-center gap-2"
+      role="group"
+      [attr.aria-label]="'admin.darks.actions-group' | translate"
+    >
       <a
-        class=""
+        class="btn btn-sm btn-outline-primary"
         [routerLink]="['/admin/dark-authentication']"
         [title]="'admin.dark-auth.title' | translate"
       >
         <i class="fas fa-key me-1" aria-hidden="true"></i>
         {{ "admin.dark-auth.title" | translate }}
-      </a>  
-    </div>
-  </div>
-
-  <div
-    class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4"
-  >
-    <div
-      class="btn-group mb-3"
-      role="group"
-      [attr.aria-label]="'admin.darks.view' | translate"
-    >
-      <button
-        type="button"
-        class="btn"
-        [class.btn-primary]="view === 'assigned'"
-        [class.btn-outline-primary]="view !== 'assigned'"
-        [attr.aria-pressed]="view === 'assigned'"
-        (click)="changeView('assigned')"
-        [title]="'admin.darks.assigned' | translate"
-      >
-        {{ "admin.darks.assigned" | translate }}
-      </button>
-      <button
-        type="button"
-        class="btn"
-        [class.btn-primary]="view === 'missing'"
-        [class.btn-outline-primary]="view !== 'missing'"
-        [attr.aria-pressed]="view === 'missing'"
-        (click)="changeView('missing')"
-        [title]="'admin.darks.missing' | translate"
-      >
-        {{ "admin.darks.missing" | translate }}
-      </button>
-    </div>
-    <div>
+      </a>
       @if (view === "assigned") {
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-sm btn-outline-secondary"
           type="button"
           (click)="exportCsv()"
           [title]="'admin.darks.export' | translate"
@@ -59,63 +58,83 @@
           <i class="fas fa-download me-1" aria-hidden="true"></i
           >{{ "admin.darks.export" | translate }}
         </button>
+        <button
+          class="btn btn-sm btn-outline-primary"
+          type="button"
+          [disabled]="running"
+          (click)="refreshPendingStatuses()"
+          [title]="'admin.darks.refresh-all' | translate"
+        >
+          <i class="fas fa-arrows-rotate me-1" aria-hidden="true"></i
+          >{{ "admin.darks.refresh-all" | translate }}
+        </button>
+      }
+      @if (view === "missing") {
+        <button
+          class="btn btn-sm btn-primary"
+          type="button"
+          [disabled]="running || total === 0"
+          (click)="mintAll()"
+          [title]="'admin.darks.mint-all' | translate"
+        >
+          <i class="fas fa-plus me-1" aria-hidden="true"></i
+          >{{ "admin.darks.mint-all" | translate }}
+        </button>
       }
     </div>
   </div>
 
-  <form
-    class="row g-3 align-items-end mb-4"
-    (ngSubmit)="applyFilters()"
-    [attr.aria-label]="'admin.darks.filter-form' | translate"
-  >
-    @if (view === "assigned") {
-      <div class="col-sm-4 col-lg-3">
-        <label class="form-label" for="dark-ark">{{
+  <div class="d-flex flex-wrap align-items-center gap-2 mb-3 table-toolbar">
+    <form
+      class="d-flex flex-wrap align-items-center gap-2 filters"
+      (ngSubmit)="applyFilters()"
+      [attr.aria-label]="'admin.darks.filter-form' | translate"
+    >
+      @if (view === "assigned") {
+        <label class="visually-hidden" for="dark-ark">{{
           "admin.darks.ark" | translate
         }}</label
         ><input
           id="dark-ark"
-          class="form-control"
+          class="form-control filter-field filter-narrow"
           [(ngModel)]="ark"
           name="ark"
+          [placeholder]="'admin.darks.ark' | translate"
           [title]="'admin.darks.ark' | translate"
         />
-      </div>
-      <div class="col-sm-3 col-lg-2">
-        <label class="form-label" for="dark-status">{{
+        <label class="visually-hidden" for="dark-status">{{
           "admin.darks.status" | translate
         }}</label
         ><select
           id="dark-status"
-          class="form-select"
+          class="form-select filter-field filter-narrow"
           [(ngModel)]="status"
           name="status"
           [title]="'admin.darks.status' | translate"
         >
-          <option value="">{{ "admin.darks.any" | translate }}</option>
-          <option value="R">R</option>
-          <option value="D">D</option>
-          <option value="U">U</option>
-          <option value="P">P</option>
-          <option value="T">T</option>
+          <option value="">{{
+            "admin.darks.status" | translate
+          }} - {{ "admin.darks.any" | translate }}</option>
+          <option value="R">{{ "admin.darks.status" | translate }} - R</option>
+          <option value="D">{{ "admin.darks.status" | translate }} - D</option>
+          <option value="U">{{ "admin.darks.status" | translate }} - U</option>
+          <option value="P">{{ "admin.darks.status" | translate }} - P</option>
+          <option value="T">{{ "admin.darks.status" | translate }} - T</option>
         </select>
-      </div>
-    }
-    <div class="col-sm-5 col-lg-4">
-      <label class="form-label" for="dark-item">{{
+      }
+      <label class="visually-hidden" for="dark-item">{{
         "admin.darks.item-id" | translate
       }}</label
       ><input
         id="dark-item"
-        class="form-control"
+        class="form-control filter-field"
         [(ngModel)]="itemId"
         name="itemId"
+        [placeholder]="'admin.darks.item-id' | translate"
         [title]="'admin.darks.item-id' | translate"
       />
-    </div>
-    @if (view === "assigned") {
-      <div class="col-auto">
-        <div class="form-check">
+      @if (view === "assigned") {
+        <div class="form-check flex-shrink-0">
           <input
             id="dark-errors"
             class="form-check-input"
@@ -127,79 +146,68 @@
             "admin.darks.errors-only" | translate
           }}</label>
         </div>
-      </div>
-    }
-    <div class="col-auto">
+      }
       <button
-        class="btn btn-secondary"
+        class="btn btn-secondary flex-shrink-0"
         type="submit"
         [title]="'admin.darks.filter' | translate"
       >
         {{ "admin.darks.filter" | translate }}
       </button>
-    </div>
-    <div class="col-auto ms-auto">
-      <div
-        class="btn-group"
-        role="group"
-        [attr.aria-label]="'admin.darks.actions-group' | translate"
-      >
-        @if (view === "assigned") {
-          <button
-            class="btn btn-outline-primary"
-            type="button"
-            [disabled]="running"
-            (click)="refreshPendingStatuses()"
-            [title]="'admin.darks.refresh-all' | translate"
-          >
-            <i class="fas fa-arrows-rotate me-1" aria-hidden="true"></i
-            >{{ "admin.darks.refresh-all" | translate }}
-          </button>
-        }
-        @if (view === "missing") {
-          <button
-            class="btn btn-primary"
-            type="button"
-            [disabled]="running || total === 0"
-            (click)="mintAll()"
-            [title]="'admin.darks.mint-all' | translate"
-          >
-            <i class="fas fa-plus me-1" aria-hidden="true"></i
-            >{{ "admin.darks.mint-all" | translate }}
-          </button>
-        }
-      </div>
-    </div>
-  </form>
+    </form>
 
-  @if (view === "assigned") {
-    <div
-      class="mb-3 d-flex flex-wrap justify-content-end gap-2 align-items-center"
-      role="group"
-      [attr.aria-label]="'admin.darks.order' | translate"
-    >
-      <span>{{ "admin.darks.order" | translate }}:</span
-      ><button
-        class="btn btn-sm btn-outline-secondary"
-        type="button"
-        [attr.aria-pressed]="sort === 'createdAt'"
-        (click)="setDateSort('createdAt')"
-        [title]="'admin.darks.created-at' | translate"
+    @if (view === "assigned") {
+      <div
+        class="d-flex flex-wrap align-items-center gap-2 flex-shrink-0 ms-4"
+        role="group"
+        [attr.aria-label]="'admin.darks.order' | translate"
       >
-        {{ "admin.darks.created-at" | translate }}</button
-      ><button
-        class="btn btn-sm btn-outline-secondary"
-        type="button"
-        [attr.aria-pressed]="sort === 'updatedAt'"
-        (click)="setDateSort('updatedAt')"
-        [title]="'admin.darks.updated-at' | translate"
-      >
-        {{ "admin.darks.updated-at" | translate }}</button
-      ><span class="small text-muted" aria-live="polite">{{
-        "admin.darks.sort-direction" | translate: { direction: direction }
-      }}</span>
-    </div>
-  }
+        <div ngbDropdown>
+          <button
+            class="small dropdown-toggle border-0 bg-transparent p-0 text-reset"
+            type="button"
+            ngbDropdownToggle
+            [title]="'admin.darks.order' | translate"
+          >
+            {{ "admin.darks.order" | translate }}
+          </button>
+          <div ngbDropdownMenu>
+            <button
+              class="dropdown-item"
+              type="button"
+              role="menuitem"
+              [class.active]="sort === 'createdAt'"
+              [attr.aria-current]="sort === 'createdAt' ? 'true' : null"
+              (click)="setDateSort('createdAt')"
+              [title]="'admin.darks.created-at' | translate"
+            >
+              {{ "admin.darks.created-at" | translate }}
+            </button>
+            <button
+              class="dropdown-item"
+              type="button"
+              role="menuitem"
+              [class.active]="sort === 'updatedAt'"
+              [attr.aria-current]="sort === 'updatedAt' ? 'true' : null"
+              (click)="setDateSort('updatedAt')"
+              [title]="'admin.darks.updated-at' | translate"
+            >
+              {{ "admin.darks.updated-at" | translate }}
+            </button>
+          </div>
+        </div>
+        <span class="small text-muted" aria-live="polite">
+          {{ "admin.darks.sort-direction" | translate }}
+          <i
+            class="fas"
+            [ngClass]="direction === 'ASC' ? 'fa-arrow-up' : 'fa-arrow-down'"
+            aria-hidden="true"
+          ></i>
+          <span class="visually-hidden">{{ direction }}</span>
+        </span>
+      </div>
+    }
+  </div>
 
   @if (loading) {
     <p class="visually-hidden" role="status">
@@ -261,8 +269,15 @@
                   >{{ row.status }}</span
                 >
               </td>
-              <td class="small" [title]="row.target || '-'">
-                {{ row.target || "-" }}
+              <td class="small target-cell" [title]="row.target || '-'">
+                <span class="cell-value">{{ row.target || "-" }}</span>
+                @if (row.target) {
+                  <i
+                    class="fas fa-info-circle ms-1 cell-info"
+                    [ngbTooltip]="row.target"
+                    container="body"
+                  ></i>
+                }
               </td>
               <td
                 class="error-cell text-danger"
@@ -274,7 +289,14 @@
                     : null
                 "
               >
-                {{ row.lastError || "-" }}
+                <span class="cell-value">{{ row.lastError || "-" }}</span>
+                @if (row.lastError) {
+                  <i
+                    class="fas fa-info-circle ms-1 cell-info"
+                    [ngbTooltip]="row.lastError"
+                    container="body"
+                  ></i>
+                }
               </td>
               <td class="text-nowrap" [title]="row.createdAt || '-'">
                 @if (row.createdAt) {
